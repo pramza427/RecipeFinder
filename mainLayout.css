@@ -1,0 +1,85 @@
+/* classes */
+.content{
+  margin: auto;
+  font-size:20px;
+}
+.LeftBar{
+  width: 20%;
+  min-width: 300px;
+  height: 100%;
+  padding: 0.5%;
+  text-align: center;
+  margin-top: auto;
+  margin-bottom: auto;
+  border-right: 2px solid #efecfa;
+  background-color: #f8f7fd;
+}
+.tablediv{
+  width:100%;
+  text-align: center;
+}
+.center{
+  text-align: center;
+  margin: auto;
+}
+.filter-head{
+  color: #36AEC9;
+}
+.filter-head:hover{
+  text-decoration: none;
+  color: #3665C9;
+}
+.filter-head::after {
+  content: "\f107";
+  color: #36AEC9;
+  padding-left: 10px;
+  top: -2px;
+  right: 0px;
+  font-family: "FontAwesome"
+}
+.filter-head[aria-expanded="true"]::after {
+  content: "\f106";
+}
+.navbar{
+  background-color: #5136C9
+}
+
+/* ID's */
+#map {
+  height: 70%;
+  width: 90%;
+}
+#filter{
+  width: 98%;
+  background-color: #ededed;
+}
+#filter:hover{
+  background-color: #d2d3d2;
+}
+#filter[aria-pressed="true"]{
+  background-color: #36AEC9;
+}
+.navbar-light a{
+  color: white;
+  font-weight: bold;
+}
+
+h2{
+  padding-top: 10px;
+}
+table{
+  table-layout: fixed;
+  text-align: center;
+  width:100%;
+  margin:auto;
+  padding: 5px;
+}
+td button{
+  padding: 5px;
+  width: 98%;
+  font-size: 18px;
+  border: 1px solid black;
+}
+body{
+  margin: auto;
+}
