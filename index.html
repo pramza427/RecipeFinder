@@ -31,46 +31,173 @@ body{
   </form>
 </nav> <!-- End Navbar -->
   
-  <!-- LeftBar Start -->
-  <div class="LeftBar" id="filters">
+  <div id="MainPage" class="wrapper">
+      <!-- LeftBar Start -->
+      <div class="LeftBar scrollable" id="filters">
 
-    <!-- ######## CALORIE SLIDER ######## -->
-    <h4 style="color:#36AEC9;">Calories</h4>
-    <output id="calorieValue">2000</output><br>
-    <input type="range" min="0" max="3500" step="50" value="2000" class="slider" id="Calories" style="width:90%;">
+        <!-- ######## CALORIE SLIDER ######## -->
+        <h4 style="color:#36AEC9;">Calories</h4>
+        <output id="calorieValue">2000</output><br>
+        <input type="range" min="0" max="3500" step="50" value="2000" class="slider" id="Calories" style="width:90%;">
 
-    
-    <!-- ######## DIET TAB START ######## -->
-    <h4><a data-toggle="collapse" href="#dietsDiv" aria-expanded="true" class="filter-head">Diet</a></h4>
-    <div class="collapse tablediv show" id="dietsDiv">
-        <button id="filter" type="button" class="btn btn-light" data-toggle="button" aria-pressed="false" autocomplete="off">Gluten Free</button>
+        
+        <!-- ######## INGREDIENTS TAB START ######## -->
+        <h4><a href="#" id="ingredientsTab" class="filter-head">Ingrediets</a></h4>
+        <!-- ######## INGREDIENTS TAB END ######## -->
+
+        <!-- ######## DIET TAB START ######## -->
+        <h4><a data-toggle="collapse" href="#dietsDiv" aria-expanded="true" class="filter-head">Diet</a></h4>
+        <div class="collapse tablediv show" id="dietsDiv">
+            <button id="filter" type="button" class="btn btn-light" data-toggle="button" aria-pressed="false" autocomplete="off">Gluten Free</button>
+        </div>
+        <!-- ######## DIET TAB END ######## -->
+
+        <!-- ######## CUISINE TAB START ######## -->
+         <h4><a data-toggle="collapse" href="#cuisineDiv" aria-expanded="false" class="filter-head">Cuisine</a></h4>
+        <div class="collapse" id="cuisineDiv">
+
+        </div>
+        <!-- ######## CUISINE TAB END ######## -->
+
+        <!-- ######## TIME TO MAKE TAB START ######## -->
+        <h4><a data-toggle="collapse" href="#timeDiv" aria-expanded="false" class="filter-head">Time To Make</a></h4>
+        <div class="collapse" id="timeDiv">
+          <button id="filter" type="button" class="btn btn-light time" data-toggle="button" aria-pressed="false" autocomplete="off">Less than 15 minutes</button>
+          <button id="filter" type="button" class="btn btn-light time" data-toggle="button" aria-pressed="false" autocomplete="off">Less than 30 minutes</button>
+          <button id="filter" type="button" class="btn btn-light time" data-toggle="button" aria-pressed="false" autocomplete="off">Less than 45 minutes</button>
+          <button id="filter" type="button" class="btn btn-light time" data-toggle="button" aria-pressed="false" autocomplete="off">More than an hour</button>
+        </div>
+        <!-- ######## TTM TAB START ######## -->
+
+        <!-- ######## TIME OF DAY TAB START ######## -->
+        <h4><a data-toggle="collapse" href="#mealDiv" aria-expanded="false" class="filter-head">Meal Type</a></h4>
+        <div class="collapse" id="mealDiv">
+
+        </div>
+        <!-- ######## TIME OF DAY TAB START ######## -->
+      </div> <!-- LeftBat End -->
+
+      <div id="content">
+        Hello
+      </div>
+  </div>
+
+  <div id="ingredientsDiv">
+    <!-- Tab links -->
+    <div class="tab">
+      <button class="tablinks" onclick="openTab(event, 'Dairy')">Dairy</button>
+      <button class="tablinks" onclick="openTab(event, 'Meats')">Meats</button>
+      <button class="tablinks" onclick="openTab(event, 'Fruits')">Fruits</button>
+      <button class="tablinks" onclick="openTab(event, 'Vegetable')">Vegetable</button>
+      <button class="tablinks" onclick="openTab(event, 'Spices')">Spices</button>
+      <button class="tablinks" onclick="openTab(event, 'Liquids')">Liquids</button>
     </div>
-    <!-- ######## DIET TAB END ######## -->
 
-    <!-- ######## CUISINE TAB START ######## -->
-     <h4><a data-toggle="collapse" href="#cuisineDiv" aria-expanded="false" class="filter-head">Cuisine</a></h4>
-    <div class="collapse" id="cuisineDiv">
-
+    <!-- Tab content -->
+    <div id="Dairy" class="tabcontent">
+      <button class="ibutton">All Dairy</button>
+      <button class="ibutton">Butter</button>
+      <button class="ibutton">Casein</button>
+      <button class="ibutton">Cheese</button>
+      <button class="ibutton">Cottage Cheese</button>
+      <button class="ibutton">Cream</button>
+      <button class="ibutton">Eggs</button>
+      <button class="ibutton">Ice Cream</button>
+      <button class="ibutton">Sour Cream</button>
+      <button class="ibutton">Whey</button>
+      <button class="ibutton">Whipped Cream</button>
+      <button class="ibutton">Yogurt</button>
     </div>
-    <!-- ######## CUISINE TAB END ######## -->
 
-    <!-- ######## TIME TO MAKE TAB START ######## -->
-    <h4><a data-toggle="collapse" href="#timeDiv" aria-expanded="false" class="filter-head">Time To Make</a></h4>
-    <div class="collapse" id="timeDiv">
-      <button id="filter" type="button" class="btn btn-light time" data-toggle="button" aria-pressed="false" autocomplete="off">Less than 15 minutes</button>
-      <button id="filter" type="button" class="btn btn-light time" data-toggle="button" aria-pressed="false" autocomplete="off">Less than 30 minutes</button>
-      <button id="filter" type="button" class="btn btn-light time" data-toggle="button" aria-pressed="false" autocomplete="off">Less than 45 minutes</button>
-      <button id="filter" type="button" class="btn btn-light time" data-toggle="button" aria-pressed="false" autocomplete="off">More than an hour</button>
+    <div id="Meats" class="tabcontent">
+      <button class="ibutton">All Meat</button>
+      <button class="ibutton">Bacon</button>
+      <button class="ibutton">Beef</button>
+      <button class="ibutton">Buffalo</button>
+      <button class="ibutton">Clams</button>
+      <button class="ibutton">Crab</button>
+      <button class="ibutton">Duck</button>
+      <button class="ibutton">Eel</button>
+      <button class="ibutton">Fish</button>
+      <button class="ibutton">Ham</button>
+      <button class="ibutton">Lobster</button>
+      <button class="ibutton">Shrimp</button>
+      <button class="ibutton">Turkey</button>
     </div>
-    <!-- ######## TTM TAB START ######## -->
 
-    <!-- ######## TIME OF DAY TAB START ######## -->
-    <h4><a data-toggle="collapse" href="#mealDiv" aria-expanded="false" class="filter-head">Meal Type</a></h4>
-    <div class="collapse" id="mealDiv">
-
+    <div id="Fruits" class="tabcontent">
+      <button class="ibutton">All Fruits</button>
+      <button class="ibutton">Apple</button>
+      <button class="ibutton">Blueberries</button>
+      <button class="ibutton">Cherry</button>
+      <button class="ibutton">Coconut</button>
+      <button class="ibutton">Grapefruit</button>
+      <button class="ibutton">Grapes</button>
+      <button class="ibutton">Kiwi</button>
+      <button class="ibutton">Lemon</button>
+      <button class="ibutton">Mandarin</button>
+      <button class="ibutton">Mango</button>
+      <button class="ibutton">Orange</button>
+      <button class="ibutton">Pineapple</button>
     </div>
-    <!-- ######## TIME OF DAY TAB START ######## -->
-  </div> <!-- LeftBat End -->
+
+    <div id="Vegetable" class="tabcontent">
+      <button class="ibutton">All Vegetables</button>
+      <button class="ibutton">Artichoke</button>
+      <button class="ibutton">Asparagus</button>
+      <button class="ibutton">Beets</button>
+      <button class="ibutton">Broccoli</button>
+      <button class="ibutton">Cabbage</button>
+      <button class="ibutton">Carrots</button>
+      <button class="ibutton">Cauliflower</button>
+      <button class="ibutton">Celery</button>
+      <button class="ibutton">Eggplant</button>
+      <button class="ibutton">Kale</button>
+      <button class="ibutton">Lettuce</button>
+      <button class="ibutton">Onions</button>
+      <button class="ibutton">Peppers</button>
+      <button class="ibutton">Potatoes</button>
+      <button class="ibutton">Pumpkin</button>
+      <button class="ibutton">Radish</button>
+      <button class="ibutton">Tomatoes</button>
+      <button class="ibutton">Zucchini</button>
+    </div>
+
+    <div id="Spices" class="tabcontent">
+      <button class="ibutton">All Spices</button>
+      <button class="ibutton">Allspice</button>
+      <button class="ibutton">Basil</button>
+      <button class="ibutton">Black Cumin</button>
+      <button class="ibutton">Black Pepper</button>
+      <button class="ibutton">Cinnamon</button>
+      <button class="ibutton">Cumin</button>
+      <button class="ibutton">Curry Leaf</button>
+      <button class="ibutton">Ginger</button>
+      <button class="ibutton">Mint</button>
+      <button class="ibutton">Mustard</button>
+      <button class="ibutton">Nutmeg</button>
+      <button class="ibutton">Paprika</button>
+      <button class="ibutton">Rosemary</button>
+      <button class="ibutton">Saffron</button>
+      <button class="ibutton">Sage</button>
+      <button class="ibutton">Star Anise</button>
+      <button class="ibutton">Sumac</button>
+      <button class="ibutton">Thyme</button>
+      <button class="ibutton">Vanilla</button>
+      <button class="ibutton">Wasabi</button>
+    </div>
+
+    <div id="Liquids" class="tabcontent">
+      <button class="ibutton">All Liquids</button>
+      <button class="ibutton">Ale</button>
+      <button class="ibutton">Beer</button>
+      <button class="ibutton">Chicken Broth</button>
+      <button class="ibutton">Juices</button>
+      <button class="ibutton">Rum</button>
+      <button class="ibutton">Vinegar</button>
+      <button class="ibutton">Wine</button>
+    </div>
+  </div>
       
   <!-- Bootstrap JS -->
   <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
@@ -155,4 +282,40 @@ body{
   $(document).on("input", "#Calories", evt => {
     document.querySelector("#calorieValue").value = evt.target.value;
   });
+
+
+  // -------------- INGREDIENTS BUTTON LISTENER ---------------- //
+  document.getElementsByClassName('tablinks')[0].click()
+
+  function openTab(evt, ingredientName) {
+    var i, tabcontent, tablinks;
+
+    tabcontent = document.getElementsByClassName("tabcontent");
+    for (i = 0; i < tabcontent.length; i++) {
+      tabcontent[i].style.display = "none";
+    }
+
+    tablinks = document.getElementsByClassName("tablinks");
+    for (i = 0; i < tablinks.length; i++) {
+      tablinks[i].className = tablinks[i].className.replace(" active", "");
+    }
+
+    document.getElementById(ingredientName).style.display = "block";
+    evt.currentTarget.className += " active";
+  }
+
+  // -------------- HIDE INGREDIENTS TAB ---------------- //
+  document.querySelector("#ingredientsDiv").style.display = "none";
+
+  // code to go back and forth between ingredients and main page
+  document.querySelector("#ingredientsTab").addEventListener("click", evt => {
+    document.querySelector("#MainPage").style.display = "none";
+    document.querySelector("#ingredientsDiv").style.display = "block";
+  });
+
+  document.querySelector(".navbar-brand").addEventListener("click", evt => {
+    document.querySelector("#MainPage").style.display = "flex";
+    document.querySelector("#ingredientsDiv").style.display = "none";
+  });
+
 </script>
