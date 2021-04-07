@@ -148,7 +148,16 @@ body {
 
 /* END OF INGREDIENT TABS */
 
-.resultsDiv {
+.recipeResults {
+  height: auto;
+  border: 10px solid #ffffff;
+  display: grid;
+  grid-template-rows: auto;
+  grid-template-columns: repeat(2, 1fr);
+  grid-gap: 40px;
+}
+
+.savedRecipesResults {
   height: auto;
   border: 10px solid #ffffff;
   display: grid;
