@@ -201,3 +201,7 @@ body {
   position: relative;
   left: 470px;
 }
+
+.checkbox {
+  margin-right: 2%;
+}
