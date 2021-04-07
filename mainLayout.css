@@ -153,7 +153,16 @@ body {
   display: grid;
   grid-template-rows: auto;
   grid-template-columns: repeat(2, 1fr);
-  grid-gap: 40px;
+  grid-gap: 20px;
+}
+
+#savedRecipesResults {
+  height: auto;
+  border: 10px solid #ffffff;
+  display: grid;
+  grid-template-rows: auto;
+  grid-template-columns: repeat(2, 1fr);
+  grid-gap: 20px;
 }
 
 .grid-item {
@@ -161,9 +170,8 @@ body {
   background-size: cover;
   border: 2px solid #5136c9;
   padding: 20px;
-  width: 600px;
+  width: 550px;
   height: 250px;
-
   text-align: right;
 }
 
@@ -191,5 +199,5 @@ body {
   text-align: right;
   line-height: 5px;
   position: relative;
-  left: 510px;
+  left: 470px;
 }
