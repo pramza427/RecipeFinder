@@ -1,9 +1,4 @@
 /* classes */
-.content {
-  width: 100%;
-  margin: auto;
-  font-size: 20px;
-}
 .LeftBar {
   width: 20%;
   min-width: 300px;
@@ -54,6 +49,9 @@
 }
 
 /* ID's */
+#content {
+  width: 100%;
+}
 #MainPage{
   width: 100%;
 }
