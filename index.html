@@ -7,7 +7,7 @@
 <html>
   <head>
     <title>Recipe Finder</title>
-    <link rel="icon" href="Images/favicon.ico" />
+    <link rel="icon" href="Images/favicon.ico">
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <!-- Bootstrap CSS -->
@@ -59,6 +59,7 @@
     </nav>
     <!-- End Navbar -->
 
+    <!-- MainPage Start -->
     <div id="MainPage" class="wrapper">
       <!-- LeftBar Start -->
       <div class="LeftBar scrollable" id="filters">
@@ -188,7 +189,9 @@
       </div>
       <!-- LeftBat End -->
 
+      <!-- MainPage Content Start -->
       <div class="scrollable" id="content">
+        <!-- MainRecipies Start -->
         <div id="recipeResultsDiv">
           <div class="row mt-3">
             <div class="card col-xs-12 col-sm-12 col-md-5 col-lg-5 ml-5">
@@ -300,7 +303,7 @@
                 <div class="mt-5">
                   <a
                     href="#"
-                    class="btn btn-primary btn-sm viewRecipe"
+                    class="btn btn-primary btn-sm"
                     style="float: right"
                     >Full recipe ></a
                   >
@@ -329,7 +332,7 @@
                 <div class="mt-5">
                   <a
                     href="#"
-                    class="btn btn-primary btn-sm viewRecipe"
+                    class="btn btn-primary btn-sm"
                     style="float: right"
                     >Full recipe ></a
                   >
@@ -354,7 +357,7 @@
                 <div class="mt-5">
                   <a
                     href="#"
-                    class="btn btn-primary btn-sm viewRecipe"
+                    class="btn btn-primary btn-sm"
                     style="float: right"
                     >Full recipe ></a
                   >
@@ -384,7 +387,7 @@
                 <div class="mt-5">
                   <a
                     href="#"
-                    class="btn btn-primary btn-sm viewRecipe"
+                    class="btn btn-primary btn-sm"
                     style="float: right"
                     >Full recipe ></a
                   >
@@ -411,7 +414,7 @@
                 <div class="mt-5">
                   <a
                     href="#"
-                    class="btn btn-primary btn-sm viewRecipe"
+                    class="btn btn-primary btn-sm"
                     style="float: right"
                     >Full recipe ></a
                   >
@@ -441,7 +444,7 @@
                 <div class="mt-5">
                   <a
                     href="#"
-                    class="btn btn-primary btn-sm viewRecipe"
+                    class="btn btn-primary btn-sm"
                     style="float: right"
                     >Full recipe ></a
                   >
@@ -469,7 +472,7 @@
                 <div class="mt-5">
                   <a
                     href="#"
-                    class="btn btn-primary btn-sm viewRecipe"
+                    class="btn btn-primary btn-sm"
                     style="float: right"
                     >Full recipe ></a
                   >
@@ -478,7 +481,9 @@
             </div>
           </div>
         </div>
+        <!-- MainRecipies End -->
 
+        <!-- SavedRecipies Start -->
         <div id="savedRecipesDiv" style="display: none">
           <div class="row mt-3">
             <div class="card col-xs-12 col-sm-12 col-md-5 col-lg-5 ml-5">
@@ -589,7 +594,7 @@
                 <div class="mt-5">
                   <a
                     href="#"
-                    class="btn btn-primary btn-sm viewRecipe"
+                    class="btn btn-primary btn-sm"
                     style="float: right"
                     >Full recipe ></a
                   >
@@ -618,7 +623,7 @@
                 <div class="mt-5">
                   <a
                     href="#"
-                    class="btn btn-primary btn-sm viewRecipe"
+                    class="btn btn-primary btn-sm"
                     style="float: right"
                     >Full recipe ></a
                   >
@@ -643,7 +648,7 @@
                 <div class="mt-5">
                   <a
                     href="#"
-                    class="btn btn-primary btn-sm viewRecipe"
+                    class="btn btn-primary btn-sm"
                     style="float: right"
                     >Full recipe ></a
                   >
@@ -673,7 +678,7 @@
                 <div class="mt-5">
                   <a
                     href="#"
-                    class="btn btn-primary btn-sm viewRecipe"
+                    class="btn btn-primary btn-sm"
                     style="float: right"
                     >Full recipe ></a
                   >
@@ -700,7 +705,7 @@
                 <div class="mt-5">
                   <a
                     href="#"
-                    class="btn btn-primary btn-sm viewRecipe"
+                    class="btn btn-primary btn-sm"
                     style="float: right"
                     >Full recipe ></a
                   >
@@ -730,7 +735,7 @@
                 <div class="mt-5">
                   <a
                     href="#"
-                    class="btn btn-primary btn-sm viewRecipe"
+                    class="btn btn-primary btn-sm"
                     style="float: right"
                     >Full recipe ></a
                   >
@@ -758,7 +763,7 @@
                 <div class="mt-5">
                   <a
                     href="#"
-                    class="btn btn-primary btn-sm viewRecipe"
+                    class="btn btn-primary btn-sm"
                     style="float: right"
                     >Full recipe ></a
                   >
@@ -767,16 +772,14 @@
             </div>
           </div>
         </div>
+        <!-- SavedRecipies End -->
+
         <!-- Recipe Details Card -->
         <div id="recipeDetailsCard" style="display: none; margin: 5%">
-          <button
-            type="button"
-            class="btn btn-secondary mb-3 ml-3"
-            id="previousRecipes"
-          >
+          <button type="button" class="btn btn-secondary" id="previousRecipes">
             ← Go Back
           </button>
-          <div class="row mx-auto mt-3" id="recipeCard">
+          <div class="row mx-auto" id="recipeCard">
             <div class="col-md-6">
               <div class="row">
                 <div class="col-md-12">
@@ -787,7 +790,7 @@
                 <div class="col-md-12">
                   <img
                     alt="Bootstrap Image Preview"
-                    src="./Images/BreadPizza.jpg"
+                    src="https://cdn.greenbardistillery.com/wp-content/uploads/2018/01/AvocadoToast_CocktailRecipe_GreenbarDistillery.jpg"
                     style="width: 100%"
                   />
                 </div>
@@ -799,11 +802,11 @@
               <div class="row">
                 <h4 style="display: block">Preparation time: 3 minutes</h4>
                 <h4 style="display: block">Cook time: 15 minutes</h4>
-                <h4 style="display: block">Servings: 2 people</h4>
+                <h4 style="display: block">Servings: 2 persons</h4>
                 <h4 style="display: block">Calories per serving: 1500</h4>
                 <button
                   type="button"
-                  class="btn btn-primary btn-md btn-block mt-3"
+                  class="btn btn-primary btn-md btn-block"
                   style="width: 50%; text-align: center"
                 >
                   Instructions
@@ -824,7 +827,7 @@
                   value="option1"
                 />
                 <label class="form-check-label" for="inlineCheckbox1"
-                  >Sauce</label
+                  >Avocado</label
                 >
               </div>
 
@@ -836,7 +839,7 @@
                   value="option2"
                 />
                 <label class="form-check-label" for="inlineCheckbox2"
-                  >Mozzarella</label
+                  >Bread Loaf</label
                 >
               </div>
               <div class="form-check form-check-inline">
@@ -847,7 +850,7 @@
                   value="option2"
                 />
                 <label class="form-check-label" for="inlineCheckbox2"
-                  >Bread</label
+                  >Sea Salt</label
                 >
               </div>
               <div class="form-check form-check-inline">
@@ -858,7 +861,7 @@
                   value="option2"
                 />
                 <label class="form-check-label" for="inlineCheckbox2"
-                  >baguette</label
+                  >Pepper</label
                 >
               </div>
               <div class="form-check form-check-inline">
@@ -869,7 +872,7 @@
                   value="option2"
                 />
                 <label class="form-check-label" for="inlineCheckbox2"
-                  >Pepper flakes</label
+                  >Cilantro</label
                 >
               </div>
               <div class="form-check form-check-inline">
@@ -880,7 +883,7 @@
                   value="option2"
                 />
                 <label class="form-check-label" for="inlineCheckbox2"
-                  >Fresh basil</label
+                  >Lime</label
                 >
               </div>
               <div class="form-check form-check-inline">
@@ -891,18 +894,7 @@
                   value="option2"
                 />
                 <label class="form-check-label" for="inlineCheckbox2"
-                  >Green onions</label
-                >
-              </div>
-              <div class="form-check form-check-inline">
-                <input
-                  class="form-check-input"
-                  type="checkbox"
-                  id="inlineCheckbox2"
-                  value="option2"
-                />
-                <label class="form-check-label" for="inlineCheckbox2"
-                  >Red onions</label
+                  >Egg</label
                 >
               </div>
             </div>
@@ -925,45 +917,48 @@
           </div>
           <div class="row" style="margin-top: 5%; margin-left: 1%">
             <div class="col-md-12">
-              <div class="row mt-2"><h3>Instructions</h3></div>
+              <div class="row"><h3>Instructions</h3></div>
               <div class="row">
                 <ol>
                   <li>
-                    Preheat the oven to 350°F (180°C) and line 2 baking sheets
-                    with parchment paper
+                    Pick great avocados. You want ripe but not over-ripe Hass
+                    avocados. Look for avocados that yield a bit to a gentle
+                    squeeze, but avoid using avocados that are mushy or stringy
+                    on the inside. If you run into any bruised or brown bits
+                    when you cut them open, scoop those out and discard before
+                    mashing the rest.
                   </li>
                   <li>
-                    Arrange the baguette pieces on the baking sheets, cut-side
-                    up.
+                    Buy good bread and toast it well. I think sturdy,
+                    thick-sliced, whole grain bread make the best avocado toast.
+                    Golden, well-toasted bread offers a sturdy base and a crisp,
+                    shattering contrast against the creamy avocado.
                   </li>
                   <li>
-                    To make the margherita pizzas, spread 2 baguette pieces with
-                    the tomato sauce and top with the shredded mozzarella,
-                    cherry tomatoes, mozzarella balls, and basil.
+                    Mash your avocado separately. Mashed avocado is more creamy
+                    and luxurious than sliced avocado (think guacamole vs. plain
+                    avocado). But don’t mash it on the toast! You risk poking
+                    holes in your toast or smashing it. Cut your avocados in
+                    half, remove the pit, scoop the flesh into a bowl or onto
+                    the side of your plate, and mash it up with a fork.
                   </li>
                   <li>
-                    To make the BBQ chicken pizzas, spread 2 baguette pieces
-                    with the BBQ sauce and top with the shredded chicken,
-                    shredded mozzarella, and red onion
+                    Don’t forget the salt. You’ll want to mix in at least a
+                    pinch of salt per avocado half. Bonus points? Finish your
+                    avocado toast with a light sprinkle of flaky sea salt.
                   </li>
-                  <li>
-                    Bake until the cheese is browned and bubbling, about 10
-                    minutes
-                  </li>
-                  <li>
-                    If using, garnish the margherita pizzas with 6. If using,
-                    garnish the margherita pizzas with chopped basil and red
-                    pepper flakes and the BBQ chicken pizzas with green onions
-                  </li>
-                  <li>Enjoy!</li>
                 </ol>
               </div>
             </div>
           </div>
         </div>
-      </div>
-    </div>
 
+      </div>
+      <!-- MainPage Content End -->
+    </div>
+    <!-- MainPage End -->
+
+    <!-- IngredietsPage Start -->
     <div id="ingredientsDiv" class="wrapper">
       <!-- Tab links -->
       <div class="tab">
@@ -989,6 +984,9 @@
 
       <!-- Tab content -->
       <div id="Dairy" class="tabcontent scrollable">
+        <button type="button" class="btn btn-secondary" id="toRecipes">
+            ← Go Back
+        </button><br>
         <button class="ibutton">All Dairy</button>
         <button class="ibutton">Butter</button>
         <button class="ibutton">Casein</button>
@@ -1004,6 +1002,9 @@
       </div>
 
       <div id="Meats" class="tabcontent scrollable">
+        <button type="button" class="btn btn-secondary" id="toRecipes">
+            ← Go Back
+        </button><br>
         <button class="ibutton">All Meat</button>
         <button class="ibutton">Bacon</button>
         <button class="ibutton">Beef</button>
@@ -1020,6 +1021,9 @@
       </div>
 
       <div id="Fruits" class="tabcontent scrollable">
+        <button type="button" class="btn btn-secondary" id="toRecipes">
+            ← Go Back
+        </button><br>
         <button class="ibutton">All Fruits</button>
         <button class="ibutton">Apple</button>
         <button class="ibutton">Blueberries</button>
@@ -1036,6 +1040,9 @@
       </div>
 
       <div id="Vegetable" class="tabcontent scrollable">
+        <button type="button" class="btn btn-secondary" id="toRecipes">
+            ← Go Back
+        </button><br>
         <button class="ibutton">All Vegetables</button>
         <button class="ibutton">Artichoke</button>
         <button class="ibutton">Asparagus</button>
@@ -1058,6 +1065,9 @@
       </div>
 
       <div id="Spices" class="tabcontent scrollable">
+        <button type="button" class="btn btn-secondary" id="toRecipes">
+            ← Go Back
+        </button><br>
         <button class="ibutton">All Spices</button>
         <button class="ibutton">Allspice</button>
         <button class="ibutton">Basil</button>
@@ -1082,6 +1092,9 @@
       </div>
 
       <div id="Liquids" class="tabcontent scrollable">
+        <button type="button" class="btn btn-secondary" id="toRecipes">
+            ← Go Back
+        </button><br>
         <button class="ibutton">All Liquids</button>
         <button class="ibutton">Ale</button>
         <button class="ibutton">Beer</button>
@@ -1092,6 +1105,7 @@
         <button class="ibutton">Wine</button>
       </div>
     </div>
+    <!-- IngredietsPage End -->
 
     <!-- Bootstrap JS -->
     <script
@@ -1193,7 +1207,7 @@
   }
   document.querySelector("#cuisineDiv").appendChild(cuisineTable);
 
-  // -------------- CREATE CUISINE BUTTONS ---------------- //
+  // -------------- CREATE MEAL BUTTONS ---------------- //
   var mealArray = ["Breakfast", "Lunch", "Dinner", "Snack"];
 
   let mealTable = document.createElement("table");
@@ -1265,16 +1279,23 @@
     document.querySelector("#savedRecipesDiv").style.display = "block";
   });
 
-  var viewRecipeButtons = document.querySelectorAll(".viewRecipe");
-  viewRecipeButtons.forEach((button) => {
-    button.addEventListener("click", (evt) => {
-      document.querySelector("#MainPage").style.display = "flex";
-      document.querySelector("#ingredientsDiv").style.display = "none";
-      document.querySelector("#recipeResultsDiv").style.display = "none";
-      document.querySelector("#savedRecipesDiv").style.display = "none";
-      document.querySelector("#recipeDetailsCard").style.display = "block";
-    });
+  document.querySelector(".viewRecipe").addEventListener("click", (evt) => {
+    console.log("here");
+    document.querySelector("#MainPage").style.display = "flex";
+    document.querySelector("#ingredientsDiv").style.display = "none";
+    // document.querySelector("#recipeResults").style.display = "none";
+    document.querySelector("#recipeResultsDiv").style.display = "none";
+    document.querySelector("#savedRecipesDiv").style.display = "none";
+    document.querySelector("#recipeDetailsCard").style.display = "block";
   });
+  // document.querySelector(".grid-item img").addEventListener("click", (evt) => {
+  //   console.log("here");
+  //   document.querySelector("#MainPage").style.display = "flex";
+  //   document.querySelector("#ingredientsDiv").style.display = "none";
+  //   document.querySelector("#recipeResults").style.display = "none";
+  //   document.querySelector("#savedRecipesDiv").style.display = "none";
+  //   document.querySelector("#recipeDetailsCard").style.display = "block";
+  // });
 
   document
     .querySelector("#previousRecipes")
@@ -1286,17 +1307,34 @@
       document.querySelector("#recipeDetailsCard").style.display = "none";
     });
 
+  // -------------- Ingredients Back Button ---------------- //
+  var backButtons = document.querySelectorAll("#toRecipes");
+  backButtons.forEach(button => {
+    button.addEventListener("click", showMain);
+  });
+  
+  function showMain(){
+    document.querySelector("#MainPage").style.display = "flex";
+    document.querySelector("#ingredientsDiv").style.display = "none";
+    document.querySelector("#recipeResultsDiv").style.display = "block";
+    document.querySelector("#savedRecipesDiv").style.display = "none";
+    document.querySelector("#recipeDetailsCard").style.display = "none";
+  }
+
   // -------------- MAKE HEARTS CLICKABLE ---------------- //
   var hearts = document.querySelectorAll("#heart");
   hearts.forEach((heart) => {
     heart.addEventListener("click", (evt) => {
       if (heart.classList.contains("far")) {
+        console.log("clicked far");
         heart.classList.remove("far");
         heart.classList.add("fas");
       } else {
+        console.log("clicked fas");
         heart.classList.remove("fas");
         heart.classList.add("far");
       }
     });
   });
+
 </script>
