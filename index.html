@@ -680,7 +680,7 @@
       </div>
     </div>
 
-    <div id="ingredientsDiv">
+    <div id="ingredientsDiv" class="wrapper">
       <!-- Tab links -->
       <div class="tab">
         <button class="tablinks" onclick="openTab(event, 'Dairy')">
@@ -963,7 +963,7 @@
   // code to go back and forth between ingredients and main page
   document.querySelector("#ingredientsTab").addEventListener("click", (evt) => {
     document.querySelector("#MainPage").style.display = "none";
-    document.querySelector("#ingredientsDiv").style.display = "block";
+    document.querySelector("#ingredientsDiv").style.display = "flex";
   });
 
   document.querySelector(".navbar-brand").addEventListener("click", (evt) => {
