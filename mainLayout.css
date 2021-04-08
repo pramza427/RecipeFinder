@@ -69,6 +69,9 @@
 #filter[aria-pressed="true"] {
   background-color: #36aec9;
 }
+#toRecipes{
+  margin: 20px;
+}
 .navbar-light a {
   color: white;
   font-weight: bold;
