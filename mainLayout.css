@@ -199,6 +199,13 @@ body {
   color: red;
 }
 
+#heart.fas{
+  color: red;
+}
+#heart.fas:hover{
+  color: black;
+}
+
 .h_container {
   padding-bottom: 30px;
   width: 35px;

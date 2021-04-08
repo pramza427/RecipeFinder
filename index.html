@@ -360,7 +360,7 @@
         <div id="savedRecipesResults" style="display: none">
           <div class="grid-item item-1">
             <div class="h_container">
-              <i id="heart" class="far fa-heart"></i>
+              <i id="heart" class="fas fa-heart"></i>
             </div>
             <span style="color: rgb(0, 0, 0)">
               <h4>Recipe Name</h4>
@@ -374,7 +374,7 @@
 
           <div class="grid-item item-2">
             <div class="h_container">
-              <i id="heart" class="far fa-heart"></i>
+              <i id="heart" class="fas fa-heart"></i>
             </div>
             <span style="color: rgb(0, 0, 0)">
               <h4>Recipe Name</h4>
@@ -388,7 +388,7 @@
 
           <div class="grid-item item-3">
             <div class="h_container">
-              <i id="heart" class="far fa-heart"></i>
+              <i id="heart" class="fas fa-heart"></i>
             </div>
             <span style="color: rgb(0, 0, 0)">
               <h4>Recipe Name</h4>
@@ -402,7 +402,7 @@
 
           <div class="grid-item item-4">
             <div class="h_container">
-              <i id="heart" class="far fa-heart"></i>
+              <i id="heart" class="fas fa-heart"></i>
             </div>
             <span style="color: rgb(0, 0, 0)">
               <h4>Recipe Name</h4>
@@ -416,7 +416,7 @@
 
           <div class="grid-item item-5">
             <div class="h_container">
-              <i id="heart" class="far fa-heart"></i>
+              <i id="heart" class="fas fa-heart"></i>
             </div>
             <span style="color: rgb(0, 0, 0)">
               <h4>Recipe Name</h4>
@@ -430,7 +430,7 @@
 
           <div class="grid-item item-6">
             <div class="h_container">
-              <i id="heart" class="far fa-heart"></i>
+              <i id="heart" class="fas fa-heart"></i>
             </div>
             <span style="color: rgb(0, 0, 0)">
               <h4>Recipe Name</h4>
@@ -444,7 +444,7 @@
 
           <div class="grid-item item-7">
             <div class="h_container">
-              <i id="heart" class="far fa-heart"></i>
+              <i id="heart" class="fas fa-heart"></i>
             </div>
             <span style="color: rgb(0, 0, 0)">
               <h4>Recipe Name</h4>
@@ -458,7 +458,7 @@
 
           <div class="grid-item item-8">
             <div class="h_container">
-              <i id="heart" class="far fa-heart"></i>
+              <i id="heart" class="fas fa-heart"></i>
             </div>
             <span style="color: rgb(0, 0, 0)">
               <h4>Recipe Name</h4>
@@ -472,7 +472,7 @@
 
           <div class="grid-item item-9">
             <div class="h_container">
-              <i id="heart" class="far fa-heart"></i>
+              <i id="heart" class="fas fa-heart heart-fav"></i>
             </div>
             <span style="color: rgb(0, 0, 0)">
               <h4>Recipe Name</h4>
@@ -486,7 +486,7 @@
 
           <div class="grid-item item-10">
             <div class="h_container">
-              <i id="heart" class="far fa-heart"></i>
+              <i id="heart" class="fas fa-heart heart-fav"></i>
             </div>
             <span style="color: rgb(0, 0, 0)">
               <h4>Recipe Name</h4>
@@ -500,7 +500,7 @@
 
           <div class="grid-item item-11">
             <div class="h_container">
-              <i id="heart" class="far fa-heart"></i>
+              <i id="heart" class="fas fa-heart heart-fav"></i>
             </div>
             <span style="color: rgb(0, 0, 0)">
               <h4>Recipe Name</h4>
@@ -514,7 +514,7 @@
 
           <div class="grid-item item-12">
             <div class="h_container">
-              <i id="heart" class="far fa-heart"></i>
+              <i id="heart" class="fas fa-heart heart-fav"></i>
             </div>
             <span style="color: rgb(0, 0, 0)">
               <h4>Recipe Name</h4>
@@ -548,10 +548,10 @@
             <div class="col-md-5">
               <div class="row" style="height: 130px"></div>
               <div class="row">
-                <h4>Prep time: 10 mins</h4>
-                <h4>Cook time: 15 mins</h4>
-                <h4>Servings: 15 mins</h4>
-                <h4>Calories per serving: 1500</h4>
+                <h4>Prep time: 10 mins</h4><br>
+                <h4>Cook time: 15 mins</h4><br>
+                <h4>Servings: 15 mins</h4><br>
+                <h4>Calories per serving: 1500</h4><br>
                 <button
                   type="button"
                   class="btn btn-primary btn-md btn-block"
@@ -971,6 +971,7 @@
     document.querySelector("#ingredientsDiv").style.display = "none";
     document.querySelector("#recipeResults").style.display = "grid";
     document.querySelector("#savedRecipesResults").style.display = "none";
+    document.querySelector("#recipeDetailsCard").style.display = "none";
   });
 
   document.querySelector("#savedRecipes").addEventListener("click", (evt) => {
@@ -988,4 +989,23 @@
     document.querySelector("#savedRecipesResults").style.display = "none";
     document.querySelector("#recipeDetailsCard").style.display = "block";
   });
+
+  // -------------- MAKE HEARTS CLICKABLE ---------------- //
+  var hearts = document.querySelectorAll("#heart");
+  hearts.forEach(heart => {
+    console.log(heart);
+    heart.addEventListener("click", evt => {
+      if(heart.classList.contains("far")){
+        console.log("clicked far");
+        heart.classList.remove("far");
+        heart.classList.add("fas");
+      }
+      else{
+        console.log("clicked fas");
+        heart.classList.remove("fas");
+        heart.classList.add("far");
+      }
+    });
+  });
+  
 </script>
