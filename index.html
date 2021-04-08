@@ -1283,6 +1283,7 @@
   document.querySelector("#ingredientsTab").addEventListener("click", (evt) => {
     document.querySelector("#MainPage").style.display = "none";
     document.querySelector("#ingredientsDiv").style.display = "flex";
+    $("#savedRecipes").css({ "background-color": ""});
   });
 
   document.querySelector(".navbar-brand").addEventListener("click", (evt) => {
@@ -1291,9 +1292,11 @@
     document.querySelector("#recipeResultsDiv").style.display = "block";
     document.querySelector("#savedRecipesDiv").style.display = "none";
     document.querySelector("#recipeDetailsCard").style.display = "none";
+    $("#savedRecipes").css({ "background-color": "" });
   });
 
   document.querySelector("#savedRecipes").addEventListener("click", (evt) => {
+    $("#savedRecipes").css("background-color", "#302078");
     document.querySelector("#MainPage").style.display = "flex";
     document.querySelector("#ingredientsDiv").style.display = "none";
     document.querySelector("#recipeResultsDiv").style.display = "none";
