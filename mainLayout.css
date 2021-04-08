@@ -44,7 +44,7 @@
   width: 100%;
   height: 95%;
 }
-.scrollable{
+.scrollable {
   overflow: auto;
 }
 
@@ -52,7 +52,7 @@
 #content {
   width: 100%;
 }
-#MainPage{
+#MainPage {
   width: 100%;
 }
 #map {
@@ -175,8 +175,8 @@ body {
   background-size: cover;
   border: 2px solid #5136c9;
   padding: 20px;
-  width: 550px;
-  height: 250px;
+  width: 38vw;
+  height: 31vh;
   text-align: right;
 }
 
@@ -186,7 +186,7 @@ body {
   height: 160px;
   width: 250px;
   position: relative;
-  top: -160px;
+  top: -10vmax;
 }
 
 #heart {
@@ -199,14 +199,32 @@ body {
 
 .h_container {
   padding-bottom: 30px;
-  width: 35px;
-  height: 35px;
+  width: 3vw;
+  height: 3vh;
   text-align: right;
   line-height: 5px;
   position: relative;
-  left: 470px;
+  left: 33vmax;
 }
 
 .checkbox {
   margin-right: 2%;
+}
+
+.previous {
+  /* background-color: #f1f1f1; */
+  border-color: black;
+  font-size: larger;
+}
+
+.previous a {
+  text-decoration: none;
+  display: inline-block;
+  padding: 8px 16px;
+  border: black 2px;
+}
+
+.previous a:hover {
+  background-color: #ddd;
+  color: black;
 }
