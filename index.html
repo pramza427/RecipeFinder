@@ -300,7 +300,7 @@
                 <div class="mt-5">
                   <a
                     href="#"
-                    class="btn btn-primary btn-sm"
+                    class="btn btn-primary btn-sm viewRecipe"
                     style="float: right"
                     >Full recipe ></a
                   >
@@ -329,7 +329,7 @@
                 <div class="mt-5">
                   <a
                     href="#"
-                    class="btn btn-primary btn-sm"
+                    class="btn btn-primary btn-sm viewRecipe"
                     style="float: right"
                     >Full recipe ></a
                   >
@@ -354,7 +354,7 @@
                 <div class="mt-5">
                   <a
                     href="#"
-                    class="btn btn-primary btn-sm"
+                    class="btn btn-primary btn-sm viewRecipe"
                     style="float: right"
                     >Full recipe ></a
                   >
@@ -384,7 +384,7 @@
                 <div class="mt-5">
                   <a
                     href="#"
-                    class="btn btn-primary btn-sm"
+                    class="btn btn-primary btn-sm viewRecipe"
                     style="float: right"
                     >Full recipe ></a
                   >
@@ -411,7 +411,7 @@
                 <div class="mt-5">
                   <a
                     href="#"
-                    class="btn btn-primary btn-sm"
+                    class="btn btn-primary btn-sm viewRecipe"
                     style="float: right"
                     >Full recipe ></a
                   >
@@ -441,7 +441,7 @@
                 <div class="mt-5">
                   <a
                     href="#"
-                    class="btn btn-primary btn-sm"
+                    class="btn btn-primary btn-sm viewRecipe"
                     style="float: right"
                     >Full recipe ></a
                   >
@@ -469,7 +469,7 @@
                 <div class="mt-5">
                   <a
                     href="#"
-                    class="btn btn-primary btn-sm"
+                    class="btn btn-primary btn-sm viewRecipe"
                     style="float: right"
                     >Full recipe ></a
                   >
@@ -589,7 +589,7 @@
                 <div class="mt-5">
                   <a
                     href="#"
-                    class="btn btn-primary btn-sm"
+                    class="btn btn-primary btn-sm viewRecipe"
                     style="float: right"
                     >Full recipe ></a
                   >
@@ -618,7 +618,7 @@
                 <div class="mt-5">
                   <a
                     href="#"
-                    class="btn btn-primary btn-sm"
+                    class="btn btn-primary btn-sm viewRecipe"
                     style="float: right"
                     >Full recipe ></a
                   >
@@ -643,7 +643,7 @@
                 <div class="mt-5">
                   <a
                     href="#"
-                    class="btn btn-primary btn-sm"
+                    class="btn btn-primary btn-sm viewRecipe"
                     style="float: right"
                     >Full recipe ></a
                   >
@@ -673,7 +673,7 @@
                 <div class="mt-5">
                   <a
                     href="#"
-                    class="btn btn-primary btn-sm"
+                    class="btn btn-primary btn-sm viewRecipe"
                     style="float: right"
                     >Full recipe ></a
                   >
@@ -700,7 +700,7 @@
                 <div class="mt-5">
                   <a
                     href="#"
-                    class="btn btn-primary btn-sm"
+                    class="btn btn-primary btn-sm viewRecipe"
                     style="float: right"
                     >Full recipe ></a
                   >
@@ -730,7 +730,7 @@
                 <div class="mt-5">
                   <a
                     href="#"
-                    class="btn btn-primary btn-sm"
+                    class="btn btn-primary btn-sm viewRecipe"
                     style="float: right"
                     >Full recipe ></a
                   >
@@ -758,7 +758,7 @@
                 <div class="mt-5">
                   <a
                     href="#"
-                    class="btn btn-primary btn-sm"
+                    class="btn btn-primary btn-sm viewRecipe"
                     style="float: right"
                     >Full recipe ></a
                   >
@@ -1265,23 +1265,16 @@
     document.querySelector("#savedRecipesDiv").style.display = "block";
   });
 
-  document.querySelector(".viewRecipe").addEventListener("click", (evt) => {
-    console.log("here");
-    document.querySelector("#MainPage").style.display = "flex";
-    document.querySelector("#ingredientsDiv").style.display = "none";
-    // document.querySelector("#recipeResults").style.display = "none";
-    document.querySelector("#recipeResultsDiv").style.display = "none";
-    document.querySelector("#savedRecipesDiv").style.display = "none";
-    document.querySelector("#recipeDetailsCard").style.display = "block";
+  var viewRecipeButtons = document.querySelectorAll(".viewRecipe");
+  viewRecipeButtons.forEach((button) => {
+    button.addEventListener("click", (evt) => {
+      document.querySelector("#MainPage").style.display = "flex";
+      document.querySelector("#ingredientsDiv").style.display = "none";
+      document.querySelector("#recipeResultsDiv").style.display = "none";
+      document.querySelector("#savedRecipesDiv").style.display = "none";
+      document.querySelector("#recipeDetailsCard").style.display = "block";
+    });
   });
-  // document.querySelector(".grid-item img").addEventListener("click", (evt) => {
-  //   console.log("here");
-  //   document.querySelector("#MainPage").style.display = "flex";
-  //   document.querySelector("#ingredientsDiv").style.display = "none";
-  //   document.querySelector("#recipeResults").style.display = "none";
-  //   document.querySelector("#savedRecipesDiv").style.display = "none";
-  //   document.querySelector("#recipeDetailsCard").style.display = "block";
-  // });
 
   document
     .querySelector("#previousRecipes")
@@ -1296,14 +1289,11 @@
   // -------------- MAKE HEARTS CLICKABLE ---------------- //
   var hearts = document.querySelectorAll("#heart");
   hearts.forEach((heart) => {
-    // console.log(heart);
     heart.addEventListener("click", (evt) => {
       if (heart.classList.contains("far")) {
-        console.log("clicked far");
         heart.classList.remove("far");
         heart.classList.add("fas");
       } else {
-        console.log("clicked fas");
         heart.classList.remove("fas");
         heart.classList.add("far");
       }
