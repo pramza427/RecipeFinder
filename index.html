@@ -805,6 +805,8 @@
                   type="button"
                   class="btn btn-primary btn-md btn-block mt-3"
                   style="width: 50%; text-align: center"
+                  id="instructionsButton"
+                  onclick="goToRecipeInstructions()"
                 >
                   Instructions
                 </button>
@@ -923,7 +925,11 @@
               </button>
             </div>
           </div>
-          <div class="row" style="margin-top: 5%; margin-left: 1%">
+          <div
+            class="row"
+            style="margin-top: 5%; margin-left: 1%"
+            id="InstructionsRow"
+          >
             <div class="col-md-12">
               <div class="row mt-2"><h3>Instructions</h3></div>
               <div class="row">
@@ -1285,6 +1291,10 @@
       document.querySelector("#savedRecipesDiv").style.display = "none";
       document.querySelector("#recipeDetailsCard").style.display = "none";
     });
+
+  function goToRecipeInstructions() {
+    location.href = "index.html#InstructionsRow";
+  }
 
   // -------------- MAKE HEARTS CLICKABLE ---------------- //
   var hearts = document.querySelectorAll("#heart");
