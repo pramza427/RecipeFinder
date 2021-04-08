@@ -30,7 +30,7 @@
       src="https://kit.fontawesome.com/3929e16ef5.js"
       crossorigin="anonymous"
     ></script>
-    <script src="{% static 'network/functions.js' %}"></script>
+    <!-- <script src="{% static 'network/functions.js' %}"></script> -->
 
     <!-- Our CSS -->
     <link rel="stylesheet" href="mainLayout.css" />
@@ -527,9 +527,9 @@
           </div>
         </div>
         <div id="recipeDetailsCard" style="display: none; margin: 5%">
-          <div class="row">
-            <a href="#" class="previous">← Previous</a>
-          </div>
+          <button type="button" class="btn btn-secondary" id="previousRecipes">
+            ← Go Back
+          </button>
           <div class="row mx-auto" id="recipeCard">
             <div class="col-md-6">
               <div class="row">
@@ -1008,18 +1008,36 @@
   });
 
   document.querySelector(".grid-item").addEventListener("click", (evt) => {
-    console.log("checking");
+    // console.log("here");
     document.querySelector("#MainPage").style.display = "flex";
     document.querySelector("#ingredientsDiv").style.display = "none";
     document.querySelector("#recipeResults").style.display = "none";
     document.querySelector("#savedRecipesResults").style.display = "none";
     document.querySelector("#recipeDetailsCard").style.display = "block";
   });
+  // document.querySelector(".grid-item img").addEventListener("click", (evt) => {
+  //   console.log("here");
+  //   document.querySelector("#MainPage").style.display = "flex";
+  //   document.querySelector("#ingredientsDiv").style.display = "none";
+  //   document.querySelector("#recipeResults").style.display = "none";
+  //   document.querySelector("#savedRecipesResults").style.display = "none";
+  //   document.querySelector("#recipeDetailsCard").style.display = "block";
+  // });
+
+  document
+    .querySelector("#previousRecipes")
+    .addEventListener("click", (evt) => {
+      document.querySelector("#MainPage").style.display = "flex";
+      document.querySelector("#ingredientsDiv").style.display = "none";
+      document.querySelector("#recipeResults").style.display = "grid";
+      document.querySelector("#savedRecipesResults").style.display = "none";
+      document.querySelector("#recipeDetailsCard").style.display = "none";
+    });
 
   // -------------- MAKE HEARTS CLICKABLE ---------------- //
   var hearts = document.querySelectorAll("#heart");
   hearts.forEach((heart) => {
-    console.log(heart);
+    // console.log(heart);
     heart.addEventListener("click", (evt) => {
       if (heart.classList.contains("far")) {
         console.log("clicked far");
