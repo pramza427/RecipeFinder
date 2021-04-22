@@ -45,7 +45,7 @@
   height: 95%;
 }
 .scrollable {
-  overflow: auto;
+  overflow-y: auto;
 }
 
 /* ID's */
@@ -95,6 +95,7 @@ td button {
 }
 body {
   margin: auto;
+  overflow-x: hidden;
 }
 
 * {
@@ -223,6 +224,12 @@ body {
   margin-right: 2%;
 }
 
+#templateRow {
+  display: none;
+}
+#templateCard {
+  display: none;
+}
 .card {
   flex-direction: row;
   align-items: center;
@@ -234,6 +241,11 @@ body {
   width: 30%;
   border-top-right-radius: 0;
   border-bottom-left-radius: calc(0.25rem - 1px);
+}
+.card-text {
+  max-height: 40vh;
+  text-overflow: ellipsis;
+  overflow: hidden;
 }
 @media only screen and (max-width: 768px) {
   a {
