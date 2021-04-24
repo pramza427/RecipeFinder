@@ -533,7 +533,7 @@
             <div class="col-md-6">
               <div class="row">
                 <div class="col-md-12">
-                  <h2>Oven-Baked French Bread Pizzas</h2>
+                  <h2 id="recipe-title">Oven-Baked French Bread Pizzas</h2>
                 </div>
               </div>
               <div class="row">
@@ -542,6 +542,7 @@
                     alt="Bootstrap Image Preview"
                     src="./Images/BreadPizza.jpg"
                     style="width: 100%"
+                    id="recipe-img"
                   />
                 </div>
               </div>
@@ -550,10 +551,16 @@
             <div class="col-md-5">
               <div class="row" style="height: 130px"></div>
               <div class="row" style="display: block">
-                <h4 style="display: block">Preparation time: 3 minutes</h4>
-                <h4 style="display: block">Cook time: 15 minutes</h4>
-                <h4 style="display: block">Servings: 2 persons</h4>
-                <h4 style="display: block">Calories per serving: 1500</h4>
+                <!-- <h4 style="display: block">Preparation time: 3 minutes</h4> -->
+                <h4 style="display: block" id="recipe-time">
+                  Cook time: 15 minutes
+                </h4>
+                <h4 style="display: block" id="recipe-servings">
+                  Servings: 2 persons
+                </h4>
+                <h4 style="display: block" id="recipe-calories">
+                  Calories per serving: 1500
+                </h4>
                 <button
                   type="button"
                   class="btn btn-primary btn-md btn-block"
@@ -685,9 +692,7 @@
           >
             <div class="col-md-12">
               <div class="row"><h3>Instructions</h3></div>
-              <div class="row">
-                <ol id="instructionsDetail"></ol>
-              </div>
+              <div class="row" id="instructionsDetail"></div>
             </div>
           </div>
         </div>
@@ -1020,17 +1025,6 @@
     document.querySelector("#savedRecipesDiv").style.display = "block";
   });
 
-  // var viewRecipeButtons = document.querySelectorAll(".viewRecipe");
-  // viewRecipeButtons.forEach((button) => {
-  //   button.addEventListener("click", (evt) => {
-  //     document.querySelector("#MainPage").style.display = "flex";
-  //     document.querySelector("#ingredientsDiv").style.display = "none";
-  //     document.querySelector("#recipeResultsDiv").style.display = "none";
-  //     document.querySelector("#savedRecipesDiv").style.display = "none";
-  //     document.querySelector("#recipeDetailsCard").style.display = "block";
-  //   });
-  // });
-
   document
     .querySelector("#previousRecipes")
     .addEventListener("click", (evt) => {
@@ -1062,7 +1056,7 @@
   // -------------- Populate Cards ---------------- //
   var existingRow = document.querySelector("#templateRow");
   fetch(
-    "https://api.spoonacular.com/recipes/complexSearch?cuisine=italian&addRecipeNutrition=true&number=10&apiKey=75517419f34c44c69efda60ca92ddcd0"
+    "https://api.spoonacular.com/recipes/complexSearch?cuisine=italian&addRecipeNutrition=true&number=10&apiKey=e0f90d7c0df34e18957fe5275d274d03"
   )
     .then((x) => {
       return x.json();
@@ -1127,12 +1121,13 @@
       viewRecipeButtons.forEach((button) => {
         button.addEventListener("click", (evt) => {
           fetch(
-            "https://api.spoonacular.com/recipes/715769/analyzedInstructions?stepBreakdown=true&apiKey=75517419f34c44c69efda60ca92ddcd0"
+            "https://api.spoonacular.com/recipes/715769/information?apiKey=e0f90d7c0df34e18957fe5275d274d03"
           )
             .then((x) => {
               return x.json();
             })
             .then((json) => {
+              console.log(json);
               document.querySelector("#MainPage").style.display = "flex";
               document.querySelector("#ingredientsDiv").style.display = "none";
               document.querySelector("#recipeResultsDiv").style.display =
@@ -1140,16 +1135,18 @@
               document.querySelector("#savedRecipesDiv").style.display = "none";
               document.querySelector("#recipeDetailsCard").style.display =
                 "block";
-              steps = json[0]["steps"];
               let instructionsDetailDiv = document.getElementById(
                 "instructionsDetail"
               );
-              instructionsDetailDiv.innerHTML = "";
-              for (i = 0; i < steps.length; i++) {
-                console.log(steps[i]);
-                instructionsDetailDiv.innerHTML +=
-                  "<li>" + steps[i].step + "</li>";
-              }
+              let recipeTitle = document.getElementById("recipe-title");
+              instructionsDetailDiv.innerHTML = json.instructions;
+              recipeTitle.innerHTML = json.title;
+              $("#recipe-servings").html("Servings: " + json.servings);
+              $("#recipe-time").html(
+                "Cook time: " + json.readyInMinutes + " minutes"
+              );
+              $("#recipe-calories").html("Calories: " + json.healthScore);
+              $("#recipe-img").attr("src", json.image);
             });
         });
       });
