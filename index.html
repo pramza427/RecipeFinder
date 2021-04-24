@@ -193,37 +193,39 @@
       <div class="scrollable" id="content">
         <!-- MainRecipies Start -->
         <div id="recipeResultsDiv">
-          <div class="card col-xs-12 col-sm-12 col-md-5 col-lg-5 ml-5" id="templateCard">
-              <img src="./Images/BreadPizza.jpg" class="card-img-top" />
-              <div class="card-body">
-                <h5 class="card-title">
-                  Oven-Baked French Bread Pizzas
-                  <span class="h_container" style="float: right">
-                    <i id="heart" class="far fa-heart"></i>
-                  </span>
-                </h5>
+          <div
+            class="card col-xs-12 col-sm-12 col-md-5 col-lg-5 ml-5"
+            id="templateCard"
+          >
+            <img src="./Images/BreadPizza.jpg" class="card-img-top" />
+            <div class="card-body">
+              <h5 class="card-title">
+                Oven-Baked French Bread Pizzas
+                <span class="h_container" style="float: right">
+                  <i id="heart" class="far fa-heart"></i>
+                </span>
+              </h5>
 
-                <p class="card-text">
-                  Pizza night is the best night — especially when everyone gets
-                  to build their dream slice. (Or three!)
-                </p>
-                <span style="float: left"><strong id="card-servings">Servings: 2</strong></span
-                ><span style="float: right"
-                  ><strong id="card-time">Cooking time: 30 mins</strong></span
+              <p class="card-text">
+                Pizza night is the best night — especially when everyone gets to
+                build their dream slice. (Or three!)
+              </p>
+              <span style="float: left"
+                ><strong id="card-servings">Servings: 2</strong></span
+              ><span style="float: right"
+                ><strong id="card-time">Cooking time: 30 mins</strong></span
+              >
+              <div class="mt-5">
+                <a
+                  href="#"
+                  class="btn btn-primary btn-sm viewRecipe"
+                  style="float: right"
+                  >Full recipe ></a
                 >
-                <div class="mt-5">
-                  <a
-                    href="#"
-                    class="btn btn-primary btn-sm viewRecipe"
-                    style="float: right"
-                    >Full recipe ></a
-                  >
-                </div>
               </div>
+            </div>
           </div>
-          <div class="row mt-3" id="templateRow">
-            
-          </div>
+          <div class="row mt-3" id="templateRow"></div>
         </div>
         <!-- MainRecipies End -->
 
@@ -547,7 +549,7 @@
             <div class="col-md-1"></div>
             <div class="col-md-5">
               <div class="row" style="height: 130px"></div>
-              <div class="row" style="display:block">
+              <div class="row" style="display: block">
                 <h4 style="display: block">Preparation time: 3 minutes</h4>
                 <h4 style="display: block">Cook time: 15 minutes</h4>
                 <h4 style="display: block">Servings: 2 persons</h4>
@@ -1086,60 +1088,79 @@
     document.querySelector("#recipeDetailsCard").style.display = "none";
   }
 
-  
-
   // -------------- Populate Cards ---------------- //
   var existingRow = document.querySelector("#templateRow");
-  fetch("https://api.spoonacular.com/recipes/complexSearch?cuisine=italian&addRecipeNutrition=true&number=10&apiKey=75517419f34c44c69efda60ca92ddcd0")
-  .then(x => {
-        return x.json();
-        })
-  .then(json => {
-          let i = 0;
-          results = json.results;
-          let heart = "<span class='h_container' style='float: right'> <i id='heart'class='far fa-heart'></i></span>";
-          let ogRow = document.querySelector("#templateRow");
-          let ogCard = document.querySelector("#templateCard");
-          for(i = 0; i < results.length; i += 2){
-            let newRow = ogRow.cloneNode(true);
-            newRow.id = "row"+i;
+  fetch(
+    "https://api.spoonacular.com/recipes/complexSearch?cuisine=italian&addRecipeNutrition=true&number=10&apiKey=75517419f34c44c69efda60ca92ddcd0"
+  )
+    .then((x) => {
+      return x.json();
+    })
+    .then((json) => {
+      let i = 0;
+      results = json.results;
+      let heart =
+        "<span class='h_container' style='float: right'> <i id='heart'class='far fa-heart'></i></span>";
+      let ogRow = document.querySelector("#templateRow");
+      let ogCard = document.querySelector("#templateCard");
+      for (i = 0; i < results.length; i += 2) {
+        let newRow = ogRow.cloneNode(true);
+        newRow.id = "row" + i;
 
-            let cardCopy1 = ogCard.cloneNode(true);
-            cardCopy1.id = "card"+i;
-            cardCopy1.querySelector(".card-title").innerHTML = results[i].title + heart;
-            cardCopy1.querySelector(".card-img-top").src = results[i].image;
-            cardCopy1.querySelector(".card-text").innerHTML = results[i].summary;
-            cardCopy1.querySelector("#card-servings").innerHTML = "Servings: "+results[i].servings;
-            cardCopy1.querySelector("#card-time").innerHTML = "Ready In " + results[i].readyInMinutes + " Minutes";
+        let cardCopy1 = ogCard.cloneNode(true);
+        cardCopy1.id = "card" + i;
+        cardCopy1.querySelector(".card-title").innerHTML =
+          results[i].title + heart;
+        cardCopy1.querySelector(".card-img-top").src = results[i].image;
+        cardCopy1.querySelector(".card-text").innerHTML = results[i].summary;
+        cardCopy1.querySelector("#card-servings").innerHTML =
+          "Servings: " + results[i].servings;
+        cardCopy1.querySelector("#card-time").innerHTML =
+          "Ready In " + results[i].readyInMinutes + " Minutes";
 
-            let cardCopy2 = ogCard.cloneNode(true);
-            cardCopy2.id = "card"+i;
-            cardCopy2.querySelector(".card-title").innerHTML = results[i+1].title + heart;
-            cardCopy2.querySelector(".card-img-top").src = results[i+1].image;
-            cardCopy2.querySelector(".card-text").innerHTML = results[i+1].summary;
-            cardCopy2.querySelector("#card-servings").innerHTML = "Servings: "+results[i+1].servings;
-            cardCopy2.querySelector("#card-time").innerHTML = "Ready In " + results[i+1].readyInMinutes + " Minutes";
+        let cardCopy2 = ogCard.cloneNode(true);
+        cardCopy2.id = "card" + i;
+        cardCopy2.querySelector(".card-title").innerHTML =
+          results[i + 1].title + heart;
+        cardCopy2.querySelector(".card-img-top").src = results[i + 1].image;
+        cardCopy2.querySelector(".card-text").innerHTML =
+          results[i + 1].summary;
+        cardCopy2.querySelector("#card-servings").innerHTML =
+          "Servings: " + results[i + 1].servings;
+        cardCopy2.querySelector("#card-time").innerHTML =
+          "Ready In " + results[i + 1].readyInMinutes + " Minutes";
 
-            newRow.appendChild(cardCopy1);
-            newRow.appendChild(cardCopy2);
+        newRow.appendChild(cardCopy1);
+        newRow.appendChild(cardCopy2);
 
-            document.querySelector("#recipeResultsDiv").appendChild(newRow);
-          } // end for loop
+        document.querySelector("#recipeResultsDiv").appendChild(newRow);
+        var viewRecipeButtons = document.querySelectorAll(".viewRecipe");
+        viewRecipeButtons.forEach((button) => {
+          button.addEventListener("click", (evt) => {
+            document.querySelector("#MainPage").style.display = "flex";
+            document.querySelector("#ingredientsDiv").style.display = "none";
+            document.querySelector("#recipeResultsDiv").style.display = "none";
+            document.querySelector("#savedRecipesDiv").style.display = "none";
+            document.querySelector("#recipeDetailsCard").style.display =
+              "block";
+          });
+        });
+      } // end for loop
 
-          // -------------- MAKE HEARTS CLICKABLE ---------------- //
-          var hearts = document.querySelectorAll("#heart");
-          hearts.forEach((heart) => {
-            heart.addEventListener("click", (evt) => {
-              if (heart.classList.contains("far")) {
-                console.log("clicked far");
-                heart.classList.remove("far");
-                heart.classList.add("fas");
-              } else {
-                console.log("clicked fas");
-                heart.classList.remove("fas");
-                heart.classList.add("far");
-              }
-            });
-          }); // end make hearts clickable
-        }); // end get json
+      // -------------- MAKE HEARTS CLICKABLE ---------------- //
+      var hearts = document.querySelectorAll("#heart");
+      hearts.forEach((heart) => {
+        heart.addEventListener("click", (evt) => {
+          if (heart.classList.contains("far")) {
+            console.log("clicked far");
+            heart.classList.remove("far");
+            heart.classList.add("fas");
+          } else {
+            console.log("clicked fas");
+            heart.classList.remove("fas");
+            heart.classList.add("far");
+          }
+        });
+      }); // end make hearts clickable
+    }); // end get json
 </script>
