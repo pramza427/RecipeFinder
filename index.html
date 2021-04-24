@@ -217,7 +217,7 @@
               >
               <div class="mt-5">
                 <a
-                  href="#"
+                  href="#recipeID"
                   class="btn btn-primary btn-sm viewRecipe"
                   style="float: right"
                   >Full recipe ></a
@@ -1082,6 +1082,9 @@
           "Servings: " + results[i].servings;
         cardCopy1.querySelector("#card-time").innerHTML =
           "Ready In " + results[i].readyInMinutes + " Minutes";
+        
+        cardCopy1.querySelector(".viewRecipe").href = "#"+results[i].id.toString();
+        cardCopy1.querySelector(".viewRecipe").id = results[i].id.toString();
 
         let cardCopy2 = ogCard.cloneNode(true);
         cardCopy2.id = "card" + i;
@@ -1094,6 +1097,8 @@
           "Servings: " + results[i + 1].servings;
         cardCopy2.querySelector("#card-time").innerHTML =
           "Ready In " + results[i + 1].readyInMinutes + " Minutes";
+        cardCopy2.querySelector(".viewRecipe").href = "#"+results[i+1].id.toString();
+        cardCopy2.querySelector(".viewRecipe").id = results[i+1].id.toString();
 
         newRow.appendChild(cardCopy1);
         newRow.appendChild(cardCopy2);
@@ -1119,10 +1124,12 @@
 
       var viewRecipeButtons = document.querySelectorAll(".viewRecipe");
       viewRecipeButtons.forEach((button) => {
+        console.log(button.id);
+        
         button.addEventListener("click", (evt) => {
-          fetch(
-            "https://api.spoonacular.com/recipes/715769/information?apiKey=e0f90d7c0df34e18957fe5275d274d03"
-          )
+          recipeID = evt.target.id;
+          recipeURL = "https://api.spoonacular.com/recipes/"+recipeID+"/information?apiKey=e0f90d7c0df34e18957fe5275d274d03"
+          fetch(recipeURL)
             .then((x) => {
               return x.json();
             })
