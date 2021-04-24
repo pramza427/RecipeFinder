@@ -686,36 +686,7 @@
             <div class="col-md-12">
               <div class="row"><h3>Instructions</h3></div>
               <div class="row">
-                <ol>
-                  <li>
-                    Preheat the oven to 350°F (180°C) and line 2 baking sheets
-                    with parchment paper
-                  </li>
-                  <li>
-                    Arrange the baguette pieces on the baking sheets, cut-side
-                    up.
-                  </li>
-                  <li>
-                    To make the margherita pizzas, spread 2 baguette pieces with
-                    the tomato sauce and top with the shredded mozzarella,
-                    cherry tomatoes, mozzarella balls, and basil.
-                  </li>
-                  <li>
-                    To make the BBQ chicken pizzas, spread 2 baguette pieces
-                    with the BBQ sauce and top with the shredded chicken,
-                    shredded mozzarella, and red onion
-                  </li>
-                  <li>
-                    Bake until the cheese is browned and bubbling, about 10
-                    minutes
-                  </li>
-                  <li>
-                    If using, garnish the margherita pizzas with 6. If using,
-                    garnish the margherita pizzas with chopped basil and red
-                    pepper flakes and the BBQ chicken pizzas with green onions
-                  </li>
-                  <li>Enjoy!</li>
-                </ol>
+                <ol id="instructionsDetail"></ol>
               </div>
             </div>
           </div>
@@ -1169,7 +1140,16 @@
               document.querySelector("#savedRecipesDiv").style.display = "none";
               document.querySelector("#recipeDetailsCard").style.display =
                 "block";
-              console.log(json[0]["steps"]);
+              steps = json[0]["steps"];
+              let instructionsDetailDiv = document.getElementById(
+                "instructionsDetail"
+              );
+              instructionsDetailDiv.innerHTML = "";
+              for (i = 0; i < steps.length; i++) {
+                console.log(steps[i]);
+                instructionsDetailDiv.innerHTML +=
+                  "<li>" + steps[i].step + "</li>";
+              }
             });
         });
       });
