@@ -1049,16 +1049,16 @@
     document.querySelector("#savedRecipesDiv").style.display = "block";
   });
 
-  var viewRecipeButtons = document.querySelectorAll(".viewRecipe");
-  viewRecipeButtons.forEach((button) => {
-    button.addEventListener("click", (evt) => {
-      document.querySelector("#MainPage").style.display = "flex";
-      document.querySelector("#ingredientsDiv").style.display = "none";
-      document.querySelector("#recipeResultsDiv").style.display = "none";
-      document.querySelector("#savedRecipesDiv").style.display = "none";
-      document.querySelector("#recipeDetailsCard").style.display = "block";
-    });
-  });
+  // var viewRecipeButtons = document.querySelectorAll(".viewRecipe");
+  // viewRecipeButtons.forEach((button) => {
+  //   button.addEventListener("click", (evt) => {
+  //     document.querySelector("#MainPage").style.display = "flex";
+  //     document.querySelector("#ingredientsDiv").style.display = "none";
+  //     document.querySelector("#recipeResultsDiv").style.display = "none";
+  //     document.querySelector("#savedRecipesDiv").style.display = "none";
+  //     document.querySelector("#recipeDetailsCard").style.display = "block";
+  //   });
+  // });
 
   document
     .querySelector("#previousRecipes")
@@ -1134,17 +1134,6 @@
         newRow.appendChild(cardCopy2);
 
         document.querySelector("#recipeResultsDiv").appendChild(newRow);
-        var viewRecipeButtons = document.querySelectorAll(".viewRecipe");
-        viewRecipeButtons.forEach((button) => {
-          button.addEventListener("click", (evt) => {
-            document.querySelector("#MainPage").style.display = "flex";
-            document.querySelector("#ingredientsDiv").style.display = "none";
-            document.querySelector("#recipeResultsDiv").style.display = "none";
-            document.querySelector("#savedRecipesDiv").style.display = "none";
-            document.querySelector("#recipeDetailsCard").style.display =
-              "block";
-          });
-        });
       } // end for loop
 
       // -------------- MAKE HEARTS CLICKABLE ---------------- //
@@ -1162,5 +1151,27 @@
           }
         });
       }); // end make hearts clickable
-    }); // end get json
+
+      var viewRecipeButtons = document.querySelectorAll(".viewRecipe");
+      viewRecipeButtons.forEach((button) => {
+        button.addEventListener("click", (evt) => {
+          fetch(
+            "https://api.spoonacular.com/recipes/715769/analyzedInstructions?stepBreakdown=true&apiKey=75517419f34c44c69efda60ca92ddcd0"
+          )
+            .then((x) => {
+              return x.json();
+            })
+            .then((json) => {
+              document.querySelector("#MainPage").style.display = "flex";
+              document.querySelector("#ingredientsDiv").style.display = "none";
+              document.querySelector("#recipeResultsDiv").style.display =
+                "none";
+              document.querySelector("#savedRecipesDiv").style.display = "none";
+              document.querySelector("#recipeDetailsCard").style.display =
+                "block";
+              console.log(json[0]["steps"]);
+            });
+        });
+      });
+    });
 </script>
