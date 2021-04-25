@@ -42,28 +42,26 @@
     <!-- Navbar Start -->
     <nav class="navbar navbar-dark justify-content-between">
       <div class="container-fluid">
-
         <button type="button" id="sidebarCollapse" class="btn btn-info">
           <i class="fas fa-align-left"></i>
           <span>Filters</span>
         </button>
         <a class="navbar-brand" href="#" style="color: white">Recipe Finder</a>
-      <a class="nav-link" id="savedRecipes" href="#Saved" style="color: white"
-        >Saved Recipes</a
-      >
-      <form class="form-inline center">
-        <input
-          class="form-control mr-sm-2"
-          type="search"
-          placeholder="Search"
-          aria-label="Search"
-        />
-        <button class="btn btn-info my-2 my-sm-0" type="submit">
-          Search
-        </button>
-      </form>
+        <a class="nav-link" id="savedRecipes" href="#Saved" style="color: white"
+          >Saved Recipes</a
+        >
+        <form class="form-inline center">
+          <input
+            class="form-control mr-sm-2"
+            type="search"
+            placeholder="Search"
+            aria-label="Search"
+          />
+          <button class="btn btn-info my-2 my-sm-0" type="submit">
+            Search
+          </button>
+        </form>
       </div>
-      
     </nav>
     <!-- End Navbar -->
 
@@ -72,28 +70,30 @@
       <!-- LeftBar Start -->
       <div class="LeftBar scrollable" id="filters">
         <!-- Search Recipes Button -->
-        <button id="searchRecipes" class="btn btn-info">Search using filters</button>
+        <button id="searchRecipes" class="btn btn-info">
+          Search using filters
+        </button>
         <!-- ######## CALORIE SLIDER ######## -->
         <div>
-        <h4 style="color: #36aec9">Calories</h4>
-        <output id="calorieValue">2000</output><br />
-        <input
-          type="range"
-          min="0"
-          max="3500"
-          step="50"
-          value="2000"
-          class="slider"
-          id="Calories"
-          style="width: 90%"
-        />
+          <h4 style="color: #36aec9">Calories</h4>
+          <output id="calorieValue">2000</output><br />
+          <input
+            type="range"
+            min="0"
+            max="3500"
+            step="50"
+            value="2000"
+            class="slider"
+            id="Calories"
+            style="width: 90%"
+          />
         </div>
 
         <!-- ######## INGREDIENTS TAB START ######## -->
         <div>
-        <h4>
-          <a href="#" id="ingredientsTab" class="filter-head">Ingredients</a>
-        </h4>
+          <h4>
+            <a href="#" id="ingredientsTab" class="filter-head">Ingredients</a>
+          </h4>
         </div>
         <!-- ######## INGREDIENTS TAB END ######## -->
 
@@ -744,111 +744,636 @@
         <button type="button" class="btn btn-secondary" id="toRecipes">
           ← Go Back</button
         ><br />
-        <button class="ibutton" id="All Dairy" value="NA" onclick="javascript:toggle(this);">All Dairy</button>
-        <button class="ibutton" id="Butter" value="NA" onclick="javascript:toggle(this);">Butter</button>
-        <button class="ibutton" id="Cheese" value="NA" onclick="javascript:toggle(this);">Cheese</button>
-        <button class="ibutton" id="Cottage Cheese" value="NA" onclick="javascript:toggle(this);">Cottage Cheese</button>
-        <button class="ibutton" id="Cream" value="NA" onclick="javascript:toggle(this);">Cream</button>
-        <button class="ibutton" id="Eggs" value="NA" onclick="javascript:toggle(this);">Eggs</button>
-        <button class="ibutton" id="Ice Cream" value="NA" onclick="javascript:toggle(this);">Ice Cream</button>
-        <button class="ibutton" id="Sour Cream" value="NA" onclick="javascript:toggle(this);">Sour Cream</button>
-        <button class="ibutton" id="Whipped Cream" value="NA" onclick="javascript:toggle(this);">Whipped Cream</button>
-        <button class="ibutton" id="Yogurt" value="NA" onclick="javascript:toggle(this);">Yogurt</button>
+        <button
+          class="ibutton"
+          id="All Dairy"
+          value="NA"
+          onclick="javascript:toggle(this);"
+        >
+          All Dairy
+        </button>
+        <button
+          class="ibutton"
+          id="Butter"
+          value="NA"
+          onclick="javascript:toggle(this);"
+        >
+          Butter
+        </button>
+        <button
+          class="ibutton"
+          id="Cheese"
+          value="NA"
+          onclick="javascript:toggle(this);"
+        >
+          Cheese
+        </button>
+        <button
+          class="ibutton"
+          id="Cottage Cheese"
+          value="NA"
+          onclick="javascript:toggle(this);"
+        >
+          Cottage Cheese
+        </button>
+        <button
+          class="ibutton"
+          id="Cream"
+          value="NA"
+          onclick="javascript:toggle(this);"
+        >
+          Cream
+        </button>
+        <button
+          class="ibutton"
+          id="Eggs"
+          value="NA"
+          onclick="javascript:toggle(this);"
+        >
+          Eggs
+        </button>
+        <button
+          class="ibutton"
+          id="Ice Cream"
+          value="NA"
+          onclick="javascript:toggle(this);"
+        >
+          Ice Cream
+        </button>
+        <button
+          class="ibutton"
+          id="Sour Cream"
+          value="NA"
+          onclick="javascript:toggle(this);"
+        >
+          Sour Cream
+        </button>
+        <button
+          class="ibutton"
+          id="Whipped Cream"
+          value="NA"
+          onclick="javascript:toggle(this);"
+        >
+          Whipped Cream
+        </button>
+        <button
+          class="ibutton"
+          id="Yogurt"
+          value="NA"
+          onclick="javascript:toggle(this);"
+        >
+          Yogurt
+        </button>
       </div>
 
       <div id="Meats" class="tabcontent scrollable">
         <button type="button" class="btn btn-secondary" id="toRecipes">
           ← Go Back</button
         ><br />
-        <button class="ibutton" id="All Meat" value="NA" onclick="javascript:toggle(this);">All Meat</button>
-        <button class="ibutton" id="Bacon" value="NA" onclick="javascript:toggle(this);">Bacon</button>
-        <button class="ibutton" id="Beef" value="NA" onclick="javascript:toggle(this);">Beef</button>
-        <button class="ibutton" id="Clams" value="NA" onclick="javascript:toggle(this);">Clams</button>
-        <button class="ibutton" id="Crab" value="NA" onclick="javascript:toggle(this);">Crab</button>
-        <button class="ibutton" id="Fish" value="NA" onclick="javascript:toggle(this);">Fish</button>
-        <button class="ibutton" id="Ham" value="NA" onclick="javascript:toggle(this);">Ham</button>
-        <button class="ibutton" id="Lobster" value="NA" onclick="javascript:toggle(this);">Lobster</button>
-        <button class="ibutton" id="Shrimp" value="NA" onclick="javascript:toggle(this);">Shrimp</button>
-        <button class="ibutton" id="Turkey" value="NA" onclick="javascript:toggle(this);">Turkey</button>
+        <button
+          class="ibutton"
+          id="All Meat"
+          value="NA"
+          onclick="javascript:toggle(this);"
+        >
+          All Meat
+        </button>
+        <button
+          class="ibutton"
+          id="Bacon"
+          value="NA"
+          onclick="javascript:toggle(this);"
+        >
+          Bacon
+        </button>
+        <button
+          class="ibutton"
+          id="Beef"
+          value="NA"
+          onclick="javascript:toggle(this);"
+        >
+          Beef
+        </button>
+        <button
+          class="ibutton"
+          id="Clams"
+          value="NA"
+          onclick="javascript:toggle(this);"
+        >
+          Clams
+        </button>
+        <button
+          class="ibutton"
+          id="Crab"
+          value="NA"
+          onclick="javascript:toggle(this);"
+        >
+          Crab
+        </button>
+        <button
+          class="ibutton"
+          id="Fish"
+          value="NA"
+          onclick="javascript:toggle(this);"
+        >
+          Fish
+        </button>
+        <button
+          class="ibutton"
+          id="Ham"
+          value="NA"
+          onclick="javascript:toggle(this);"
+        >
+          Ham
+        </button>
+        <button
+          class="ibutton"
+          id="Lobster"
+          value="NA"
+          onclick="javascript:toggle(this);"
+        >
+          Lobster
+        </button>
+        <button
+          class="ibutton"
+          id="Shrimp"
+          value="NA"
+          onclick="javascript:toggle(this);"
+        >
+          Shrimp
+        </button>
+        <button
+          class="ibutton"
+          id="Turkey"
+          value="NA"
+          onclick="javascript:toggle(this);"
+        >
+          Turkey
+        </button>
       </div>
 
       <div id="Fruits" class="tabcontent scrollable">
         <button type="button" class="btn btn-secondary" id="toRecipes">
           ← Go Back</button
         ><br />
-        <button class="ibutton" id="All Fruits" value="NA" onclick="javascript:toggle(this);">All Fruits</button>
-        <button class="ibutton" id="Apple" value="NA" onclick="javascript:toggle(this);">Apple</button>
-        <button class="ibutton" id="Blueberries" value="NA" onclick="javascript:toggle(this);">Blueberries</button>
-        <button class="ibutton" id="Cherry" value="NA" onclick="javascript:toggle(this);">Cherry</button>
-        <button class="ibutton" id="Coconut" value="NA" onclick="javascript:toggle(this);">Coconut</button>
-        <button class="ibutton" id="Grapefruit" value="NA" onclick="javascript:toggle(this);">Grapefruit</button>
-        <button class="ibutton" id="Green Grapes" value="NA" onclick="javascript:toggle(this);">Green Grapes</button>
-        <button class="ibutton" id="Kiwi" value="NA" onclick="javascript:toggle(this);">Kiwi</button>
-        <button class="ibutton" id="Lemon" value="NA" onclick="javascript:toggle(this);">Lemon</button>
-        <button class="ibutton" id="Mango" value="NA" onclick="javascript:toggle(this);">Mango</button>
-        <button class="ibutton" id="Orange" value="NA" onclick="javascript:toggle(this);">Orange</button>
-        <button class="ibutton" id="Pineapple" value="NA" onclick="javascript:toggle(this);">Pineapple</button>
+        <button
+          class="ibutton"
+          id="All Fruits"
+          value="NA"
+          onclick="javascript:toggle(this);"
+        >
+          All Fruits
+        </button>
+        <button
+          class="ibutton"
+          id="Apple"
+          value="NA"
+          onclick="javascript:toggle(this);"
+        >
+          Apple
+        </button>
+        <button
+          class="ibutton"
+          id="Blueberries"
+          value="NA"
+          onclick="javascript:toggle(this);"
+        >
+          Blueberries
+        </button>
+        <button
+          class="ibutton"
+          id="Cherry"
+          value="NA"
+          onclick="javascript:toggle(this);"
+        >
+          Cherry
+        </button>
+        <button
+          class="ibutton"
+          id="Coconut"
+          value="NA"
+          onclick="javascript:toggle(this);"
+        >
+          Coconut
+        </button>
+        <button
+          class="ibutton"
+          id="Grapefruit"
+          value="NA"
+          onclick="javascript:toggle(this);"
+        >
+          Grapefruit
+        </button>
+        <button
+          class="ibutton"
+          id="Green Grapes"
+          value="NA"
+          onclick="javascript:toggle(this);"
+        >
+          Green Grapes
+        </button>
+        <button
+          class="ibutton"
+          id="Kiwi"
+          value="NA"
+          onclick="javascript:toggle(this);"
+        >
+          Kiwi
+        </button>
+        <button
+          class="ibutton"
+          id="Lemon"
+          value="NA"
+          onclick="javascript:toggle(this);"
+        >
+          Lemon
+        </button>
+        <button
+          class="ibutton"
+          id="Mango"
+          value="NA"
+          onclick="javascript:toggle(this);"
+        >
+          Mango
+        </button>
+        <button
+          class="ibutton"
+          id="Orange"
+          value="NA"
+          onclick="javascript:toggle(this);"
+        >
+          Orange
+        </button>
+        <button
+          class="ibutton"
+          id="Pineapple"
+          value="NA"
+          onclick="javascript:toggle(this);"
+        >
+          Pineapple
+        </button>
       </div>
 
       <div id="Vegetables" class="tabcontent scrollable">
         <button type="button" class="btn btn-secondary" id="toRecipes">
           ← Go Back</button
         ><br />
-        <button class="ibutton" id="All Vegetables" value="NA" onclick="javascript:toggle(this);">All Vegetables</button>
-        <button class="ibutton" id="Artichokes" value="NA" onclick="javascript:toggle(this);">Artichokes</button>
-        <button class="ibutton" id="Asparagus" value="NA" onclick="javascript:toggle(this);">Asparagus</button>
-        <button class="ibutton" id="Beets" value="NA" onclick="javascript:toggle(this);">Beets</button>
-        <button class="ibutton" id="Broccoli" value="NA" onclick="javascript:toggle(this);">Broccoli</button>
-        <button class="ibutton" id="Cabbage value="NA" onclick="javascript:toggle(this);">Cabbage</button>
-        <button class="ibutton" id="Carrots" value="NA" onclick="javascript:toggle(this);">Carrots</button>
-        <button class="ibutton" id="Cauliflower" value="NA" onclick="javascript:toggle(this);">Cauliflower</button>
-        <button class="ibutton" id="Celery" value="NA" onclick="javascript:toggle(this);">Celery</button>
-        <button class="ibutton" id="Eggplant" value="NA" onclick="javascript:toggle(this);">Eggplant</button>
-        <button class="ibutton" id="Kale" value="NA" onclick="javascript:toggle(this);">Kale</button>
-        <button class="ibutton" id="Lettuce" value="NA" onclick="javascript:toggle(this);">Lettuce</button>
-        <button class="ibutton" id="Onion" value="NA" onclick="javascript:toggle(this);">Onion</button>
-        <button class="ibutton" id="Peppers" value="NA" onclick="javascript:toggle(this);">Peppers</button>
-        <button class="ibutton" id="Pineapple" value="NA" onclick="javascript:toggle(this);">Potatoes</button>
-        <button class="ibutton" id="Pumpkin" value="NA" onclick="javascript:toggle(this);">Pumpkin</button>
-        <button class="ibutton" id="Radish" value="NA" onclick="javascript:toggle(this);">Radish</button>
-        <button class="ibutton" id="Tomatoes" value="NA" onclick="javascript:toggle(this);">Tomatoes</button>
+        <button
+          class="ibutton"
+          id="All Vegetables"
+          value="NA"
+          onclick="javascript:toggle(this);"
+        >
+          All Vegetables
+        </button>
+        <button
+          class="ibutton"
+          id="Artichokes"
+          value="NA"
+          onclick="javascript:toggle(this);"
+        >
+          Artichokes
+        </button>
+        <button
+          class="ibutton"
+          id="Asparagus"
+          value="NA"
+          onclick="javascript:toggle(this);"
+        >
+          Asparagus
+        </button>
+        <button
+          class="ibutton"
+          id="Beets"
+          value="NA"
+          onclick="javascript:toggle(this);"
+        >
+          Beets
+        </button>
+        <button
+          class="ibutton"
+          id="Broccoli"
+          value="NA"
+          onclick="javascript:toggle(this);"
+        >
+          Broccoli
+        </button>
+        <button
+          class="ibutton"
+          id="Cabbage"
+          value="NA"
+          onclick="javascript:toggle(this);"
+        >
+          Cabbage
+        </button>
+        <button
+          class="ibutton"
+          id="Carrots"
+          value="NA"
+          onclick="javascript:toggle(this);"
+        >
+          Carrots
+        </button>
+        <button
+          class="ibutton"
+          id="Cauliflower"
+          value="NA"
+          onclick="javascript:toggle(this);"
+        >
+          Cauliflower
+        </button>
+        <button
+          class="ibutton"
+          id="Celery"
+          value="NA"
+          onclick="javascript:toggle(this);"
+        >
+          Celery
+        </button>
+        <button
+          class="ibutton"
+          id="Eggplant"
+          value="NA"
+          onclick="javascript:toggle(this);"
+        >
+          Eggplant
+        </button>
+        <button
+          class="ibutton"
+          id="Kale"
+          value="NA"
+          onclick="javascript:toggle(this);"
+        >
+          Kale
+        </button>
+        <button
+          class="ibutton"
+          id="Lettuce"
+          value="NA"
+          onclick="javascript:toggle(this);"
+        >
+          Lettuce
+        </button>
+        <button
+          class="ibutton"
+          id="Onion"
+          value="NA"
+          onclick="javascript:toggle(this);"
+        >
+          Onion
+        </button>
+        <button
+          class="ibutton"
+          id="Peppers"
+          value="NA"
+          onclick="javascript:toggle(this);"
+        >
+          Peppers
+        </button>
+        <button
+          class="ibutton"
+          id="Pineapple"
+          value="NA"
+          onclick="javascript:toggle(this);"
+        >
+          Potatoes
+        </button>
+        <button
+          class="ibutton"
+          id="Pumpkin"
+          value="NA"
+          onclick="javascript:toggle(this);"
+        >
+          Pumpkin
+        </button>
+        <button
+          class="ibutton"
+          id="Radish"
+          value="NA"
+          onclick="javascript:toggle(this);"
+        >
+          Radish
+        </button>
+        <button
+          class="ibutton"
+          id="Tomatoes"
+          value="NA"
+          onclick="javascript:toggle(this);"
+        >
+          Tomatoes
+        </button>
       </div>
 
       <div id="Spices" class="tabcontent scrollable">
         <button type="button" class="btn btn-secondary" id="toRecipes">
           ← Go Back</button
         ><br />
-        <button class="ibutton" id="All Spices" value="NA" onclick="javascript:toggle(this);">All Spices</button>
-        <button class="ibutton" id="Allspice" value="NA" onclick="javascript:toggle(this);">Allspice</button>
-        <button class="ibutton" id="Basil" value="NA" onclick="javascript:toggle(this);">Basil</button>
-        <button class="ibutton" id="Black Pepper" value="NA" onclick="javascript:toggle(this);">Black Pepper</button>
-        <button class="ibutton" id="Cinnamon Stick" value="NA" onclick="javascript:toggle(this);">Cinnamon Stick</button>
-        <button class="ibutton" id="Cumin" value="NA" onclick="javascript:toggle(this);">Cumin</button>
-        <button class="ibutton" id="Ginger" value="NA" onclick="javascript:toggle(this);">Ginger</button>
-        <button class="ibutton" id="Mint" value="NA" onclick="javascript:toggle(this);">Mint</button>
-        <button class="ibutton" id="Mustard" value="NA" onclick="javascript:toggle(this);">Mustard</button>
-        <button class="ibutton" id="Nutmeg" value="NA" onclick="javascript:toggle(this);">Nutmeg</button>
-        <button class="ibutton" id="Paprika" value="NA" onclick="javascript:toggle(this);">Paprika</button>
-        <button class="ibutton" id="Rosemary" value="NA" onclick="javascript:toggle(this);">Rosemary</button>
-        <button class="ibutton" id="Saffron" value="NA" onclick="javascript:toggle(this);">Saffron</button>
-        <button class="ibutton" id="Sage" value="NA" onclick="javascript:toggle(this);">Sage</button>
-        <button class="ibutton" id="Star Anise" value="NA" onclick="javascript:toggle(this);">Star Anise</button>
-        <button class="ibutton" id="Thyme" value="NA" onclick="javascript:toggle(this);">Thyme</button>
-        <button class="ibutton" id="Vanilla Bean" value="NA" onclick="javascript:toggle(this);">Vanilla Bean</button>
+        <button
+          class="ibutton"
+          id="All Spices"
+          value="NA"
+          onclick="javascript:toggle(this);"
+        >
+          All Spices
+        </button>
+        <button
+          class="ibutton"
+          id="Allspice"
+          value="NA"
+          onclick="javascript:toggle(this);"
+        >
+          Allspice
+        </button>
+        <button
+          class="ibutton"
+          id="Basil"
+          value="NA"
+          onclick="javascript:toggle(this);"
+        >
+          Basil
+        </button>
+        <button
+          class="ibutton"
+          id="Black Pepper"
+          value="NA"
+          onclick="javascript:toggle(this);"
+        >
+          Black Pepper
+        </button>
+        <button
+          class="ibutton"
+          id="Cinnamon Stick"
+          value="NA"
+          onclick="javascript:toggle(this);"
+        >
+          Cinnamon Stick
+        </button>
+        <button
+          class="ibutton"
+          id="Cumin"
+          value="NA"
+          onclick="javascript:toggle(this);"
+        >
+          Cumin
+        </button>
+        <button
+          class="ibutton"
+          id="Ginger"
+          value="NA"
+          onclick="javascript:toggle(this);"
+        >
+          Ginger
+        </button>
+        <button
+          class="ibutton"
+          id="Mint"
+          value="NA"
+          onclick="javascript:toggle(this);"
+        >
+          Mint
+        </button>
+        <button
+          class="ibutton"
+          id="Mustard"
+          value="NA"
+          onclick="javascript:toggle(this);"
+        >
+          Mustard
+        </button>
+        <button
+          class="ibutton"
+          id="Nutmeg"
+          value="NA"
+          onclick="javascript:toggle(this);"
+        >
+          Nutmeg
+        </button>
+        <button
+          class="ibutton"
+          id="Paprika"
+          value="NA"
+          onclick="javascript:toggle(this);"
+        >
+          Paprika
+        </button>
+        <button
+          class="ibutton"
+          id="Rosemary"
+          value="NA"
+          onclick="javascript:toggle(this);"
+        >
+          Rosemary
+        </button>
+        <button
+          class="ibutton"
+          id="Saffron"
+          value="NA"
+          onclick="javascript:toggle(this);"
+        >
+          Saffron
+        </button>
+        <button
+          class="ibutton"
+          id="Sage"
+          value="NA"
+          onclick="javascript:toggle(this);"
+        >
+          Sage
+        </button>
+        <button
+          class="ibutton"
+          id="Star Anise"
+          value="NA"
+          onclick="javascript:toggle(this);"
+        >
+          Star Anise
+        </button>
+        <button
+          class="ibutton"
+          id="Thyme"
+          value="NA"
+          onclick="javascript:toggle(this);"
+        >
+          Thyme
+        </button>
+        <button
+          class="ibutton"
+          id="Vanilla Bean"
+          value="NA"
+          onclick="javascript:toggle(this);"
+        >
+          Vanilla Bean
+        </button>
       </div>
 
       <div id="Liquids" class="tabcontent scrollable">
         <button type="button" class="btn btn-secondary" id="toRecipes">
           ← Go Back</button
         ><br />
-        <button class="ibutton" id="All Liquids" value="NA" onclick="javascript:toggle(this);">All Liquids</button>
-        <button class="ibutton" id="Ale" value="NA" onclick="javascript:toggle(this);">Ale</button>
-        <button class="ibutton" id="Beer" value="NA" onclick="javascript:toggle(this);">Beer</button>
-        <button class="ibutton" id="Chicken Broth" value="NA" onclick="javascript:toggle(this);">Chicken Broth</button>
-        <button class="ibutton" id="Juice" value="NA" onclick="javascript:toggle(this);">Juice</button>
-        <button class="ibutton" id="Rum" value="NA" onclick="javascript:toggle(this);">Rum</button>
-        <button class="ibutton" id="Vinegar" value="NA" onclick="javascript:toggle(this);">Vinegar</button>
-        <button class="ibutton" id="Wine" value="NA" onclick="javascript:toggle(this);">Wine</button>
+        <button
+          class="ibutton"
+          id="All Liquids"
+          value="NA"
+          onclick="javascript:toggle(this);"
+        >
+          All Liquids
+        </button>
+        <button
+          class="ibutton"
+          id="Ale"
+          value="NA"
+          onclick="javascript:toggle(this);"
+        >
+          Ale
+        </button>
+        <button
+          class="ibutton"
+          id="Beer"
+          value="NA"
+          onclick="javascript:toggle(this);"
+        >
+          Beer
+        </button>
+        <button
+          class="ibutton"
+          id="Chicken Broth"
+          value="NA"
+          onclick="javascript:toggle(this);"
+        >
+          Chicken Broth
+        </button>
+        <button
+          class="ibutton"
+          id="Juice"
+          value="NA"
+          onclick="javascript:toggle(this);"
+        >
+          Juice
+        </button>
+        <button
+          class="ibutton"
+          id="Rum"
+          value="NA"
+          onclick="javascript:toggle(this);"
+        >
+          Rum
+        </button>
+        <button
+          class="ibutton"
+          id="Vinegar"
+          value="NA"
+          onclick="javascript:toggle(this);"
+        >
+          Vinegar
+        </button>
+        <button
+          class="ibutton"
+          id="Wine"
+          value="NA"
+          onclick="javascript:toggle(this);"
+        >
+          Wine
+        </button>
       </div>
     </div>
     <!-- IngredientsPage End -->
@@ -873,9 +1398,16 @@
 </html>
 
 <script>
+  // localStorage.removeItem("savedRecipes");
+  if (!localStorage.hasOwnProperty("savedRecipes")) {
+    localStorage.setItem("savedRecipes", JSON.stringify([]));
+  } else {
+    let savedRecipes = JSON.parse(localStorage.getItem("savedRecipes"));
+    console.log(savedRecipes);
+  }
   // -------------- LEFT BAR ANIMATION ---------------- //
-  document.querySelector("#sidebarCollapse").addEventListener("click", x => {
-    $("#filters").toggleClass('active');
+  document.querySelector("#sidebarCollapse").addEventListener("click", (x) => {
+    $("#filters").toggleClass("active");
   });
   // -------------- CREATE DIETS BUTTONS ---------------- //
   var dietsArray = [
@@ -991,18 +1523,18 @@
   function toggle(button) {
     switch (button.value) {
       case "NA":
-	button.style.background = 'green'
-	button.value = "IN"
-	break;
+        button.style.background = "green";
+        button.value = "IN";
+        break;
       case "IN":
-	button.style.background = 'red'
-	button.value = "EX"
-	break;
+        button.style.background = "red";
+        button.value = "EX";
+        break;
       case "EX":
-	button.style.background = 'grey'
-	button.value = "NA"
-	break;
-    }	
+        button.style.background = "grey";
+        button.value = "NA";
+        break;
+    }
   }
 
   function openTab(evt, ingredientName) {
@@ -1080,7 +1612,7 @@
   // -------------- Populate Cards ---------------- //
   var existingRow = document.querySelector("#templateRow");
   fetch(
-    "https://api.spoonacular.com/recipes/complexSearch?cuisine=italian&addRecipeNutrition=true&number=10&apiKey=e0f90d7c0df34e18957fe5275d274d03"
+    "https://api.spoonacular.com/recipes/complexSearch?cuisine=italian&addRecipeNutrition=true&number=10&apiKey=f7063e67e31f4b92ae5fef8762be968b"
   )
     .then((x) => {
       return x.json();
@@ -1088,14 +1620,16 @@
     .then((json) => {
       let i = 0;
       results = json.results;
-      
+
       let ogRow = document.querySelector("#templateRow");
       let ogCard = document.querySelector("#templateCard");
       for (i = 0; i < results.length; i += 2) {
         let newRow = ogRow.cloneNode(true);
         newRow.id = "row" + i;
         let heart1 =
-        "<span class='h_container' style='float: right'> <i id='"+results[i].id+"'class='far fa-heart myheart'></i></span>";
+          "<span class='h_container' style='float: right'> <i id='" +
+          results[i].id +
+          "'class='far fa-heart myheart'></i></span>";
         let cardCopy1 = ogCard.cloneNode(true);
         cardCopy1.id = "card" + i;
         cardCopy1.querySelector(".card-title").innerHTML =
@@ -1106,12 +1640,15 @@
           "Servings: " + results[i].servings;
         cardCopy1.querySelector("#card-time").innerHTML =
           "Ready In " + results[i].readyInMinutes + " Minutes";
-        
-        cardCopy1.querySelector(".viewRecipe").href = "#"+results[i].id.toString();
+
+        cardCopy1.querySelector(".viewRecipe").href =
+          "#" + results[i].id.toString();
         cardCopy1.querySelector(".viewRecipe").id = results[i].id.toString();
 
         let heart2 =
-        "<span class='h_container' style='float: right'> <i id='"+results[i+1].id+"'class='far fa-heart myheart'></i></span>";
+          "<span class='h_container' style='float: right'> <i id='" +
+          results[i + 1].id +
+          "'class='far fa-heart myheart'></i></span>";
         let cardCopy2 = ogCard.cloneNode(true);
         cardCopy2.id = "card" + i;
         cardCopy2.querySelector(".card-title").innerHTML =
@@ -1123,8 +1660,11 @@
           "Servings: " + results[i + 1].servings;
         cardCopy2.querySelector("#card-time").innerHTML =
           "Ready In " + results[i + 1].readyInMinutes + " Minutes";
-        cardCopy2.querySelector(".viewRecipe").href = "#"+results[i+1].id.toString();
-        cardCopy2.querySelector(".viewRecipe").id = results[i+1].id.toString();
+        cardCopy2.querySelector(".viewRecipe").href =
+          "#" + results[i + 1].id.toString();
+        cardCopy2.querySelector(".viewRecipe").id = results[
+          i + 1
+        ].id.toString();
 
         newRow.appendChild(cardCopy1);
         newRow.appendChild(cardCopy2);
@@ -1137,38 +1677,41 @@
       hearts.forEach((heart) => {
         heart.addEventListener("click", (evt) => {
           if (heart.classList.contains("far")) {
-            console.log("clicked far");
             heart.classList.remove("far");
             heart.classList.add("fas");
             var ids = [];
-            console.log(evt.target.id);
             let element = document.getElementById(evt.target.id);
-
-            // let recipeId = cardBodyElement.querySelector(".viewRecipe").id;
-            // console.log(recipeId);
-            // ids.push();
-            // localStorage.setItem("names", JSON.stringify(names));
-            // var storedNames = JSON.parse(localStorage.getItem("names"));
+            let savedRecipes = JSON.parse(localStorage.getItem("savedRecipes"));
+            savedRecipes.push(evt.target.id);
+            console.log(savedRecipes);
+            localStorage.setItem("savedRecipes", JSON.stringify(savedRecipes));
           } else {
             heart.classList.remove("fas");
             heart.classList.add("far");
+            let savedRecipes = JSON.parse(localStorage.getItem("savedRecipes"));
+            const index = savedRecipes.indexOf(evt.target.id);
+            if (index > -1) {
+              savedRecipes.splice(index, 1);
+            }
+            localStorage.setItem("savedRecipes", JSON.stringify(savedRecipes));
+            console.log(savedRecipes);
           }
         });
       }); // end make hearts clickable
 
       var viewRecipeButtons = document.querySelectorAll(".viewRecipe");
       viewRecipeButtons.forEach((button) => {
-        console.log(button.id);
-        
         button.addEventListener("click", (evt) => {
           recipeID = evt.target.id;
-          recipeURL = "https://api.spoonacular.com/recipes/"+recipeID+"/information?apiKey=e0f90d7c0df34e18957fe5275d274d03"
+          recipeURL =
+            "https://api.spoonacular.com/recipes/" +
+            recipeID +
+            "/information?apiKey=f7063e67e31f4b92ae5fef8762be968b";
           fetch(recipeURL)
             .then((x) => {
               return x.json();
             })
             .then((json) => {
-              console.log(json);
               document.querySelector("#MainPage").style.display = "flex";
               document.querySelector("#ingredientsDiv").style.display = "none";
               document.querySelector("#recipeResultsDiv").style.display =
