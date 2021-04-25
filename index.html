@@ -41,7 +41,13 @@
   <body>
     <!-- Navbar Start -->
     <nav class="navbar navbar-dark justify-content-between">
-      <a class="navbar-brand" href="#" style="color: white">Recipe Finder</a>
+      <div class="container-fluid">
+
+        <button type="button" id="sidebarCollapse" class="btn btn-info">
+          <i class="fas fa-align-left"></i>
+          <span>Filters</span>
+        </button>
+        <a class="navbar-brand" href="#" style="color: white">Recipe Finder</a>
       <a class="nav-link" id="savedRecipes" href="#Saved" style="color: white"
         >Saved Recipes</a
       >
@@ -52,10 +58,12 @@
           placeholder="Search"
           aria-label="Search"
         />
-        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">
+        <button class="btn btn-info my-2 my-sm-0" type="submit">
           Search
         </button>
       </form>
+      </div>
+      
     </nav>
     <!-- End Navbar -->
 
@@ -63,7 +71,10 @@
     <div id="MainPage" class="wrapper">
       <!-- LeftBar Start -->
       <div class="LeftBar scrollable" id="filters">
+        <!-- Search Recipes Button -->
+        <button id="searchRecipes" class="btn btn-info">Search using filters</button>
         <!-- ######## CALORIE SLIDER ######## -->
+        <div>
         <h4 style="color: #36aec9">Calories</h4>
         <output id="calorieValue">2000</output><br />
         <input
@@ -76,11 +87,14 @@
           id="Calories"
           style="width: 90%"
         />
+        </div>
 
         <!-- ######## INGREDIENTS TAB START ######## -->
+        <div>
         <h4>
           <a href="#" id="ingredientsTab" class="filter-head">Ingredients</a>
         </h4>
+        </div>
         <!-- ######## INGREDIENTS TAB END ######## -->
 
         <!-- ######## DIET TAB START ######## -->
@@ -870,6 +884,10 @@
 </html>
 
 <script>
+  // -------------- LEFT BAR ANIMATION ---------------- //
+  document.querySelector("#sidebarCollapse").addEventListener("click", x => {
+    $("#filters").toggleClass('active');
+  });
   // -------------- CREATE DIETS BUTTONS ---------------- //
   var dietsArray = [
     "Gluten Free",
@@ -1064,18 +1082,18 @@
     .then((json) => {
       let i = 0;
       results = json.results;
-      let heart =
-        "<span class='h_container' style='float: right'> <i id='heart'class='far fa-heart'></i></span>";
+      
       let ogRow = document.querySelector("#templateRow");
       let ogCard = document.querySelector("#templateCard");
       for (i = 0; i < results.length; i += 2) {
         let newRow = ogRow.cloneNode(true);
         newRow.id = "row" + i;
-
+        let heart1 =
+        "<span class='h_container' style='float: right'> <i id='"+results[i].id+"'class='far fa-heart myheart'></i></span>";
         let cardCopy1 = ogCard.cloneNode(true);
         cardCopy1.id = "card" + i;
         cardCopy1.querySelector(".card-title").innerHTML =
-          results[i].title + heart;
+          results[i].title + heart1;
         cardCopy1.querySelector(".card-img-top").src = results[i].image;
         cardCopy1.querySelector(".card-text").innerHTML = results[i].summary;
         cardCopy1.querySelector("#card-servings").innerHTML =
@@ -1086,10 +1104,12 @@
         cardCopy1.querySelector(".viewRecipe").href = "#"+results[i].id.toString();
         cardCopy1.querySelector(".viewRecipe").id = results[i].id.toString();
 
+        let heart2 =
+        "<span class='h_container' style='float: right'> <i id='"+results[i+1].id+"'class='far fa-heart myheart'></i></span>";
         let cardCopy2 = ogCard.cloneNode(true);
         cardCopy2.id = "card" + i;
         cardCopy2.querySelector(".card-title").innerHTML =
-          results[i + 1].title + heart;
+          results[i + 1].title + heart2;
         cardCopy2.querySelector(".card-img-top").src = results[i + 1].image;
         cardCopy2.querySelector(".card-text").innerHTML =
           results[i + 1].summary;
@@ -1107,15 +1127,23 @@
       } // end for loop
 
       // -------------- MAKE HEARTS CLICKABLE ---------------- //
-      var hearts = document.querySelectorAll("#heart");
+      var hearts = document.querySelectorAll(".myheart");
       hearts.forEach((heart) => {
         heart.addEventListener("click", (evt) => {
           if (heart.classList.contains("far")) {
             console.log("clicked far");
             heart.classList.remove("far");
             heart.classList.add("fas");
+            var ids = [];
+            console.log(evt.target.id);
+            let element = document.getElementById(evt.target.id);
+
+            // let recipeId = cardBodyElement.querySelector(".viewRecipe").id;
+            // console.log(recipeId);
+            // ids.push();
+            // localStorage.setItem("names", JSON.stringify(names));
+            // var storedNames = JSON.parse(localStorage.getItem("names"));
           } else {
-            console.log("clicked fas");
             heart.classList.remove("fas");
             heart.classList.add("far");
           }

@@ -1,7 +1,7 @@
 /* classes */
 .LeftBar {
-  width: 20%;
   min-width: 300px;
+  max-width: 300px;
   height: 100%;
   padding: 0.5%;
   text-align: center;
@@ -9,6 +9,10 @@
   margin-bottom: auto;
   border-right: 2px solid #efecfa;
   background-color: #f8f7fd;
+  transition: 0.3s;
+}
+.LeftBar.active {
+  margin-left: -300px;
 }
 .tablediv {
   width: 100%;
@@ -43,14 +47,22 @@
   display: flex;
   width: 100%;
   height: 95%;
+  align-items: stretch;
 }
 .scrollable {
   overflow-y: auto;
 }
 
 /* ID's */
+#searchRecipes {
+  margin-top: 16px;
+  margin-bottom: 16px;
+}
+#sidebarCollapse {
+  margin-right: 16px;
+}
 #content {
-  width: 80%;
+  width: 100%;
 }
 #MainPage {
   width: 100%;
@@ -195,18 +207,18 @@ body {
   top: -160px;
 } */
 
-#heart {
+.myheart {
   font-size: 25px;
 }
 
-#heart:hover {
+.myheart:hover {
   color: red;
 }
 
-#heart.fas {
+.myheart.fas {
   color: red;
 }
-#heart.fas:hover {
+.myheart.fas:hover {
   color: black;
 }
 
@@ -219,7 +231,9 @@ body {
   position: relative;
   left: 470px;
 } */
-
+.row{
+  overflow-x: hidden;
+}
 .checkbox {
   margin-right: 2%;
 }
