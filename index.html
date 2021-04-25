@@ -715,7 +715,7 @@
     </div>
     <!-- MainPage End -->
 
-    <!-- IngredietsPage Start -->
+    <!-- IngredientsPage Start -->
     <div id="ingredientsDiv" class="wrapper">
       <!-- Tab links -->
       <div class="tab">
@@ -728,8 +728,8 @@
         <button class="tablinks" onclick="openTab(event, 'Fruits')">
           Fruits
         </button>
-        <button class="tablinks" onclick="openTab(event, 'Vegetable')">
-          Vegetable
+        <button class="tablinks" onclick="openTab(event, 'Vegetables')">
+          Vegetables
         </button>
         <button class="tablinks" onclick="openTab(event, 'Spices')">
           Spices
@@ -744,125 +744,114 @@
         <button type="button" class="btn btn-secondary" id="toRecipes">
           ← Go Back</button
         ><br />
-        <button class="ibutton">All Dairy</button>
-        <button class="ibutton">Butter</button>
-        <button class="ibutton">Casein</button>
-        <button class="ibutton">Cheese</button>
-        <button class="ibutton">Cottage Cheese</button>
-        <button class="ibutton">Cream</button>
-        <button class="ibutton">Eggs</button>
-        <button class="ibutton">Ice Cream</button>
-        <button class="ibutton">Sour Cream</button>
-        <button class="ibutton">Whey</button>
-        <button class="ibutton">Whipped Cream</button>
-        <button class="ibutton">Yogurt</button>
+        <button class="ibutton" id="All Dairy" value="NA" onclick="javascript:toggle(this);">All Dairy</button>
+        <button class="ibutton" id="Butter" value="NA" onclick="javascript:toggle(this);">Butter</button>
+        <button class="ibutton" id="Cheese" value="NA" onclick="javascript:toggle(this);">Cheese</button>
+        <button class="ibutton" id="Cottage Cheese" value="NA" onclick="javascript:toggle(this);">Cottage Cheese</button>
+        <button class="ibutton" id="Cream" value="NA" onclick="javascript:toggle(this);">Cream</button>
+        <button class="ibutton" id="Eggs" value="NA" onclick="javascript:toggle(this);">Eggs</button>
+        <button class="ibutton" id="Ice Cream" value="NA" onclick="javascript:toggle(this);">Ice Cream</button>
+        <button class="ibutton" id="Sour Cream" value="NA" onclick="javascript:toggle(this);">Sour Cream</button>
+        <button class="ibutton" id="Whipped Cream" value="NA" onclick="javascript:toggle(this);">Whipped Cream</button>
+        <button class="ibutton" id="Yogurt" value="NA" onclick="javascript:toggle(this);">Yogurt</button>
       </div>
 
       <div id="Meats" class="tabcontent scrollable">
         <button type="button" class="btn btn-secondary" id="toRecipes">
           ← Go Back</button
         ><br />
-        <button class="ibutton">All Meat</button>
-        <button class="ibutton">Bacon</button>
-        <button class="ibutton">Beef</button>
-        <button class="ibutton">Buffalo</button>
-        <button class="ibutton">Clams</button>
-        <button class="ibutton">Crab</button>
-        <button class="ibutton">Duck</button>
-        <button class="ibutton">Eel</button>
-        <button class="ibutton">Fish</button>
-        <button class="ibutton">Ham</button>
-        <button class="ibutton">Lobster</button>
-        <button class="ibutton">Shrimp</button>
-        <button class="ibutton">Turkey</button>
+        <button class="ibutton" id="All Meat" value="NA" onclick="javascript:toggle(this);">All Meat</button>
+        <button class="ibutton" id="Bacon" value="NA" onclick="javascript:toggle(this);">Bacon</button>
+        <button class="ibutton" id="Beef" value="NA" onclick="javascript:toggle(this);">Beef</button>
+        <button class="ibutton" id="Clams" value="NA" onclick="javascript:toggle(this);">Clams</button>
+        <button class="ibutton" id="Crab" value="NA" onclick="javascript:toggle(this);">Crab</button>
+        <button class="ibutton" id="Fish" value="NA" onclick="javascript:toggle(this);">Fish</button>
+        <button class="ibutton" id="Ham" value="NA" onclick="javascript:toggle(this);">Ham</button>
+        <button class="ibutton" id="Lobster" value="NA" onclick="javascript:toggle(this);">Lobster</button>
+        <button class="ibutton" id="Shrimp" value="NA" onclick="javascript:toggle(this);">Shrimp</button>
+        <button class="ibutton" id="Turkey" value="NA" onclick="javascript:toggle(this);">Turkey</button>
       </div>
 
       <div id="Fruits" class="tabcontent scrollable">
         <button type="button" class="btn btn-secondary" id="toRecipes">
           ← Go Back</button
         ><br />
-        <button class="ibutton">All Fruits</button>
-        <button class="ibutton">Apple</button>
-        <button class="ibutton">Blueberries</button>
-        <button class="ibutton">Cherry</button>
-        <button class="ibutton">Coconut</button>
-        <button class="ibutton">Grapefruit</button>
-        <button class="ibutton">Grapes</button>
-        <button class="ibutton">Kiwi</button>
-        <button class="ibutton">Lemon</button>
-        <button class="ibutton">Mandarin</button>
-        <button class="ibutton">Mango</button>
-        <button class="ibutton">Orange</button>
-        <button class="ibutton">Pineapple</button>
+        <button class="ibutton" id="All Fruits" value="NA" onclick="javascript:toggle(this);">All Fruits</button>
+        <button class="ibutton" id="Apple" value="NA" onclick="javascript:toggle(this);">Apple</button>
+        <button class="ibutton" id="Blueberries" value="NA" onclick="javascript:toggle(this);">Blueberries</button>
+        <button class="ibutton" id="Cherry" value="NA" onclick="javascript:toggle(this);">Cherry</button>
+        <button class="ibutton" id="Coconut" value="NA" onclick="javascript:toggle(this);">Coconut</button>
+        <button class="ibutton" id="Grapefruit" value="NA" onclick="javascript:toggle(this);">Grapefruit</button>
+        <button class="ibutton" id="Green Grapes" value="NA" onclick="javascript:toggle(this);">Green Grapes</button>
+        <button class="ibutton" id="Kiwi" value="NA" onclick="javascript:toggle(this);">Kiwi</button>
+        <button class="ibutton" id="Lemon" value="NA" onclick="javascript:toggle(this);">Lemon</button>
+        <button class="ibutton" id="Mango" value="NA" onclick="javascript:toggle(this);">Mango</button>
+        <button class="ibutton" id="Orange" value="NA" onclick="javascript:toggle(this);">Orange</button>
+        <button class="ibutton" id="Pineapple" value="NA" onclick="javascript:toggle(this);">Pineapple</button>
       </div>
 
-      <div id="Vegetable" class="tabcontent scrollable">
+      <div id="Vegetables" class="tabcontent scrollable">
         <button type="button" class="btn btn-secondary" id="toRecipes">
           ← Go Back</button
         ><br />
-        <button class="ibutton">All Vegetables</button>
-        <button class="ibutton">Artichoke</button>
-        <button class="ibutton">Asparagus</button>
-        <button class="ibutton">Beets</button>
-        <button class="ibutton">Broccoli</button>
-        <button class="ibutton">Cabbage</button>
-        <button class="ibutton">Carrots</button>
-        <button class="ibutton">Cauliflower</button>
-        <button class="ibutton">Celery</button>
-        <button class="ibutton">Eggplant</button>
-        <button class="ibutton">Kale</button>
-        <button class="ibutton">Lettuce</button>
-        <button class="ibutton">Onions</button>
-        <button class="ibutton">Peppers</button>
-        <button class="ibutton">Potatoes</button>
-        <button class="ibutton">Pumpkin</button>
-        <button class="ibutton">Radish</button>
-        <button class="ibutton">Tomatoes</button>
-        <button class="ibutton">Zucchini</button>
+        <button class="ibutton" id="All Vegetables" value="NA" onclick="javascript:toggle(this);">All Vegetables</button>
+        <button class="ibutton" id="Artichokes" value="NA" onclick="javascript:toggle(this);">Artichokes</button>
+        <button class="ibutton" id="Asparagus" value="NA" onclick="javascript:toggle(this);">Asparagus</button>
+        <button class="ibutton" id="Beets" value="NA" onclick="javascript:toggle(this);">Beets</button>
+        <button class="ibutton" id="Broccoli" value="NA" onclick="javascript:toggle(this);">Broccoli</button>
+        <button class="ibutton" id="Cabbage value="NA" onclick="javascript:toggle(this);">Cabbage</button>
+        <button class="ibutton" id="Carrots" value="NA" onclick="javascript:toggle(this);">Carrots</button>
+        <button class="ibutton" id="Cauliflower" value="NA" onclick="javascript:toggle(this);">Cauliflower</button>
+        <button class="ibutton" id="Celery" value="NA" onclick="javascript:toggle(this);">Celery</button>
+        <button class="ibutton" id="Eggplant" value="NA" onclick="javascript:toggle(this);">Eggplant</button>
+        <button class="ibutton" id="Kale" value="NA" onclick="javascript:toggle(this);">Kale</button>
+        <button class="ibutton" id="Lettuce" value="NA" onclick="javascript:toggle(this);">Lettuce</button>
+        <button class="ibutton" id="Onion" value="NA" onclick="javascript:toggle(this);">Onion</button>
+        <button class="ibutton" id="Peppers" value="NA" onclick="javascript:toggle(this);">Peppers</button>
+        <button class="ibutton" id="Pineapple" value="NA" onclick="javascript:toggle(this);">Potatoes</button>
+        <button class="ibutton" id="Pumpkin" value="NA" onclick="javascript:toggle(this);">Pumpkin</button>
+        <button class="ibutton" id="Radish" value="NA" onclick="javascript:toggle(this);">Radish</button>
+        <button class="ibutton" id="Tomatoes" value="NA" onclick="javascript:toggle(this);">Tomatoes</button>
       </div>
 
       <div id="Spices" class="tabcontent scrollable">
         <button type="button" class="btn btn-secondary" id="toRecipes">
           ← Go Back</button
         ><br />
-        <button class="ibutton">All Spices</button>
-        <button class="ibutton">Allspice</button>
-        <button class="ibutton">Basil</button>
-        <button class="ibutton">Black Cumin</button>
-        <button class="ibutton">Black Pepper</button>
-        <button class="ibutton">Cinnamon</button>
-        <button class="ibutton">Cumin</button>
-        <button class="ibutton">Curry Leaf</button>
-        <button class="ibutton">Ginger</button>
-        <button class="ibutton">Mint</button>
-        <button class="ibutton">Mustard</button>
-        <button class="ibutton">Nutmeg</button>
-        <button class="ibutton">Paprika</button>
-        <button class="ibutton">Rosemary</button>
-        <button class="ibutton">Saffron</button>
-        <button class="ibutton">Sage</button>
-        <button class="ibutton">Star Anise</button>
-        <button class="ibutton">Sumac</button>
-        <button class="ibutton">Thyme</button>
-        <button class="ibutton">Vanilla</button>
-        <button class="ibutton">Wasabi</button>
+        <button class="ibutton" id="All Spices" value="NA" onclick="javascript:toggle(this);">All Spices</button>
+        <button class="ibutton" id="Allspice" value="NA" onclick="javascript:toggle(this);">Allspice</button>
+        <button class="ibutton" id="Basil" value="NA" onclick="javascript:toggle(this);">Basil</button>
+        <button class="ibutton" id="Black Pepper" value="NA" onclick="javascript:toggle(this);">Black Pepper</button>
+        <button class="ibutton" id="Cinnamon Stick" value="NA" onclick="javascript:toggle(this);">Cinnamon Stick</button>
+        <button class="ibutton" id="Cumin" value="NA" onclick="javascript:toggle(this);">Cumin</button>
+        <button class="ibutton" id="Ginger" value="NA" onclick="javascript:toggle(this);">Ginger</button>
+        <button class="ibutton" id="Mint" value="NA" onclick="javascript:toggle(this);">Mint</button>
+        <button class="ibutton" id="Mustard" value="NA" onclick="javascript:toggle(this);">Mustard</button>
+        <button class="ibutton" id="Nutmeg" value="NA" onclick="javascript:toggle(this);">Nutmeg</button>
+        <button class="ibutton" id="Paprika" value="NA" onclick="javascript:toggle(this);">Paprika</button>
+        <button class="ibutton" id="Rosemary" value="NA" onclick="javascript:toggle(this);">Rosemary</button>
+        <button class="ibutton" id="Saffron" value="NA" onclick="javascript:toggle(this);">Saffron</button>
+        <button class="ibutton" id="Sage" value="NA" onclick="javascript:toggle(this);">Sage</button>
+        <button class="ibutton" id="Star Anise" value="NA" onclick="javascript:toggle(this);">Star Anise</button>
+        <button class="ibutton" id="Thyme" value="NA" onclick="javascript:toggle(this);">Thyme</button>
+        <button class="ibutton" id="Vanilla Bean" value="NA" onclick="javascript:toggle(this);">Vanilla Bean</button>
       </div>
 
       <div id="Liquids" class="tabcontent scrollable">
         <button type="button" class="btn btn-secondary" id="toRecipes">
           ← Go Back</button
         ><br />
-        <button class="ibutton">All Liquids</button>
-        <button class="ibutton">Ale</button>
-        <button class="ibutton">Beer</button>
-        <button class="ibutton">Chicken Broth</button>
-        <button class="ibutton">Juices</button>
-        <button class="ibutton">Rum</button>
-        <button class="ibutton">Vinegar</button>
-        <button class="ibutton">Wine</button>
+        <button class="ibutton" id="All Liquids" value="NA" onclick="javascript:toggle(this);">All Liquids</button>
+        <button class="ibutton" id="Ale" value="NA" onclick="javascript:toggle(this);">Ale</button>
+        <button class="ibutton" id="Beer" value="NA" onclick="javascript:toggle(this);">Beer</button>
+        <button class="ibutton" id="Chicken Broth" value="NA" onclick="javascript:toggle(this);">Chicken Broth</button>
+        <button class="ibutton" id="Juice" value="NA" onclick="javascript:toggle(this);">Juice</button>
+        <button class="ibutton" id="Rum" value="NA" onclick="javascript:toggle(this);">Rum</button>
+        <button class="ibutton" id="Vinegar" value="NA" onclick="javascript:toggle(this);">Vinegar</button>
+        <button class="ibutton" id="Wine" value="NA" onclick="javascript:toggle(this);">Wine</button>
       </div>
     </div>
-    <!-- IngredietsPage End -->
+    <!-- IngredientsPage End -->
 
     <!-- Bootstrap JS -->
     <script
@@ -998,6 +987,23 @@
 
   // -------------- INGREDIENTS BUTTON LISTENER ---------------- //
   document.getElementsByClassName("tablinks")[0].click();
+
+  function toggle(button) {
+    switch (button.value) {
+      case "NA":
+	button.style.background = 'green'
+	button.value = "IN"
+	break;
+      case "IN":
+	button.style.background = 'red'
+	button.value = "EX"
+	break;
+      case "EX":
+	button.style.background = 'grey'
+	button.value = "NA"
+	break;
+    }	
+  }
 
   function openTab(evt, ingredientName) {
     var i, tabcontent, tablinks;
