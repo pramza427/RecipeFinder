@@ -85,10 +85,10 @@
   width: 98%;
   background-color: #ededed;
 }
-.timeFilter:hover {
+.timeFilter:hover{
   background-color: #d2d3d2;
 }
-.timeFilter[aria-pressed="true"] {
+.btn-light:not(:disabled):not(.disabled).timeFilter.active {
   background-color: #36aec9;
 }
 #toRecipes {
