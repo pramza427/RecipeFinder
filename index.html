@@ -151,9 +151,9 @@
         </h4>
         <div class="collapse" id="timeDiv">
           <button
-            id="filter"
+            id="15"
             type="button"
-            class="btn btn-light time"
+            class="btn btn-light time timeFilter"
             data-toggle="button"
             aria-pressed="false"
             autocomplete="off"
@@ -161,9 +161,9 @@
             Less than 15 minutes
           </button>
           <button
-            id="filter"
+            id="30"
             type="button"
-            class="btn btn-light time"
+            class="btn btn-light time timeFilter"
             data-toggle="button"
             aria-pressed="false"
             autocomplete="off"
@@ -171,9 +171,9 @@
             Less than 30 minutes
           </button>
           <button
-            id="filter"
+            id="45"
             type="button"
-            class="btn btn-light time"
+            class="btn btn-light time timeFilter"
             data-toggle="button"
             aria-pressed="false"
             autocomplete="off"
@@ -181,9 +181,9 @@
             Less than 45 minutes
           </button>
           <button
-            id="filter"
+            id="60"
             type="button"
-            class="btn btn-light time"
+            class="btn btn-light time timeFilter"
             data-toggle="button"
             aria-pressed="false"
             autocomplete="off"
@@ -211,41 +211,41 @@
       <!-- MainPage Content Start -->
       <div class="scrollable" id="content">
         <!-- MainRecipies Start -->
-        <div id="recipeResultsDiv">
-          <div
-            class="card col-xs-12 col-sm-12 col-md-5 col-lg-5 ml-5"
-            id="templateCard"
-          >
-            <img src="./Images/BreadPizza.jpg" class="card-img-top" />
-            <div class="card-body">
-              <h5 class="card-title">
-                Oven-Baked French Bread Pizzas
-                <span class="h_container" style="float: right">
-                  <i id="heart" class="far fa-heart"></i>
-                </span>
-              </h5>
+        <div id="recipeResultsDiv"></div>
+        <div
+          class="card col-xs-12 col-sm-12 col-md-5 col-lg-5 ml-5"
+          id="templateCard"
+        >
+          <img src="./Images/BreadPizza.jpg" class="card-img-top" />
+          <div class="card-body">
+            <h5 class="card-title">
+              Oven-Baked French Bread Pizzas
+              <span class="h_container" style="float: right">
+                <i id="heart" class="far fa-heart"></i>
+              </span>
+            </h5>
 
-              <p class="card-text">
-                Pizza night is the best night — especially when everyone gets to
-                build their dream slice. (Or three!)
-              </p>
-              <span style="float: left"
-                ><strong id="card-servings">Servings: 2</strong></span
-              ><span style="float: right"
-                ><strong id="card-time">Cooking time: 30 mins</strong></span
+            <p class="card-text">
+              Pizza night is the best night — especially when everyone gets to
+              build their dream slice. (Or three!)
+            </p>
+            <span style="float: left"
+              ><strong id="card-servings">Servings: 2</strong></span
+            ><span style="float: right"
+              ><strong id="card-time">Cooking time: 30 mins</strong></span
+            >
+            <div class="mt-5">
+              <a
+                href="#recipeID"
+                class="btn btn-primary btn-sm viewRecipe"
+                style="float: right"
+                >Full recipe ></a
               >
-              <div class="mt-5">
-                <a
-                  href="#recipeID"
-                  class="btn btn-primary btn-sm viewRecipe"
-                  style="float: right"
-                  >Full recipe ></a
-                >
-              </div>
             </div>
           </div>
-          <div class="row mt-3" id="templateRow"></div>
         </div>
+        <div class="row mt-3" id="templateRow"></div>
+
         <!-- MainRecipies End -->
 
         <!-- SavedRecipies Start -->
@@ -285,264 +285,6 @@
           </div>
           <div class="row mt-3" id="templateRowSaved"></div>
         </div>
-
-        <!-- <div class="card col-xs-12 col-sm-12 col-md-5 col-lg-5 ml-5">
-              <img src="./Images/BeanPotato.jpg" class="card-img-top" />
-              <div class="card-body">
-                <h5 class="card-title">
-                  Black Bean–Stuffed Sweet Potatoes
-                  <span class="h_container" style="float: right">
-                    <i id="heart" class="fas fa-heart"></i>
-                  </span>
-                </h5>
-                <p class="card-text">
-                  It's packed with protein and fiber, and you can add toppings —
-                  like avocado or sour cream — depending on what's in your
-                  fridge.
-                </p>
-                <span style="float: left"><strong>Servings: 2</strong></span
-                ><span style="float: right"
-                  ><strong>Cooking time: 30 mins</strong></span
-                >
-                <div class="mt-5">
-                  <a
-                    href="#"
-                    class="btn btn-primary btn-sm viewRecipe"
-                    style="float: right"
-                    >Full recipe ></a
-                  >
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="row mt-3">
-            <div class="card col-xs-12 col-sm-12 col-md-5 col-lg-5 ml-5">
-              <img src="./Images/MacNCheese.jpg" class="card-img-top" />
-              <div class="card-body">
-                <h5 class="card-title">
-                  Instant Pot Veggie-Packed Mac 'n' Cheese
-                  <span class="h_container" style="float: right">
-                    <i id="heart" class="fas fa-heart"></i>
-                  </span>
-                </h5>
-                <p class="card-text">
-                  The Instant Pot does all the hard work here — and you'll also
-                  get a healthy dose of fresh greens!
-                </p>
-                <span style="float: left"><strong>Servings: 2</strong></span
-                ><span style="float: right"
-                  ><strong>Cooking time: 30 mins</strong></span
-                >
-                <div class="mt-5">
-                  <a
-                    href="#"
-                    class="btn btn-primary btn-sm viewRecipe"
-                    style="float: right"
-                    >Full recipe ></a
-                  >
-                </div>
-              </div>
-            </div>
-
-            <div class="card col-xs-12 col-sm-12 col-md-5 col-lg-5 ml-5">
-              <img src="./Images/SheetPanVeggies.jpg" class="card-img-top" />
-              <div class="card-body">
-                <h5 class="card-title">
-                  Sheet Pan Sausage & Veggies
-                  <span class="h_container" style="float: right">
-                    <i id="heart" class="fas fa-heart"></i>
-                  </span>
-                </h5>
-                <p class="card-text">
-                  Line the sheet pan with parchment or foil for the quickest
-                  cleanup — then serve over rice, stuffed into a pita, or on its
-                  own.
-                </p>
-                <span style="float: left"><strong>Servings: 2</strong></span
-                ><span style="float: right"
-                  ><strong>Cooking time: 30 mins</strong></span
-                >
-                <div class="mt-5">
-                  <a
-                    href="#"
-                    class="btn btn-primary btn-sm viewRecipe"
-                    style="float: right"
-                    >Full recipe ></a
-                  >
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="row mt-3">
-            <div class="card col-xs-12 col-sm-12 col-md-5 col-lg-5 ml-5">
-              <img src="./Images/VeganChickpea.jpg" class="card-img-top" />
-              <div class="card-body">
-                <h5 class="card-title">
-                  Vegan Chickpea Shakshuka
-                  <span class="h_container" style="float: right">
-                    <i id="heart" class="fas fa-heart"></i>
-                  </span>
-                </h5>
-                <p class="card-text">
-                  This vegan-friendly version swaps eggs for protein-packed
-                  chickpeas, and makes enough for four.
-                </p>
-                <span style="float: left"><strong>Servings: 2</strong></span
-                ><span style="float: right"
-                  ><strong>Cooking time: 30 mins</strong></span
-                >
-                <div class="mt-5">
-                  <a
-                    href="#"
-                    class="btn btn-primary btn-sm viewRecipe"
-                    style="float: right"
-                    >Full recipe ></a
-                  >
-                </div>
-              </div>
-            </div>
-
-            <div class="card col-xs-12 col-sm-12 col-md-5 col-lg-5 ml-5">
-              <img src="./Images/PestoChicken.jpg" class="card-img-top" />
-              <div class="card-body">
-                <h5 class="card-title">
-                  Pesto Chicken Bake
-                  <span class="h_container" style="float: right">
-                    <i id="heart" class="fas fa-heart"></i>
-                  </span>
-                </h5>
-                <p class="card-text">Doesn't get much easier than this, TBH.</p>
-                <span style="float: left"><strong>Servings: 2</strong></span
-                ><span style="float: right"
-                  ><strong>Cooking time: 30 mins</strong></span
-                >
-                <div class="mt-5">
-                  <a
-                    href="#"
-                    class="btn btn-primary btn-sm viewRecipe"
-                    style="float: right"
-                    >Full recipe ></a
-                  >
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="row mt-3">
-            <div class="card col-xs-12 col-sm-12 col-md-5 col-lg-5 ml-5">
-              <img src="./Images/VeggieBowl.jpg" class="card-img-top" />
-              <div class="card-body">
-                <h5 class="card-title">
-                  Protein-Packed Veggie Bowl
-                  <span class="h_container" style="float: right">
-                    <i id="heart" class="fas fa-heart"></i>
-                  </span>
-                </h5>
-                <p class="card-text">
-                  This may look involved, but after a bit of prep — crisping
-                  chickpeas, roasting sweet potatoes — it's mostly just
-                  assembly.
-                </p>
-                <span style="float: left"><strong>Servings: 2</strong></span
-                ><span style="float: right"
-                  ><strong>Cooking time: 30 mins</strong></span
-                >
-                <div class="mt-5">
-                  <a
-                    href="#"
-                    class="btn btn-primary btn-sm viewRecipe"
-                    style="float: right"
-                    >Full recipe ></a
-                  >
-                </div>
-              </div>
-            </div>
-
-            <div class="card col-xs-12 col-sm-12 col-md-5 col-lg-5 ml-5">
-              <img src="./Images/BowtiesAndBroccoli.png" class="card-img-top" />
-              <div class="card-body">
-                <h5 class="card-title">
-                  Bowties & Broccoli
-                  <span class="h_container" style="float: right">
-                    <i id="heart" class="fas fa-heart"></i>
-                  </span>
-                </h5>
-                <p class="card-text">
-                  The trinity of weeknight dinners: fast, cheap, and easy.
-                </p>
-                <span style="float: left"><strong>Servings: 2</strong></span
-                ><span style="float: right"
-                  ><strong>Cooking time: 30 mins</strong></span
-                >
-                <div class="mt-5">
-                  <a
-                    href="#"
-                    class="btn btn-primary btn-sm viewRecipe"
-                    style="float: right"
-                    >Full recipe ></a
-                  >
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="row mt-3">
-            <div class="card col-xs-12 col-sm-12 col-md-5 col-lg-5 ml-5">
-              <img src="./Images/BBQChicken.jpg" class="card-img-top" />
-              <div class="card-body">
-                <h5 class="card-title">
-                  Slow Cooker BBQ Chicken
-                  <span class="h_container" style="float: right">
-                    <i id="heart" class="fas fa-heart"></i>
-                  </span>
-                </h5>
-                <p class="card-text">
-                  Heads up that this one does have to cook for a few hours, so
-                  you'll need to plan accordingly. But it's a true drop-and-go
-                  dinner — and basically makes itself.
-                </p>
-                <span style="float: left"><strong>Servings: 2</strong></span
-                ><span style="float: right"
-                  ><strong>Cooking time: 30 mins</strong></span
-                >
-                <div class="mt-5">
-                  <a
-                    href="#"
-                    class="btn btn-primary btn-sm viewRecipe"
-                    style="float: right"
-                    >Full recipe ></a
-                  >
-                </div>
-              </div>
-            </div>
-
-            <div class="card col-xs-12 col-sm-12 col-md-5 col-lg-5 ml-5">
-              <img src="./Images/LoMein.jpg" class="card-img-top" />
-              <div class="card-body">
-                <h5 class="card-title">
-                  15-Minute Lo Mein
-                  <span class="h_container" style="float: right">
-                    <i id="heart" class="fas fa-heart"></i>
-                  </span>
-                </h5>
-                <p class="card-text">
-                  Better than takeout — and better for you, too. For extra
-                  protein and fiber, swap in soba noodles.
-                </p>
-                <span style="float: left"><strong>Servings: 2</strong></span
-                ><span style="float: right"
-                  ><strong>Cooking time: 30 mins</strong></span
-                >
-                <div class="mt-5">
-                  <a
-                    href="#"
-                    class="btn btn-primary btn-sm viewRecipe"
-                    style="float: right"
-                    >Full recipe ></a
-                  >
-                </div>
-              </div>
-            </div>
-          </div> -->
-        <!-- </div> -->
         <!-- SavedRecipies End -->
 
         <!-- Recipe Details Card -->
@@ -1451,6 +1193,7 @@
     var td = document.createElement("td");
     var button = document.querySelector(".tablediv button").cloneNode(true);
     button.innerHTML = dietsArray[i];
+    button.classList.add("dietFilter");
     td.appendChild(button);
     row.appendChild(td);
   }
@@ -1499,6 +1242,7 @@
     var td = document.createElement("td");
     var button = document.querySelector(".tablediv button").cloneNode(true);
     button.innerHTML = cuisineArray[i];
+    button.classList.add("cuisineFilter");
     td.appendChild(button);
     row.appendChild(td);
   }
@@ -1508,7 +1252,22 @@
   document.querySelector("#cuisineDiv").appendChild(cuisineTable);
 
   // -------------- CREATE MEAL BUTTONS ---------------- //
-  var mealArray = ["Breakfast", "Lunch", "Dinner", "Snack"];
+  var mealArray = [
+    "Main course",
+    "Side dish",
+    "Dessert",
+    "Appetizer",
+    "Salad",
+    "Bread",
+    "Breakfast",
+    "Soup",
+    "Beverage",
+    "Sauce",
+    "Marinade",
+    "Fingerfood",
+    "Snack",
+    "Drink",
+  ];
 
   let mealTable = document.createElement("table");
   var row;
@@ -1520,6 +1279,7 @@
     var td = document.createElement("td");
     var button = document.querySelector(".tablediv button").cloneNode(true);
     button.innerHTML = mealArray[i];
+    button.classList.add("mealFilter");
     td.appendChild(button);
     row.appendChild(td);
   }
@@ -1535,6 +1295,58 @@
     document.querySelector("#calorieValue").value = evt.target.value;
   });
 
+  // -------------- Search by Filter BUTTON LISTENER ---------------- //
+  document.querySelector("#searchRecipes").addEventListener("click", (evt) => {
+    var calories = document.querySelector("#calorieValue").value;
+
+    // get arrays for each filter, populate with active buttons
+    var dietInputs = [];
+    document.querySelectorAll(".dietFilter.active").forEach((button) => {
+      dietInputs.push(button.innerHTML.toLowerCase());
+    });
+    var cuisineInputs = [];
+    document.querySelectorAll(".cuisineFilter.active").forEach((button) => {
+      cuisineInputs.push(button.innerHTML.toLowerCase());
+    });
+    var timeInputs = [];
+    document.querySelectorAll(".timeFilter.active").forEach((button) => {
+      timeInputs.push(button.id);
+    });
+    var mealInputs = [];
+    document.querySelectorAll(".mealFilter.active").forEach((button) => {
+      mealInputs.push(button.innerHTML.toLowerCase());
+    });
+
+    var urlBase = "https://api.spoonacular.com/recipes/complexSearch?";
+    urlBase += "maxCalories=" + calories;
+    var dietUrl = "";
+    if (dietInputs.length > 0) {
+      dietUrl += "&diet=" + String(dietInputs);
+    }
+    var cuisineUrl = "";
+    if (cuisineInputs.length > 0) {
+      cuisineUrl += "&cuisine=" + String(cuisineInputs);
+    }
+    var timeUrl = "";
+    if (timeInputs.length > 0) {
+      timeUrl += "&maxReadyTime=";
+      timeUrl += timeInputs[0];
+    }
+    var mealUrl = "";
+    if (mealInputs.length > 0) {
+      mealUrl += "&type=" + String(mealInputs);
+    }
+
+    var fullUrl =
+      urlBase +
+      dietUrl +
+      cuisineUrl +
+      timeUrl +
+      mealUrl +
+      "&addRecipeInformation=true&number=10&apiKey=" +
+      apiKey;
+    populateMainCards(fullUrl);
+  });
   // -------------- INGREDIENTS BUTTON LISTENER ---------------- //
   document.getElementsByClassName("tablinks")[0].click();
 
@@ -1948,79 +1760,89 @@
     $("#savedRecipes").css({ "background-color": "" });
     $(".populatedCards").remove();
 
-    var existingRow = document.querySelector("#templateRow");
-    fetch(
+    var queryUrl =
       "https://api.spoonacular.com/recipes/complexSearch?query=" +
-        query +
-        "&addRecipeInformation=true&apiKey=" +
-        apiKey
-    )
+      query +
+      "&addRecipeInformation=true&apiKey=" +
+      apiKey;
+    var existingRow = document.querySelector("#templateRow");
+    populateMainCards(queryUrl);
+  }
+
+  // -------------- Populate Main Recipe Cards ---------------- //
+  tempurl =
+    "https://api.spoonacular.com/recipes/complexSearch?cuisine=italian&addRecipeNutrition=true&number=10&apiKey=" +
+    apiKey;
+  populateMainCards(tempurl);
+
+  function populateMainCards(url) {
+    document.querySelector("#recipeResultsDiv").innerHTML = "";
+    var existingRow = document.querySelector("#templateRow");
+    fetch(url)
       .then((x) => {
         return x.json();
       })
       .then((json) => {
         let i = 0;
-        let api_results = json.results;
+        results = json.results;
+
         let ogRow = document.querySelector("#templateRow");
         let ogCard = document.querySelector("#templateCard");
-        for (i = 0; i < api_results.length; i += 2) {
-          console.log(api_results[i]);
+        for (i = 0; i < results.length; i += 2) {
           let newRow = ogRow.cloneNode(true);
           newRow.id = "row" + i;
           newRow.classList.add("populatedCards");
           let heart1 =
             "<span class='h_container' style='float: right'> <i id='" +
-            api_results[i].id +
+            results[i].id +
             "'class='far fa-heart myheart'></i></span>";
           let cardCopy1 = ogCard.cloneNode(true);
           cardCopy1.id = "card" + i;
           cardCopy1.querySelector(".card-title").innerHTML =
-            api_results[i].title + heart1;
-          cardCopy1.querySelector(".card-img-top").src = api_results[i].image;
-          cardCopy1.querySelector(".card-text").innerHTML =
-            api_results[i].summary;
+            results[i].title + heart1;
+          cardCopy1.querySelector(".card-img-top").src = results[i].image;
+          cardCopy1.querySelector(".card-text").innerHTML = results[i].summary;
           cardCopy1.querySelector("#card-servings").innerHTML =
-            "Servings: " + api_results[i].servings;
+            "Servings: " + results[i].servings;
           cardCopy1.querySelector("#card-time").innerHTML =
-            "Ready In " + api_results[i].readyInMinutes + " Minutes";
-          cardCopy1.querySelector(".viewRecipe").href =
-            "#" + api_results[i].id.toString();
-          cardCopy1.querySelector(".viewRecipe").id = api_results[
-            i
-          ].id.toString();
-          newRow.appendChild(cardCopy1);
+            "Ready In " + results[i].readyInMinutes + " Minutes";
 
-          if (!(i + 1 > api_results.length - 1)) {
-            let heart2 =
-              "<span class='h_container' style='float: right'> <i id='" +
-              api_results[i + 1].id +
-              "'class='far fa-heart myheart'></i></span>";
-            let cardCopy2 = ogCard.cloneNode(true);
-            cardCopy2.id = "card" + i;
-            cardCopy2.querySelector(".card-title").innerHTML =
-              api_results[i + 1].title + heart2;
-            cardCopy2.querySelector(".card-img-top").src =
-              api_results[i + 1].image;
-            cardCopy2.querySelector(".card-text").innerHTML =
-              api_results[i + 1].summary;
-            cardCopy2.querySelector("#card-servings").innerHTML =
-              "Servings: " + api_results[i + 1].servings;
-            cardCopy2.querySelector("#card-time").innerHTML =
-              "Ready In " + api_results[i + 1].readyInMinutes + " Minutes";
-            cardCopy2.querySelector(".viewRecipe").href =
-              "#" + api_results[i + 1].id.toString();
-            cardCopy2.querySelector(".viewRecipe").id = api_results[
-              i + 1
-            ].id.toString();
-            newRow.appendChild(cardCopy2);
-          }
+          cardCopy1.querySelector(".viewRecipe").href =
+            "#" + results[i].id.toString();
+          cardCopy1.querySelector(".viewRecipe").id = results[i].id.toString();
+
+          let heart2 =
+            "<span class='h_container' style='float: right'> <i id='" +
+            results[i + 1].id +
+            "'class='far fa-heart myheart'></i></span>";
+          let cardCopy2 = ogCard.cloneNode(true);
+          cardCopy2.id = "card" + String(Number(i + 1));
+          cardCopy2.querySelector(".card-title").innerHTML =
+            results[i + 1].title + heart2;
+          cardCopy2.querySelector(".card-img-top").src = results[i + 1].image;
+          cardCopy2.querySelector(".card-text").innerHTML =
+            results[i + 1].summary;
+          cardCopy2.querySelector("#card-servings").innerHTML =
+            "Servings: " + results[i + 1].servings;
+          cardCopy2.querySelector("#card-time").innerHTML =
+            "Ready In " + results[i + 1].readyInMinutes + " Minutes";
+          cardCopy2.querySelector(".viewRecipe").href =
+            "#" + results[i + 1].id.toString();
+          cardCopy2.querySelector(".viewRecipe").id = results[
+            i + 1
+          ].id.toString();
+
+          newRow.appendChild(cardCopy1);
+          newRow.appendChild(cardCopy2);
 
           document.querySelector("#recipeResultsDiv").appendChild(newRow);
         } // end for loop
+
         // -------------- MAKE HEARTS CLICKABLE ---------------- //
         var hearts = document.querySelectorAll(".myheart");
         hearts.forEach((heart) => {
           heart.addEventListener("click", (evt) => {
+            console.log("clicked");
             if (heart.classList.contains("far")) {
               heart.classList.remove("far");
               heart.classList.add("fas");
@@ -2053,6 +1875,7 @@
             }
           });
         }); // end make hearts clickable
+
         var viewRecipeButtons = document.querySelectorAll(".viewRecipe");
         viewRecipeButtons.forEach((button) => {
           button.addEventListener("click", (evt) => {
@@ -2093,135 +1916,4 @@
         });
       });
   }
-
-  // -------------- Populate Cards ---------------- //
-  var existingRow = document.querySelector("#templateRow");
-  fetch(
-    "https://api.spoonacular.com/recipes/complexSearch?cuisine=italian&addRecipeNutrition=true&number=10&apiKey=" +
-      apiKey
-  )
-    .then((x) => {
-      return x.json();
-    })
-    .then((json) => {
-      let i = 0;
-      results = json.results;
-
-      let ogRow = document.querySelector("#templateRow");
-      let ogCard = document.querySelector("#templateCard");
-      for (i = 0; i < results.length; i += 2) {
-        let newRow = ogRow.cloneNode(true);
-        newRow.id = "row" + i;
-        newRow.classList.add("populatedCards");
-        let heart1 =
-          "<span class='h_container' style='float: right'> <i id='" +
-          results[i].id +
-          "'class='far fa-heart myheart'></i></span>";
-        let cardCopy1 = ogCard.cloneNode(true);
-        cardCopy1.id = "card" + i;
-        cardCopy1.querySelector(".card-title").innerHTML =
-          results[i].title + heart1;
-        cardCopy1.querySelector(".card-img-top").src = results[i].image;
-        cardCopy1.querySelector(".card-text").innerHTML = results[i].summary;
-        cardCopy1.querySelector("#card-servings").innerHTML =
-          "Servings: " + results[i].servings;
-        cardCopy1.querySelector("#card-time").innerHTML =
-          "Ready In " + results[i].readyInMinutes + " Minutes";
-
-        cardCopy1.querySelector(".viewRecipe").href =
-          "#" + results[i].id.toString();
-        cardCopy1.querySelector(".viewRecipe").id = results[i].id.toString();
-
-        let heart2 =
-          "<span class='h_container' style='float: right'> <i id='" +
-          results[i + 1].id +
-          "'class='far fa-heart myheart'></i></span>";
-        let cardCopy2 = ogCard.cloneNode(true);
-        cardCopy2.id = "card" + String(Number(i + 1));
-        cardCopy2.querySelector(".card-title").innerHTML =
-          results[i + 1].title + heart2;
-        cardCopy2.querySelector(".card-img-top").src = results[i + 1].image;
-        cardCopy2.querySelector(".card-text").innerHTML =
-          results[i + 1].summary;
-        cardCopy2.querySelector("#card-servings").innerHTML =
-          "Servings: " + results[i + 1].servings;
-        cardCopy2.querySelector("#card-time").innerHTML =
-          "Ready In " + results[i + 1].readyInMinutes + " Minutes";
-        cardCopy2.querySelector(".viewRecipe").href =
-          "#" + results[i + 1].id.toString();
-        cardCopy2.querySelector(".viewRecipe").id = results[
-          i + 1
-        ].id.toString();
-
-        newRow.appendChild(cardCopy1);
-        newRow.appendChild(cardCopy2);
-
-        document.querySelector("#recipeResultsDiv").appendChild(newRow);
-      } // end for loop
-
-      // -------------- MAKE HEARTS CLICKABLE ---------------- //
-      var hearts = document.querySelectorAll(".myheart");
-      hearts.forEach((heart) => {
-        heart.addEventListener("click", (evt) => {
-          console.log("clicked");
-          if (heart.classList.contains("far")) {
-            heart.classList.remove("far");
-            heart.classList.add("fas");
-            var ids = [];
-            let element = document.getElementById(evt.target.id);
-            let savedRecipes = JSON.parse(localStorage.getItem("savedRecipes"));
-            savedRecipes.push(evt.target.id);
-            console.log(savedRecipes);
-            localStorage.setItem("savedRecipes", JSON.stringify(savedRecipes));
-          } else {
-            heart.classList.remove("fas");
-            heart.classList.add("far");
-            let savedRecipes = JSON.parse(localStorage.getItem("savedRecipes"));
-            const index = savedRecipes.indexOf(evt.target.id);
-            if (index > -1) {
-              savedRecipes.splice(index, 1);
-            }
-            localStorage.setItem("savedRecipes", JSON.stringify(savedRecipes));
-            console.log(savedRecipes);
-          }
-        });
-      }); // end make hearts clickable
-
-      var viewRecipeButtons = document.querySelectorAll(".viewRecipe");
-      viewRecipeButtons.forEach((button) => {
-        button.addEventListener("click", (evt) => {
-          recipeID = evt.target.id;
-          recipeURL =
-            "https://api.spoonacular.com/recipes/" +
-            recipeID +
-            "/information?apiKey=" +
-            apiKey;
-          fetch(recipeURL)
-            .then((x) => {
-              return x.json();
-            })
-            .then((json) => {
-              document.querySelector("#MainPage").style.display = "flex";
-              document.querySelector("#ingredientsDiv").style.display = "none";
-              document.querySelector("#recipeResultsDiv").style.display =
-                "none";
-              document.querySelector("#savedRecipesDiv").style.display = "none";
-              document.querySelector("#recipeDetailsCard").style.display =
-                "block";
-              let instructionsDetailDiv = document.getElementById(
-                "instructionsDetail"
-              );
-              let recipeTitle = document.getElementById("recipe-title");
-              instructionsDetailDiv.innerHTML = json.instructions;
-              recipeTitle.innerHTML = json.title;
-              $("#recipe-servings").html("Servings: " + json.servings);
-              $("#recipe-time").html(
-                "Cook time: " + json.readyInMinutes + " minutes"
-              );
-              $("#recipe-calories").html("Calories: " + json.healthScore);
-              $("#recipe-img").attr("src", json.image);
-            });
-        });
-      });
-    });
 </script>
