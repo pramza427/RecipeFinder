@@ -1571,7 +1571,29 @@
                     "instructionsDetail"
                   );
                   let recipeTitle = document.getElementById("recipe-title");
-                  instructionsDetailDiv.innerHTML = json.instructions;
+                  if (json.instructions.includes("<ol>")) {
+                    instructionsDetailDiv.innerHTML = json.instructions;
+                    console.log(json.instructions);
+                  } else {
+                    console.log(json.instructions.split("\n"));
+                    let instructionLines = json.instructions.split("\n");
+                    instructionsDetailDiv.innerHTML = "<ol>";
+                    for (i = 0; i < instructionLines.length; i++) {
+                      console.log(instructionLines[i]);
+                      if (
+                        instructionLines[i] == "" ||
+                        instructionLines[i] == " " ||
+                        instructionLines[i].toLowerCase() === "instructions"
+                      ) {
+                        continue;
+                      }
+                      instructionsDetailDiv.innerHTML +=
+                        "<li>" + instructionLines[i] + "</li>";
+                      if (i == instructionLines.length - 1) {
+                        instructionsDetailDiv.innerHTML += "</ol>";
+                      }
+                    }
+                  }
                   recipeTitle.innerHTML = json.title;
                   $("#recipe-servings").html("Servings: " + json.servings);
                   $("#recipe-time").html(
@@ -1752,7 +1774,29 @@
                 );
                 hideLoader();
                 let recipeTitle = document.getElementById("recipe-title");
-                instructionsDetailDiv.innerHTML = json.instructions;
+                if (json.instructions.includes("<ol>")) {
+                  instructionsDetailDiv.innerHTML = json.instructions;
+                  console.log(json.instructions);
+                } else {
+                  console.log(json.instructions.split("\n"));
+                  let instructionLines = json.instructions.split("\n");
+                  instructionsDetailDiv.innerHTML = "<ol>";
+                  for (i = 0; i < instructionLines.length; i++) {
+                    console.log(instructionLines[i]);
+                    if (
+                      instructionLines[i] == "" ||
+                      instructionLines[i] == " " ||
+                      instructionLines[i].toLowerCase() === "instructions"
+                    ) {
+                      continue;
+                    }
+                    instructionsDetailDiv.innerHTML +=
+                      "<li>" + instructionLines[i] + "</li>";
+                    if (i == instructionLines.length - 1) {
+                      instructionsDetailDiv.innerHTML += "</ol>";
+                    }
+                  }
+                }
                 recipeTitle.innerHTML = json.title;
                 $("#recipe-servings").html("Servings: " + json.servings);
                 $("#recipe-time").html(
