@@ -1404,7 +1404,8 @@
 </html>
 
 <script>
-  // localStorage.removeItem("savedRecipes");
+  // Clearing it on every refresh. will change later
+  localStorage.removeItem("savedRecipes");
   if (!localStorage.hasOwnProperty("savedRecipes")) {
     localStorage.setItem("savedRecipes", JSON.stringify([]));
   } else {
