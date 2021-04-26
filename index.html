@@ -1586,7 +1586,7 @@
     document.querySelector("#ingredientsDiv").style.display = "none";
     document.querySelector("#recipeResultsDiv").style.display = "none";
     document.querySelector("#savedRecipesDiv").style.display = "block";
-
+    $(".populatedCards").empty();
     let savedRecipes = JSON.parse(localStorage.getItem("savedRecipes"));
     if (savedRecipes.length > 0) {
       console.log(savedRecipes.length);
@@ -1603,12 +1603,12 @@
           console.log(json);
           var existingRowSaved = document.querySelector("#templateRowSaved");
           let i = 0;
-
           let ogRowSaved = document.querySelector("#templateRowSaved");
           let ogCardSaved = document.querySelector("#templateCardSaved");
           for (i = 0; i < json.length; i += 2) {
             let newRowSaved = ogRowSaved.cloneNode(true);
             newRowSaved.id = "row" + i;
+            newRowSaved.classList.add("populatedCards");
             let heart1 =
               "<span class='h_container' style='float: right'> <i id='" +
               json[i].id +
