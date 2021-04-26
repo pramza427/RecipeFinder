@@ -85,7 +85,7 @@
   width: 98%;
   background-color: #ededed;
 }
-.timeFilter:hover{
+.timeFilter:hover {
   background-color: #d2d3d2;
 }
 .btn-light:not(:disabled):not(.disabled).timeFilter.active {
@@ -265,6 +265,10 @@ body {
   display: none;
 }
 #templateCardSaved {
+  display: none;
+}
+
+#templateIngredient {
   display: none;
 }
 

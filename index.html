@@ -344,98 +344,13 @@
             </div>
           </div>
           <div class="row" style="margin-top: 5%; margin-left: 1%">
-            <div class="col-md-9">
+            <div class="col-md-9" id="ingredientsRow">
               <div class="row">
                 <h3 style="text-align: center">Ingredients</h3>
               </div>
-              <div class="form-check form-check-inline">
-                <input
-                  class="form-check-input"
-                  type="checkbox"
-                  id="inlineCheckbox1"
-                  value="option1"
-                />
-                <label class="form-check-label" for="inlineCheckbox1"
-                  >Sauce</label
-                >
-              </div>
-
-              <div class="form-check form-check-inline">
-                <input
-                  class="form-check-input"
-                  type="checkbox"
-                  id="inlineCheckbox2"
-                  value="option2"
-                />
-                <label class="form-check-label" for="inlineCheckbox2"
-                  >Mozzarella</label
-                >
-              </div>
-              <div class="form-check form-check-inline">
-                <input
-                  class="form-check-input"
-                  type="checkbox"
-                  id="inlineCheckbox2"
-                  value="option2"
-                />
-                <label class="form-check-label" for="inlineCheckbox2"
-                  >Bread</label
-                >
-              </div>
-              <div class="form-check form-check-inline">
-                <input
-                  class="form-check-input"
-                  type="checkbox"
-                  id="inlineCheckbox2"
-                  value="option2"
-                />
-                <label class="form-check-label" for="inlineCheckbox2"
-                  >baguette</label
-                >
-              </div>
-              <div class="form-check form-check-inline">
-                <input
-                  class="form-check-input"
-                  type="checkbox"
-                  id="inlineCheckbox2"
-                  value="option2"
-                />
-                <label class="form-check-label" for="inlineCheckbox2"
-                  >Pepper flakes</label
-                >
-              </div>
-              <div class="form-check form-check-inline">
-                <input
-                  class="form-check-input"
-                  type="checkbox"
-                  id="inlineCheckbox2"
-                  value="option2"
-                />
-                <label class="form-check-label" for="inlineCheckbox2"
-                  >Fresh basil</label
-                >
-              </div>
-              <div class="form-check form-check-inline">
-                <input
-                  class="form-check-input"
-                  type="checkbox"
-                  id="inlineCheckbox2"
-                  value="option2"
-                />
-                <label class="form-check-label" for="inlineCheckbox2"
-                  >Green onions</label
-                >
-              </div>
-              <div class="form-check form-check-inline">
-                <input
-                  class="form-check-input"
-                  type="checkbox"
-                  id="inlineCheckbox2"
-                  value="option2"
-                />
-                <label class="form-check-label" for="inlineCheckbox2"
-                  >Red onions</label
-                >
+              <div class="form-check form-check-inline" id="templateIngredient">
+                <input class="form-check-input" type="checkbox" />
+                <label class="form-check-label">Sauce</label>
               </div>
             </div>
             <div class="col-md-3">
@@ -1154,7 +1069,7 @@
 </html>
 
 <script>
-  var apiKey = "d2686a34bb0b4cc19964a20d9730f8ed";
+  var apiKey = "ff94deaa5d074beeb3092cb1eaeebe42";
 
   if (localStorage.hasOwnProperty("isRefresh")) {
     localStorage.removeItem("isRefresh");
@@ -1571,15 +1486,29 @@
                     "instructionsDetail"
                   );
                   let recipeTitle = document.getElementById("recipe-title");
+                  $(".populateIngredients").remove();
+                  let existingIngredient = document.querySelector(
+                    "#templateIngredient"
+                  );
+                  let ingredientsRow = document.querySelector(
+                    "#ingredientsRow"
+                  );
+                  for (j = 0; j < json.extendedIngredients.length; j++) {
+                    let ingredientBox = existingIngredient.cloneNode(true);
+                    ingredientBox.id = json.extendedIngredients[
+                      j
+                    ].name.toString();
+                    ingredientBox.classList.add("populateIngredients");
+                    ingredientBox.querySelector("label").innerHTML =
+                      json.extendedIngredients[j].name;
+                    ingredientsRow.appendChild(ingredientBox);
+                  }
                   if (json.instructions.includes("<ol>")) {
                     instructionsDetailDiv.innerHTML = json.instructions;
-                    console.log(json.instructions);
                   } else {
-                    console.log(json.instructions.split("\n"));
                     let instructionLines = json.instructions.split("\n");
                     instructionsDetailDiv.innerHTML = "<ol>";
                     for (i = 0; i < instructionLines.length; i++) {
-                      console.log(instructionLines[i]);
                       if (
                         instructionLines[i] == "" ||
                         instructionLines[i] == " " ||
@@ -1774,15 +1703,27 @@
                 );
                 hideLoader();
                 let recipeTitle = document.getElementById("recipe-title");
+                $(".populateIngredients").remove();
+                let existingIngredient = document.querySelector(
+                  "#templateIngredient"
+                );
+                let ingredientsRow = document.querySelector("#ingredientsRow");
+                for (j = 0; j < json.extendedIngredients.length; j++) {
+                  let ingredientBox = existingIngredient.cloneNode(true);
+                  ingredientBox.id = json.extendedIngredients[
+                    j
+                  ].name.toString();
+                  ingredientBox.classList.add("populateIngredients");
+                  ingredientBox.querySelector("label").innerHTML =
+                    json.extendedIngredients[j].name;
+                  ingredientsRow.appendChild(ingredientBox);
+                }
                 if (json.instructions.includes("<ol>")) {
                   instructionsDetailDiv.innerHTML = json.instructions;
-                  console.log(json.instructions);
                 } else {
-                  console.log(json.instructions.split("\n"));
                   let instructionLines = json.instructions.split("\n");
                   instructionsDetailDiv.innerHTML = "<ol>";
                   for (i = 0; i < instructionLines.length; i++) {
-                    console.log(instructionLines[i]);
                     if (
                       instructionLines[i] == "" ||
                       instructionLines[i] == " " ||
