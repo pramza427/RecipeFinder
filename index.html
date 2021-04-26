@@ -244,7 +244,7 @@
               </div>
             </div>
           </div>
-          <div class="row mt-2" id="templateRow"></div>
+          <div class="row mt-3" id="templateRow"></div>
         </div>
         <!-- MainRecipies End -->
 
@@ -283,7 +283,7 @@
               </div>
             </div>
           </div>
-          <div class="row mt-2" id="templateRowSaved"></div>
+          <div class="row mt-3" id="templateRowSaved"></div>
         </div>
 
         <!-- <div class="card col-xs-12 col-sm-12 col-md-5 col-lg-5 ml-5">
@@ -1592,7 +1592,7 @@
     document.querySelector("#ingredientsDiv").style.display = "none";
     document.querySelector("#recipeResultsDiv").style.display = "none";
     document.querySelector("#savedRecipesDiv").style.display = "block";
-    $(".populatedCardsSaved").empty();
+    $(".populatedCardsSaved").remove();
     let savedRecipes = JSON.parse(localStorage.getItem("savedRecipes"));
     if (savedRecipes.length > 0) {
       console.log(savedRecipes.length);
@@ -1703,7 +1703,7 @@
     document.querySelector("#savedRecipesDiv").style.display = "none";
     document.querySelector("#recipeDetailsCard").style.display = "none";
     $("#savedRecipes").css({ "background-color": "" });
-    $(".populatedCards").empty();
+    $(".populatedCards").remove();
 
     var existingRow = document.querySelector("#templateRow");
     fetch(
