@@ -81,6 +81,16 @@
 #filter[aria-pressed="true"] {
   background-color: #36aec9;
 }
+.timeFilter {
+  width: 98%;
+  background-color: #ededed;
+}
+.timeFilter:hover{
+  background-color: #d2d3d2;
+}
+.btn-light:not(:disabled):not(.disabled).timeFilter.active {
+  background-color: #36aec9;
+}
 #toRecipes {
   margin: 20px;
 }
