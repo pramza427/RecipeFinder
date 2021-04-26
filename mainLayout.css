@@ -108,7 +108,7 @@ td button {
 body {
   margin: auto;
   overflow-x: hidden;
-  overflow-y:hidden;
+  overflow-y: hidden;
 }
 
 * {
@@ -169,9 +169,9 @@ body {
   margin: 4px 2px;
 }
 
-.ibutton:focus{
-  border-color:transparent!important;
-  outline:none;
+.ibutton:focus {
+  border-color: transparent !important;
+  outline: none;
 }
 
 /* END OF INGREDIENT TABS */
@@ -293,4 +293,14 @@ body {
   .card img {
     width: 40%;
   }
+}
+
+#loading {
+  background: url("loader.gif") no-repeat center center;
+  position: relative;
+  top: 25%;
+  left: 25%;
+  height: 40%;
+  width: 40%;
+  z-index: 9999999;
 }

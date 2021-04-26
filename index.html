@@ -40,6 +40,7 @@
   </head>
   <body>
     <!-- Navbar Start -->
+
     <nav class="navbar navbar-dark justify-content-between">
       <div class="container-fluid">
         <button type="button" id="sidebarCollapse" class="btn btn-info">
@@ -210,6 +211,8 @@
 
       <!-- MainPage Content Start -->
       <div class="scrollable" id="content">
+        <div id="loading"></div>
+
         <!-- MainRecipies Start -->
         <div id="recipeResultsDiv"></div>
         <div
@@ -1151,7 +1154,7 @@
 </html>
 
 <script>
-  var apiKey = "da4f254e931e49f59d89212ca46cb33c";
+  var apiKey = "2bcd40dc85f44a28b7b526429185c1b6";
 
   if (localStorage.hasOwnProperty("isRefresh")) {
     localStorage.removeItem("isRefresh");
@@ -1381,6 +1384,14 @@
     evt.currentTarget.className += " active";
   }
 
+  function hideLoader() {
+    $("#loading").hide();
+  }
+
+  function showLoader() {
+    $("#loading").show();
+  }
+
   // -------------- HIDE INGREDIENTS TAB ---------------- //
   document.querySelector("#ingredientsDiv").style.display = "none";
 
@@ -1428,6 +1439,7 @@
     $(".populatedCardsSaved").remove();
     let savedRecipes = JSON.parse(localStorage.getItem("savedRecipes"));
     if (savedRecipes.length > 0) {
+      showLoader();
       fetch(
         "https://api.spoonacular.com/recipes/informationBulk?ids=" +
           String(savedRecipes) +
@@ -1439,6 +1451,7 @@
           return x.json();
         })
         .then((json) => {
+          hideLoader();
           var existingRowSaved = document.querySelector("#templateRowSaved");
           let i = 0;
           let ogRowSaved = document.querySelector("#templateRowSaved");
@@ -1613,11 +1626,13 @@
   function populateMainCards(url) {
     document.querySelector("#recipeResultsDiv").innerHTML = "";
     var existingRow = document.querySelector("#templateRow");
+    showLoader();
     fetch(url)
       .then((x) => {
         return x.json();
       })
       .then((json) => {
+        hideLoader();
         let i = 0;
         results = json.results;
 
@@ -1734,6 +1749,7 @@
                 let instructionsDetailDiv = document.getElementById(
                   "instructionsDetail"
                 );
+                hideLoader();
                 let recipeTitle = document.getElementById("recipe-title");
                 instructionsDetailDiv.innerHTML = json.instructions;
                 recipeTitle.innerHTML = json.title;
