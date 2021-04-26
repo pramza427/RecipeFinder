@@ -212,8 +212,12 @@
       <!-- MainPage Content Start -->
       <div class="scrollable" id="content">
         <div id="loading"></div>
-        <div id="noRecipes" class="errorMessage" style="display:none">No recipes found, please try again</div>
-        <div id="noSaved" class="errorMessage" style="display:none">You have no saved Recipes. Go save some!</div>
+        <div id="noRecipes" class="errorMessage" style="display: none">
+          No recipes found, please try again
+        </div>
+        <div id="noSaved" class="errorMessage" style="display: none">
+          You have no saved Recipes. Go save some!
+        </div>
 
         <!-- MainRecipies Start -->
         <div id="recipeResultsDiv"></div>
@@ -1237,7 +1241,7 @@
     });
     var excludeIngredients = [];
     document.querySelectorAll(".ibutton").forEach((button) => {
-      if(button.value === "EX"){
+      if (button.value === "EX") {
         excludeIngredients.push(button.id.toLowerCase());
       }
     });
@@ -1261,8 +1265,8 @@
     if (mealInputs.length > 0) {
       mealUrl += "&type=" + String(mealInputs);
     }
-    var excludeUrl = ""
-    if(excludeIngredients.length > 0){
+    var excludeUrl = "";
+    if (excludeIngredients.length > 0) {
       excludeUrl += "&excludeIngredients=" + String(excludeIngredients);
     }
 
@@ -1368,6 +1372,8 @@
     document.querySelector("#ingredientsDiv").style.display = "none";
     document.querySelector("#recipeResultsDiv").style.display = "none";
     document.querySelector("#savedRecipesDiv").style.display = "block";
+    document.querySelector("#recipeDetailsCard").style.display = "none";
+
     $(".populatedCardsSaved").remove();
     let savedRecipes = JSON.parse(localStorage.getItem("savedRecipes"));
     if (savedRecipes.length > 0) {
@@ -1483,13 +1489,14 @@
               recipeURL =
                 "https://api.spoonacular.com/recipes/" +
                 recipeID +
-                "/information?apiKey=" +
+                "/information?includeNutrition=true&apiKey=" +
                 apiKey;
               fetch(recipeURL)
                 .then((x) => {
                   return x.json();
                 })
                 .then((json) => {
+                  console.log(json);
                   document.querySelector("#MainPage").style.display = "flex";
                   document.querySelector("#ingredientsDiv").style.display =
                     "none";
@@ -1546,7 +1553,9 @@
                   $("#recipe-time").html(
                     "Cook time: " + json.readyInMinutes + " minutes"
                   );
-                  $("#recipe-calories").html("Calories: " + json.healthScore);
+                  $("#recipe-calories").html(
+                    "Calories: " + json.nutrition.nutrients[0].amount
+                  );
                   $("#recipe-img").attr("src", json.image);
                 });
             });
@@ -1609,7 +1618,7 @@
         hideLoader();
         let i = 0;
         results = json.results;
-        if(results === undefined || results.length === 0){
+        if (results === undefined || results.length === 0) {
           document.querySelector("#noRecipes").style.display = "flex";
           return;
         }
@@ -1641,7 +1650,7 @@
 
           newRow.appendChild(cardCopy1);
 
-          if(i+1 < results.length){
+          if (i + 1 < results.length) {
             let heart2 =
               "<span class='h_container' style='float: right'> <i id='" +
               results[i + 1].id +
@@ -1664,9 +1673,6 @@
             ].id.toString();
             newRow.appendChild(cardCopy2);
           }
-
-          
-          
 
           document.querySelector("#recipeResultsDiv").appendChild(newRow);
         } // end for loop
@@ -1713,7 +1719,7 @@
             recipeURL =
               "https://api.spoonacular.com/recipes/" +
               recipeID +
-              "/information?apiKey=" +
+              "/information?includeNutrition=true&apiKey=" +
               apiKey;
             fetch(recipeURL)
               .then((x) => {
@@ -1774,7 +1780,9 @@
                 $("#recipe-time").html(
                   "Cook time: " + json.readyInMinutes + " minutes"
                 );
-                $("#recipe-calories").html("Calories: " + json.healthScore);
+                $("#recipe-calories").html(
+                  "Calories: " + json.nutrition.nutrients[0].amount
+                );
                 $("#recipe-img").attr("src", json.image);
               });
           });
