@@ -1680,7 +1680,7 @@
         hideLoader();
         let i = 0;
         results = json.results;
-        if(results === undefined){
+        if(results === undefined || results.length === 0){
           document.querySelector("#noRecipes").style.display = "flex";
           return;
         }
@@ -1710,29 +1710,34 @@
             "#" + results[i].id.toString();
           cardCopy1.querySelector(".viewRecipe").id = results[i].id.toString();
 
-          let heart2 =
-            "<span class='h_container' style='float: right'> <i id='" +
-            results[i + 1].id +
-            "'class='far fa-heart myheart'></i></span>";
-          let cardCopy2 = ogCard.cloneNode(true);
-          cardCopy2.id = "card" + String(Number(i + 1));
-          cardCopy2.querySelector(".card-title").innerHTML =
-            results[i + 1].title + heart2;
-          cardCopy2.querySelector(".card-img-top").src = results[i + 1].image;
-          cardCopy2.querySelector(".card-text").innerHTML =
-            results[i + 1].summary;
-          cardCopy2.querySelector("#card-servings").innerHTML =
-            "Servings: " + results[i + 1].servings;
-          cardCopy2.querySelector("#card-time").innerHTML =
-            "Ready In " + results[i + 1].readyInMinutes + " Minutes";
-          cardCopy2.querySelector(".viewRecipe").href =
-            "#" + results[i + 1].id.toString();
-          cardCopy2.querySelector(".viewRecipe").id = results[
-            i + 1
-          ].id.toString();
-
           newRow.appendChild(cardCopy1);
-          newRow.appendChild(cardCopy2);
+
+          if(i+1 < results.length){
+            let heart2 =
+              "<span class='h_container' style='float: right'> <i id='" +
+              results[i + 1].id +
+              "'class='far fa-heart myheart'></i></span>";
+            let cardCopy2 = ogCard.cloneNode(true);
+            cardCopy2.id = "card" + String(Number(i + 1));
+            cardCopy2.querySelector(".card-title").innerHTML =
+              results[i + 1].title + heart2;
+            cardCopy2.querySelector(".card-img-top").src = results[i + 1].image;
+            cardCopy2.querySelector(".card-text").innerHTML =
+              results[i + 1].summary;
+            cardCopy2.querySelector("#card-servings").innerHTML =
+              "Servings: " + results[i + 1].servings;
+            cardCopy2.querySelector("#card-time").innerHTML =
+              "Ready In " + results[i + 1].readyInMinutes + " Minutes";
+            cardCopy2.querySelector(".viewRecipe").href =
+              "#" + results[i + 1].id.toString();
+            cardCopy2.querySelector(".viewRecipe").id = results[
+              i + 1
+            ].id.toString();
+            newRow.appendChild(cardCopy2);
+          }
+
+          
+          
 
           document.querySelector("#recipeResultsDiv").appendChild(newRow);
         } // end for loop
