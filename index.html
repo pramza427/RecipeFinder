@@ -1611,49 +1611,48 @@
             newRowSaved.id = "row" + i;
             let heart1 =
               "<span class='h_container' style='float: right'> <i id='" +
-              results[i].id +
+              json[i].id +
               "'class='fas fa-heart myheart'></i></span>";
             let cardCopy1 = ogCardSaved.cloneNode(true);
             cardCopy1.id = "card" + i;
             cardCopy1.querySelector(".card-title").innerHTML =
-              results[i].title + heart1;
-            cardCopy1.querySelector(".card-img-top").src = results[i].image;
-            cardCopy1.querySelector(".card-text").innerHTML =
-              results[i].summary;
+              json[i].title + heart1;
+            cardCopy1.querySelector(".card-img-top").src = json[i].image;
+            cardCopy1.querySelector(".card-text").innerHTML = json[i].summary;
             cardCopy1.querySelector("#card-servings").innerHTML =
-              "Servings: " + results[i].servings;
+              "Servings: " + json[i].servings;
             cardCopy1.querySelector("#card-time").innerHTML =
-              "Ready In " + results[i].readyInMinutes + " Minutes";
+              "Ready In " + json[i].readyInMinutes + " Minutes";
 
             cardCopy1.querySelector(".viewRecipe").href =
-              "#" + results[i].id.toString();
-            cardCopy1.querySelector(".viewRecipe").id = results[
-              i
-            ].id.toString();
-
-            let heart2 =
-              "<span class='h_container' style='float: right'> <i id='" +
-              results[i + 1].id +
-              "'class='fas fa-heart myheart'></i></span>";
-            let cardCopy2 = ogCardSaved.cloneNode(true);
-            cardCopy2.id = "card" + i;
-            cardCopy2.querySelector(".card-title").innerHTML =
-              results[i + 1].title + heart2;
-            cardCopy2.querySelector(".card-img-top").src = results[i + 1].image;
-            cardCopy2.querySelector(".card-text").innerHTML =
-              results[i + 1].summary;
-            cardCopy2.querySelector("#card-servings").innerHTML =
-              "Servings: " + results[i + 1].servings;
-            cardCopy2.querySelector("#card-time").innerHTML =
-              "Ready In " + results[i + 1].readyInMinutes + " Minutes";
-            cardCopy2.querySelector(".viewRecipe").href =
-              "#" + results[i + 1].id.toString();
-            cardCopy2.querySelector(".viewRecipe").id = results[
-              i + 1
-            ].id.toString();
-
+              "#" + json[i].id.toString();
+            cardCopy1.querySelector(".viewRecipe").id = json[i].id.toString();
             newRowSaved.appendChild(cardCopy1);
-            newRowSaved.appendChild(cardCopy2);
+
+            if (!(i + 1 > json.length - 1)) {
+              let heart2 =
+                "<span class='h_container' style='float: right'> <i id='" +
+                json[i + 1].id +
+                "'class='fas fa-heart myheart'></i></span>";
+              let cardCopy2 = ogCardSaved.cloneNode(true);
+              cardCopy2.id = "card" + i;
+              cardCopy2.querySelector(".card-title").innerHTML =
+                json[i + 1].title + heart2;
+              cardCopy2.querySelector(".card-img-top").src = json[i + 1].image;
+              cardCopy2.querySelector(".card-text").innerHTML =
+                json[i + 1].summary;
+              cardCopy2.querySelector("#card-servings").innerHTML =
+                "Servings: " + json[i + 1].servings;
+              cardCopy2.querySelector("#card-time").innerHTML =
+                "Ready In " + json[i + 1].readyInMinutes + " Minutes";
+              cardCopy2.querySelector(".viewRecipe").href =
+                "#" + json[i + 1].id.toString();
+              cardCopy2.querySelector(".viewRecipe").id = json[
+                i + 1
+              ].id.toString();
+
+              newRowSaved.appendChild(cardCopy2);
+            }
 
             document.querySelector("#savedRecipesDiv").appendChild(newRowSaved);
           }
