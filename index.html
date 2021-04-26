@@ -1410,8 +1410,6 @@
 
 <script>
   var apiKey = "92d7a3e92baa4193beb9888110a4b042";
-  // Clearing it on every refresh. will change later
-  localStorage.removeItem("savedRecipes");
   if (!localStorage.hasOwnProperty("savedRecipes")) {
     localStorage.setItem("savedRecipes", JSON.stringify([]));
   } else {
@@ -1664,6 +1662,84 @@
 
             document.querySelector("#savedRecipesDiv").appendChild(newRowSaved);
           }
+          // -------------- MAKE HEARTS CLICKABLE ---------------- //
+          var hearts = document.querySelectorAll(".myheart");
+          hearts.forEach((heart) => {
+            heart.addEventListener("click", (evt) => {
+              console.log("clicked");
+              if (heart.classList.contains("far")) {
+                heart.classList.remove("far");
+                heart.classList.add("fas");
+                var ids = [];
+                let element = document.getElementById(evt.target.id);
+                let savedRecipes = JSON.parse(
+                  localStorage.getItem("savedRecipes")
+                );
+                savedRecipes.push(evt.target.id);
+                console.log(savedRecipes);
+                localStorage.setItem(
+                  "savedRecipes",
+                  JSON.stringify(savedRecipes)
+                );
+              } else {
+                heart.classList.remove("fas");
+                heart.classList.add("far");
+                let savedRecipes = JSON.parse(
+                  localStorage.getItem("savedRecipes")
+                );
+                const index = savedRecipes.indexOf(evt.target.id);
+                if (index > -1) {
+                  savedRecipes.splice(index, 1);
+                }
+                localStorage.setItem(
+                  "savedRecipes",
+                  JSON.stringify(savedRecipes)
+                );
+                console.log(savedRecipes);
+              }
+            });
+          }); // end make hearts clickable
+
+          var viewRecipeButtons = document.querySelectorAll(".viewRecipe");
+          viewRecipeButtons.forEach((button) => {
+            button.addEventListener("click", (evt) => {
+              console.log("Clicked");
+
+              recipeID = evt.target.id;
+              recipeURL =
+                "https://api.spoonacular.com/recipes/" +
+                recipeID +
+                "/information?apiKey=" +
+                apiKey;
+              fetch(recipeURL)
+                .then((x) => {
+                  return x.json();
+                })
+                .then((json) => {
+                  document.querySelector("#MainPage").style.display = "flex";
+                  document.querySelector("#ingredientsDiv").style.display =
+                    "none";
+                  document.querySelector("#recipeResultsDiv").style.display =
+                    "none";
+                  document.querySelector("#savedRecipesDiv").style.display =
+                    "none";
+                  document.querySelector("#recipeDetailsCard").style.display =
+                    "block";
+                  let instructionsDetailDiv = document.getElementById(
+                    "instructionsDetail"
+                  );
+                  let recipeTitle = document.getElementById("recipe-title");
+                  instructionsDetailDiv.innerHTML = json.instructions;
+                  recipeTitle.innerHTML = json.title;
+                  $("#recipe-servings").html("Servings: " + json.servings);
+                  $("#recipe-time").html(
+                    "Cook time: " + json.readyInMinutes + " minutes"
+                  );
+                  $("#recipe-calories").html("Calories: " + json.healthScore);
+                  $("#recipe-img").attr("src", json.image);
+                });
+            });
+          });
         });
     }
   });
