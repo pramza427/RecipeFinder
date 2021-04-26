@@ -212,6 +212,8 @@
       <!-- MainPage Content Start -->
       <div class="scrollable" id="content">
         <div id="loading"></div>
+        <div id="noRecipes" class="errorMessage" style="display:none">No recipes found, please try again</div>
+        <div id="noSaved" class="errorMessage" style="display:none">You have no saved Recipes. Go save some!</div>
 
         <!-- MainRecipies Start -->
         <div id="recipeResultsDiv"></div>
@@ -1297,6 +1299,8 @@
 
   // -------------- Search by Filter BUTTON LISTENER ---------------- //
   document.querySelector("#searchRecipes").addEventListener("click", (evt) => {
+    document.querySelector("#noSaved").style.display = "none";
+    document.querySelector("#noRecipes").style.display = "none";
     var calories = document.querySelector("#calorieValue").value;
 
     // get arrays for each filter, populate with active buttons
@@ -1315,6 +1319,12 @@
     var mealInputs = [];
     document.querySelectorAll(".mealFilter.active").forEach((button) => {
       mealInputs.push(button.innerHTML.toLowerCase());
+    });
+    var excludeIngredients = [];
+    document.querySelectorAll(".ibutton").forEach((button) => {
+      if(button.value === "EX"){
+        excludeIngredients.push(button.id.toLowerCase());
+      }
     });
 
     var urlBase = "https://api.spoonacular.com/recipes/complexSearch?";
@@ -1336,6 +1346,10 @@
     if (mealInputs.length > 0) {
       mealUrl += "&type=" + String(mealInputs);
     }
+    var excludeUrl = ""
+    if(excludeIngredients.length > 0){
+      excludeUrl += "&excludeIngredients=" + String(excludeIngredients);
+    }
 
     var fullUrl =
       urlBase +
@@ -1343,6 +1357,7 @@
       cuisineUrl +
       timeUrl +
       mealUrl +
+      excludeUrl +
       "&addRecipeInformation=true&number=10&apiKey=" +
       apiKey;
     populateMainCards(fullUrl);
@@ -1403,6 +1418,7 @@
   });
 
   document.querySelector(".navbar-brand").addEventListener("click", (evt) => {
+    document.querySelector("#noSaved").style.display = "none";
     document.querySelector("#MainPage").style.display = "flex";
     document.querySelector("#ingredientsDiv").style.display = "none";
     document.querySelector("#recipeResultsDiv").style.display = "block";
@@ -1431,6 +1447,7 @@
   }
 
   function loadSavedRecipes() {
+    document.querySelector("#noRecipes").style.display = "none";
     $("#savedRecipes").css("background-color", "#302078");
     document.querySelector("#MainPage").style.display = "flex";
     document.querySelector("#ingredientsDiv").style.display = "none";
@@ -1595,6 +1612,7 @@
                     }
                   }
                   recipeTitle.innerHTML = json.title;
+
                   $("#recipe-servings").html("Servings: " + json.servings);
                   $("#recipe-time").html(
                     "Cook time: " + json.readyInMinutes + " minutes"
@@ -1606,6 +1624,7 @@
           });
         });
     } else {
+      document.querySelector("#noSaved").style.display = "flex";
     }
   }
   // -------------- Ingredients Back Button ---------------- //
@@ -1623,6 +1642,7 @@
   }
 
   function searchRecipeWithQuery(query) {
+    document.querySelector("#noRecipe").style.display = "none";
     document.querySelector("#MainPage").style.display = "flex";
     document.querySelector("#ingredientsDiv").style.display = "none";
     document.querySelector("#recipeResultsDiv").style.display = "block";
@@ -1647,6 +1667,8 @@
   populateMainCards(tempurl);
 
   function populateMainCards(url) {
+    document.querySelector("#noRecipes").style.display = "none";
+    document.querySelector("#noSaved").style.display = "none";
     document.querySelector("#recipeResultsDiv").innerHTML = "";
     var existingRow = document.querySelector("#templateRow");
     showLoader();
@@ -1658,6 +1680,10 @@
         hideLoader();
         let i = 0;
         results = json.results;
+        if(results === undefined){
+          document.querySelector("#noRecipes").style.display = "flex";
+          return;
+        }
 
         let ogRow = document.querySelector("#templateRow");
         let ogCard = document.querySelector("#templateCard");
