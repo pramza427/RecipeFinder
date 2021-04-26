@@ -1697,7 +1697,14 @@
   }
 
   function searchRecipeWithQuery(query) {
+    document.querySelector("#MainPage").style.display = "flex";
+    document.querySelector("#ingredientsDiv").style.display = "none";
+    document.querySelector("#recipeResultsDiv").style.display = "block";
+    document.querySelector("#savedRecipesDiv").style.display = "none";
+    document.querySelector("#recipeDetailsCard").style.display = "none";
+    $("#savedRecipes").css({ "background-color": "" });
     $(".populatedCards").empty();
+
     var existingRow = document.querySelector("#templateRow");
     fetch(
       "https://api.spoonacular.com/recipes/complexSearch?query=" +
