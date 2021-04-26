@@ -212,9 +212,6 @@
       <!-- MainPage Content Start -->
       <div class="scrollable" id="content">
         <div id="loading"></div>
-        <div id="noResultsSaved" style="display: none">
-          You have zero saved recipes. Go ahead and save a few!
-        </div>
 
         <!-- MainRecipies Start -->
         <div id="recipeResultsDiv"></div>
@@ -1394,13 +1391,6 @@
   function showLoader() {
     $("#loading").show();
   }
-  function hideNoSavedRecipes() {
-    $("#noResultsSaved").hide();
-  }
-
-  function showNoSavedRecipes() {
-    $("#noResultsSaved").show();
-  }
 
   // -------------- HIDE INGREDIENTS TAB ---------------- //
   document.querySelector("#ingredientsDiv").style.display = "none";
@@ -1449,7 +1439,6 @@
     $(".populatedCardsSaved").remove();
     let savedRecipes = JSON.parse(localStorage.getItem("savedRecipes"));
     if (savedRecipes.length > 0) {
-      hideNoSavedRecipes();
       showLoader();
       fetch(
         "https://api.spoonacular.com/recipes/informationBulk?ids=" +
@@ -1595,7 +1584,6 @@
           });
         });
     } else {
-      showNoSavedRecipes();
     }
   }
   // -------------- Ingredients Back Button ---------------- //
