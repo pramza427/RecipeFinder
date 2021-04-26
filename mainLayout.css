@@ -81,7 +81,7 @@
 #filter[aria-pressed="true"] {
   background-color: #36aec9;
 }
-#toRecipes{
+#toRecipes {
   margin: 20px;
 }
 .navbar-light a {
@@ -231,7 +231,7 @@ body {
   position: relative;
   left: 470px;
 } */
-.row{
+.row {
   overflow-x: hidden;
 }
 .checkbox {
@@ -244,6 +244,14 @@ body {
 #templateCard {
   display: none;
 }
+
+#templateRowSaved {
+  display: none;
+}
+#templateCardSaved {
+  display: none;
+}
+
 .card {
   flex-direction: row;
   align-items: center;

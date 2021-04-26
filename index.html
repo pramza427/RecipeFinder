@@ -245,37 +245,43 @@
 
         <!-- SavedRecipies Start -->
         <div id="savedRecipesDiv" style="display: none">
-          <div class="row mt-3">
-            <div class="card col-xs-12 col-sm-12 col-md-5 col-lg-5 ml-5">
-              <img src="./Images/BreadPizza.jpg" class="card-img-top" />
-              <div class="card-body">
-                <h5 class="card-title">
-                  Oven-Baked French Bread Pizzas
-                  <span class="h_container" style="float: right">
-                    <i id="heart" class="fas fa-heart"></i>
-                  </span>
-                </h5>
+          <!-- <div class="row mt-3"> -->
+          <div
+            class="card col-xs-12 col-sm-12 col-md-5 col-lg-5 ml-5"
+            id="templateCardSaved"
+          >
+            <img src="./Images/BreadPizza.jpg" class="card-img-top" />
+            <div class="card-body">
+              <h5 class="card-title">
+                Oven-Baked French Bread Pizzas
+                <span class="h_container" style="float: right">
+                  <i id="heart" class="fas fa-heart"></i>
+                </span>
+              </h5>
 
-                <p class="card-text">
-                  Pizza night is the best night — especially when everyone gets
-                  to build their dream slice. (Or three!)
-                </p>
-                <span style="float: left"><strong>Servings: 2</strong></span
-                ><span style="float: right"
-                  ><strong>Cooking time: 30 mins</strong></span
+              <p class="card-text">
+                Pizza night is the best night — especially when everyone gets to
+                build their dream slice. (Or three!)
+              </p>
+              <span style="float: left"
+                ><strong id="card-servings">Servings: 2</strong></span
+              ><span style="float: right"
+                ><strong id="card-time">Cooking time: 30 mins</strong></span
+              >
+              <div class="mt-5">
+                <a
+                  href="#recipeID"
+                  class="btn btn-primary btn-sm viewRecipe"
+                  style="float: right"
+                  >Full recipe ></a
                 >
-                <div class="mt-5">
-                  <a
-                    href="#"
-                    class="btn btn-primary btn-sm viewRecipe"
-                    style="float: right"
-                    >Full recipe ></a
-                  >
-                </div>
               </div>
             </div>
+          </div>
+          <div class="row mt-3" id="templateRowSaved"></div>
+        </div>
 
-            <div class="card col-xs-12 col-sm-12 col-md-5 col-lg-5 ml-5">
+        <!-- <div class="card col-xs-12 col-sm-12 col-md-5 col-lg-5 ml-5">
               <img src="./Images/BeanPotato.jpg" class="card-img-top" />
               <div class="card-body">
                 <h5 class="card-title">
@@ -530,8 +536,8 @@
                 </div>
               </div>
             </div>
-          </div>
-        </div>
+          </div> -->
+        <!-- </div> -->
         <!-- SavedRecipies End -->
 
         <!-- Recipe Details Card -->
@@ -1579,6 +1585,79 @@
     document.querySelector("#ingredientsDiv").style.display = "none";
     document.querySelector("#recipeResultsDiv").style.display = "none";
     document.querySelector("#savedRecipesDiv").style.display = "block";
+
+    let savedRecipes = JSON.parse(localStorage.getItem("savedRecipes"));
+    if (savedRecipes.length > 0) {
+      console.log(savedRecipes.length);
+      console.log(savedRecipes);
+      fetch(
+        "https://api.spoonacular.com/recipes/informationBulk?ids=" +
+          String(savedRecipes) +
+          "&includeNutrition=false&apiKey=f7063e67e31f4b92ae5fef8762be968b"
+      )
+        .then((x) => {
+          return x.json();
+        })
+        .then((json) => {
+          console.log(json);
+          var existingRowSaved = document.querySelector("#templateRowSaved");
+          let i = 0;
+
+          let ogRowSaved = document.querySelector("#templateRowSaved");
+          let ogCardSaved = document.querySelector("#templateCardSaved");
+          for (i = 0; i < json.length; i += 2) {
+            let newRowSaved = ogRowSaved.cloneNode(true);
+            newRowSaved.id = "row" + i;
+            let heart1 =
+              "<span class='h_container' style='float: right'> <i id='" +
+              results[i].id +
+              "'class='fas fa-heart myheart'></i></span>";
+            let cardCopy1 = ogCardSaved.cloneNode(true);
+            cardCopy1.id = "card" + i;
+            cardCopy1.querySelector(".card-title").innerHTML =
+              results[i].title + heart1;
+            cardCopy1.querySelector(".card-img-top").src = results[i].image;
+            cardCopy1.querySelector(".card-text").innerHTML =
+              results[i].summary;
+            cardCopy1.querySelector("#card-servings").innerHTML =
+              "Servings: " + results[i].servings;
+            cardCopy1.querySelector("#card-time").innerHTML =
+              "Ready In " + results[i].readyInMinutes + " Minutes";
+
+            cardCopy1.querySelector(".viewRecipe").href =
+              "#" + results[i].id.toString();
+            cardCopy1.querySelector(".viewRecipe").id = results[
+              i
+            ].id.toString();
+
+            let heart2 =
+              "<span class='h_container' style='float: right'> <i id='" +
+              results[i + 1].id +
+              "'class='fas fa-heart myheart'></i></span>";
+            let cardCopy2 = ogCardSaved.cloneNode(true);
+            cardCopy2.id = "card" + i;
+            cardCopy2.querySelector(".card-title").innerHTML =
+              results[i + 1].title + heart2;
+            cardCopy2.querySelector(".card-img-top").src = results[i + 1].image;
+            cardCopy2.querySelector(".card-text").innerHTML =
+              results[i + 1].summary;
+            cardCopy2.querySelector("#card-servings").innerHTML =
+              "Servings: " + results[i + 1].servings;
+            cardCopy2.querySelector("#card-time").innerHTML =
+              "Ready In " + results[i + 1].readyInMinutes + " Minutes";
+            cardCopy2.querySelector(".viewRecipe").href =
+              "#" + results[i + 1].id.toString();
+            cardCopy2.querySelector(".viewRecipe").id = results[
+              i + 1
+            ].id.toString();
+
+            newRowSaved.appendChild(cardCopy1);
+            newRowSaved.appendChild(cardCopy2);
+
+            document.querySelector("#savedRecipesDiv").appendChild(newRowSaved);
+          }
+        });
+    }
   });
 
   document
