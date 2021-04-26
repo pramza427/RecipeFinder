@@ -1151,19 +1151,16 @@
 </html>
 
 <script>
-  var apiKey = "bdc1b13f6a434c5faa85b7c36799f6b9";
+  var apiKey = "da4f254e931e49f59d89212ca46cb33c";
 
   if (localStorage.hasOwnProperty("isRefresh")) {
-    console.log("her");
     localStorage.removeItem("isRefresh");
-    console.log("going in");
     loadSavedRecipes();
   }
   if (!localStorage.hasOwnProperty("savedRecipes")) {
     localStorage.setItem("savedRecipes", JSON.stringify([]));
   } else {
     let savedRecipes = JSON.parse(localStorage.getItem("savedRecipes"));
-    console.log(savedRecipes);
   }
   // -------------- LEFT BAR ANIMATION ---------------- //
   document.querySelector("#sidebarCollapse").addEventListener("click", (x) => {
@@ -1404,162 +1401,7 @@
   });
 
   document.querySelector("#savedRecipes").addEventListener("click", (evt) => {
-    console.log("me too lolol");
     loadSavedRecipes();
-    //   console.log("heere");
-    //   $("#savedRecipes").css("background-color", "#302078");
-    //   document.querySelector("#MainPage").style.display = "flex";
-    //   document.querySelector("#ingredientsDiv").style.display = "none";
-    //   document.querySelector("#recipeResultsDiv").style.display = "none";
-    //   document.querySelector("#savedRecipesDiv").style.display = "block";
-    //   $(".populatedCardsSaved").remove();
-    //   let savedRecipes = JSON.parse(localStorage.getItem("savedRecipes"));
-    //   if (savedRecipes.length > 0) {
-    //     console.log(savedRecipes.length);
-    //     console.log(savedRecipes);
-    //     fetch(
-    //       "https://api.spoonacular.com/recipes/informationBulk?ids=" +
-    //         String(savedRecipes) +
-    //         "&includeNutrition=false&" +
-    //         "apiKey=" +
-    //         apiKey
-    //     )
-    //       .then((x) => {
-    //         return x.json();
-    //       })
-    //       .then((json) => {
-    //         console.log(json);
-    //         var existingRowSaved = document.querySelector("#templateRowSaved");
-    //         let i = 0;
-    //         let ogRowSaved = document.querySelector("#templateRowSaved");
-    //         let ogCardSaved = document.querySelector("#templateCardSaved");
-    //         for (i = 0; i < json.length; i += 2) {
-    //           let newRowSaved = ogRowSaved.cloneNode(true);
-    //           newRowSaved.id = "row" + i;
-    //           newRowSaved.classList.add("populatedCardsSaved");
-    //           let heart1 =
-    //             "<span class='h_container' style='float: right'> <i id='" +
-    //             json[i].id +
-    //             "'class='fas fa-heart myheart'></i></span>";
-    //           let cardCopy1 = ogCardSaved.cloneNode(true);
-    //           cardCopy1.id = json[i].id.toString();
-    //           cardCopy1.querySelector(".card-title").innerHTML =
-    //             json[i].title + heart1;
-    //           cardCopy1.querySelector(".card-img-top").src = json[i].image;
-    //           cardCopy1.querySelector(".card-text").innerHTML = json[i].summary;
-    //           cardCopy1.querySelector("#card-servings").innerHTML =
-    //             "Servings: " + json[i].servings;
-    //           cardCopy1.querySelector("#card-time").innerHTML =
-    //             "Ready In " + json[i].readyInMinutes + " Minutes";
-    //           cardCopy1.querySelector(".viewRecipe").href =
-    //             "#" + json[i].id.toString();
-    //           cardCopy1.querySelector(".viewRecipe").id = json[i].id.toString();
-    //           newRowSaved.appendChild(cardCopy1);
-    //           if (!(i + 1 > json.length - 1)) {
-    //             let heart2 =
-    //               "<span class='h_container' style='float: right'> <i id='" +
-    //               json[i + 1].id +
-    //               "'class='fas fa-heart myheart'></i></span>";
-    //             let cardCopy2 = ogCardSaved.cloneNode(true);
-    //             cardCopy2.id = json[i].id.toString();
-    //             cardCopy2.querySelector(".card-title").innerHTML =
-    //               json[i + 1].title + heart2;
-    //             cardCopy2.querySelector(".card-img-top").src = json[i + 1].image;
-    //             cardCopy2.querySelector(".card-text").innerHTML =
-    //               json[i + 1].summary;
-    //             cardCopy2.querySelector("#card-servings").innerHTML =
-    //               "Servings: " + json[i + 1].servings;
-    //             cardCopy2.querySelector("#card-time").innerHTML =
-    //               "Ready In " + json[i + 1].readyInMinutes + " Minutes";
-    //             cardCopy2.querySelector(".viewRecipe").href =
-    //               "#" + json[i + 1].id.toString();
-    //             cardCopy2.querySelector(".viewRecipe").id = json[
-    //               i + 1
-    //             ].id.toString();
-    //             newRowSaved.appendChild(cardCopy2);
-    //           }
-    //           document.querySelector("#savedRecipesDiv").appendChild(newRowSaved);
-    //         }
-    //         // -------------- MAKE HEARTS CLICKABLE ---------------- //
-    //         var hearts = document.querySelectorAll(".myheart");
-    //         hearts.forEach((heart) => {
-    //           heart.addEventListener("click", (evt) => {
-    //             console.log("clicked");
-    //             if (heart.classList.contains("far")) {
-    //               heart.classList.remove("far");
-    //               heart.classList.add("fas");
-    //               var ids = [];
-    //               let element = document.getElementById(evt.target.id);
-    //               let savedRecipes = JSON.parse(
-    //                 localStorage.getItem("savedRecipes")
-    //               );
-    //               savedRecipes.push(evt.target.id);
-    //               console.log(savedRecipes);
-    //               localStorage.setItem(
-    //                 "savedRecipes",
-    //                 JSON.stringify(savedRecipes)
-    //               );
-    //             } else {
-    //               heart.classList.remove("fas");
-    //               heart.classList.add("far");
-    //               let savedRecipes = JSON.parse(
-    //                 localStorage.getItem("savedRecipes")
-    //               );
-    //               const index = savedRecipes.indexOf(evt.target.id);
-    //               if (index > -1) {
-    //                 savedRecipes.splice(index, 1);
-    //               }
-    //               localStorage.setItem(
-    //                 "savedRecipes",
-    //                 JSON.stringify(savedRecipes)
-    //               );
-    //               localStorage.setItem("isRefresh", "true");
-    //               location.reload();
-    //             }
-    //           });
-    //         }); // end make hearts clickable
-    //         var viewRecipeButtons = document.querySelectorAll(".viewRecipe");
-    //         viewRecipeButtons.forEach((button) => {
-    //           button.addEventListener("click", (evt) => {
-    //             console.log("Clicked");
-    //             recipeID = evt.target.id;
-    //             recipeURL =
-    //               "https://api.spoonacular.com/recipes/" +
-    //               recipeID +
-    //               "/information?apiKey=" +
-    //               apiKey;
-    //             fetch(recipeURL)
-    //               .then((x) => {
-    //                 return x.json();
-    //               })
-    //               .then((json) => {
-    //                 document.querySelector("#MainPage").style.display = "flex";
-    //                 document.querySelector("#ingredientsDiv").style.display =
-    //                   "none";
-    //                 document.querySelector("#recipeResultsDiv").style.display =
-    //                   "none";
-    //                 document.querySelector("#savedRecipesDiv").style.display =
-    //                   "none";
-    //                 document.querySelector("#recipeDetailsCard").style.display =
-    //                   "block";
-    //                 let instructionsDetailDiv = document.getElementById(
-    //                   "instructionsDetail"
-    //                 );
-    //                 let recipeTitle = document.getElementById("recipe-title");
-    //                 instructionsDetailDiv.innerHTML = json.instructions;
-    //                 recipeTitle.innerHTML = json.title;
-    //                 $("#recipe-servings").html("Servings: " + json.servings);
-    //                 $("#recipe-time").html(
-    //                   "Cook time: " + json.readyInMinutes + " minutes"
-    //                 );
-    //                 $("#recipe-calories").html("Calories: " + json.healthScore);
-    //                 $("#recipe-img").attr("src", json.image);
-    //               });
-    //           });
-    //         });
-    //       });
-    //   }
-    // });
   });
 
   document
@@ -1586,8 +1428,6 @@
     $(".populatedCardsSaved").remove();
     let savedRecipes = JSON.parse(localStorage.getItem("savedRecipes"));
     if (savedRecipes.length > 0) {
-      console.log(savedRecipes.length);
-      console.log(savedRecipes);
       fetch(
         "https://api.spoonacular.com/recipes/informationBulk?ids=" +
           String(savedRecipes) +
@@ -1599,7 +1439,6 @@
           return x.json();
         })
         .then((json) => {
-          console.log(json);
           var existingRowSaved = document.querySelector("#templateRowSaved");
           let i = 0;
           let ogRowSaved = document.querySelector("#templateRowSaved");
@@ -1659,7 +1498,6 @@
           var hearts = document.querySelectorAll(".myheart");
           hearts.forEach((heart) => {
             heart.addEventListener("click", (evt) => {
-              console.log("clicked");
               if (heart.classList.contains("far")) {
                 heart.classList.remove("far");
                 heart.classList.add("fas");
@@ -1669,7 +1507,6 @@
                   localStorage.getItem("savedRecipes")
                 );
                 savedRecipes.push(evt.target.id);
-                console.log(savedRecipes);
                 localStorage.setItem(
                   "savedRecipes",
                   JSON.stringify(savedRecipes)
@@ -1697,8 +1534,6 @@
           var viewRecipeButtons = document.querySelectorAll(".viewRecipe");
           viewRecipeButtons.forEach((button) => {
             button.addEventListener("click", (evt) => {
-              console.log("Clicked");
-
               recipeID = evt.target.id;
               recipeURL =
                 "https://api.spoonacular.com/recipes/" +
@@ -1842,7 +1677,6 @@
         var hearts = document.querySelectorAll(".myheart");
         hearts.forEach((heart) => {
           heart.addEventListener("click", (evt) => {
-            console.log("clicked");
             if (heart.classList.contains("far")) {
               heart.classList.remove("far");
               heart.classList.add("fas");
@@ -1852,7 +1686,6 @@
                 localStorage.getItem("savedRecipes")
               );
               savedRecipes.push(evt.target.id);
-              console.log(savedRecipes);
               localStorage.setItem(
                 "savedRecipes",
                 JSON.stringify(savedRecipes)
@@ -1871,7 +1704,6 @@
                 "savedRecipes",
                 JSON.stringify(savedRecipes)
               );
-              console.log(savedRecipes);
             }
           });
         }); // end make hearts clickable
