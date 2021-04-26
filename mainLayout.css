@@ -12,7 +12,7 @@
   transition: 0.3s;
 }
 .LeftBar.active {
-  margin-left: -300px;
+  margin-left: -350px;
 }
 .tablediv {
   width: 100%;
