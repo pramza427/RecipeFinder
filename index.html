@@ -212,6 +212,8 @@
       <!-- MainPage Content Start -->
       <div class="scrollable" id="content">
         <div id="loading"></div>
+        <div id="noRecipes" class="errorMessage" style="display:none">No recipes found, please try again</div>
+        <div id="noSaved" class="errorMessage" style="display:none">You have no saved Recipes. Go save some!</div>
 
         <!-- MainRecipies Start -->
         <div id="recipeResultsDiv"></div>
@@ -1212,6 +1214,8 @@
 
   // -------------- Search by Filter BUTTON LISTENER ---------------- //
   document.querySelector("#searchRecipes").addEventListener("click", (evt) => {
+    document.querySelector("#noSaved").style.display = "none";
+    document.querySelector("#noRecipes").style.display = "none";
     var calories = document.querySelector("#calorieValue").value;
 
     // get arrays for each filter, populate with active buttons
@@ -1230,6 +1234,12 @@
     var mealInputs = [];
     document.querySelectorAll(".mealFilter.active").forEach((button) => {
       mealInputs.push(button.innerHTML.toLowerCase());
+    });
+    var excludeIngredients = [];
+    document.querySelectorAll(".ibutton").forEach((button) => {
+      if(button.value === "EX"){
+        excludeIngredients.push(button.id.toLowerCase());
+      }
     });
 
     var urlBase = "https://api.spoonacular.com/recipes/complexSearch?";
@@ -1251,6 +1261,10 @@
     if (mealInputs.length > 0) {
       mealUrl += "&type=" + String(mealInputs);
     }
+    var excludeUrl = ""
+    if(excludeIngredients.length > 0){
+      excludeUrl += "&excludeIngredients=" + String(excludeIngredients);
+    }
 
     var fullUrl =
       urlBase +
@@ -1258,6 +1272,7 @@
       cuisineUrl +
       timeUrl +
       mealUrl +
+      excludeUrl +
       "&addRecipeInformation=true&number=10&apiKey=" +
       apiKey;
     populateMainCards(fullUrl);
@@ -1318,6 +1333,7 @@
   });
 
   document.querySelector(".navbar-brand").addEventListener("click", (evt) => {
+    document.querySelector("#noSaved").style.display = "none";
     document.querySelector("#MainPage").style.display = "flex";
     document.querySelector("#ingredientsDiv").style.display = "none";
     document.querySelector("#recipeResultsDiv").style.display = "block";
@@ -1346,6 +1362,7 @@
   }
 
   function loadSavedRecipes() {
+    document.querySelector("#noRecipes").style.display = "none";
     $("#savedRecipes").css("background-color", "#302078");
     document.querySelector("#MainPage").style.display = "flex";
     document.querySelector("#ingredientsDiv").style.display = "none";
@@ -1524,6 +1541,7 @@
                     }
                   }
                   recipeTitle.innerHTML = json.title;
+
                   $("#recipe-servings").html("Servings: " + json.servings);
                   $("#recipe-time").html(
                     "Cook time: " + json.readyInMinutes + " minutes"
@@ -1535,6 +1553,7 @@
           });
         });
     } else {
+      document.querySelector("#noSaved").style.display = "flex";
     }
   }
   // -------------- Ingredients Back Button ---------------- //
@@ -1552,6 +1571,7 @@
   }
 
   function searchRecipeWithQuery(query) {
+    document.querySelector("#noRecipe").style.display = "none";
     document.querySelector("#MainPage").style.display = "flex";
     document.querySelector("#ingredientsDiv").style.display = "none";
     document.querySelector("#recipeResultsDiv").style.display = "block";
@@ -1576,6 +1596,8 @@
   populateMainCards(tempurl);
 
   function populateMainCards(url) {
+    document.querySelector("#noRecipes").style.display = "none";
+    document.querySelector("#noSaved").style.display = "none";
     document.querySelector("#recipeResultsDiv").innerHTML = "";
     var existingRow = document.querySelector("#templateRow");
     showLoader();
@@ -1587,6 +1609,10 @@
         hideLoader();
         let i = 0;
         results = json.results;
+        if(results === undefined || results.length === 0){
+          document.querySelector("#noRecipes").style.display = "flex";
+          return;
+        }
 
         let ogRow = document.querySelector("#templateRow");
         let ogCard = document.querySelector("#templateCard");
@@ -1613,29 +1639,34 @@
             "#" + results[i].id.toString();
           cardCopy1.querySelector(".viewRecipe").id = results[i].id.toString();
 
-          let heart2 =
-            "<span class='h_container' style='float: right'> <i id='" +
-            results[i + 1].id +
-            "'class='far fa-heart myheart'></i></span>";
-          let cardCopy2 = ogCard.cloneNode(true);
-          cardCopy2.id = "card" + String(Number(i + 1));
-          cardCopy2.querySelector(".card-title").innerHTML =
-            results[i + 1].title + heart2;
-          cardCopy2.querySelector(".card-img-top").src = results[i + 1].image;
-          cardCopy2.querySelector(".card-text").innerHTML =
-            results[i + 1].summary;
-          cardCopy2.querySelector("#card-servings").innerHTML =
-            "Servings: " + results[i + 1].servings;
-          cardCopy2.querySelector("#card-time").innerHTML =
-            "Ready In " + results[i + 1].readyInMinutes + " Minutes";
-          cardCopy2.querySelector(".viewRecipe").href =
-            "#" + results[i + 1].id.toString();
-          cardCopy2.querySelector(".viewRecipe").id = results[
-            i + 1
-          ].id.toString();
-
           newRow.appendChild(cardCopy1);
-          newRow.appendChild(cardCopy2);
+
+          if(i+1 < results.length){
+            let heart2 =
+              "<span class='h_container' style='float: right'> <i id='" +
+              results[i + 1].id +
+              "'class='far fa-heart myheart'></i></span>";
+            let cardCopy2 = ogCard.cloneNode(true);
+            cardCopy2.id = "card" + String(Number(i + 1));
+            cardCopy2.querySelector(".card-title").innerHTML =
+              results[i + 1].title + heart2;
+            cardCopy2.querySelector(".card-img-top").src = results[i + 1].image;
+            cardCopy2.querySelector(".card-text").innerHTML =
+              results[i + 1].summary;
+            cardCopy2.querySelector("#card-servings").innerHTML =
+              "Servings: " + results[i + 1].servings;
+            cardCopy2.querySelector("#card-time").innerHTML =
+              "Ready In " + results[i + 1].readyInMinutes + " Minutes";
+            cardCopy2.querySelector(".viewRecipe").href =
+              "#" + results[i + 1].id.toString();
+            cardCopy2.querySelector(".viewRecipe").id = results[
+              i + 1
+            ].id.toString();
+            newRow.appendChild(cardCopy2);
+          }
+
+          
+          
 
           document.querySelector("#recipeResultsDiv").appendChild(newRow);
         } // end for loop
