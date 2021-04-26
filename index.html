@@ -54,7 +54,7 @@
           <input
             class="form-control mr-sm-2"
             type="search"
-            placeholder="Search"
+            placeholder="Pesto pasta"
             aria-label="Search"
             id="searchQuery"
           />
@@ -1920,6 +1920,7 @@
       var hearts = document.querySelectorAll(".myheart");
       hearts.forEach((heart) => {
         heart.addEventListener("click", (evt) => {
+          console.log("clicked");
           if (heart.classList.contains("far")) {
             heart.classList.remove("far");
             heart.classList.add("fas");
