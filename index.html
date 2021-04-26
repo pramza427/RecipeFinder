@@ -1409,6 +1409,7 @@
 </html>
 
 <script>
+  var apiKey = "92d7a3e92baa4193beb9888110a4b042";
   // Clearing it on every refresh. will change later
   localStorage.removeItem("savedRecipes");
   if (!localStorage.hasOwnProperty("savedRecipes")) {
@@ -1599,7 +1600,9 @@
       fetch(
         "https://api.spoonacular.com/recipes/informationBulk?ids=" +
           String(savedRecipes) +
-          "&includeNutrition=false&apiKey=f7063e67e31f4b92ae5fef8762be968b"
+          "&includeNutrition=false&" +
+          "apiKey=" +
+          apiKey
       )
         .then((x) => {
           return x.json();
@@ -1699,7 +1702,8 @@
     fetch(
       "https://api.spoonacular.com/recipes/complexSearch?query=" +
         query +
-        "&addRecipeInformation=true&apiKey=f7063e67e31f4b92ae5fef8762be968b"
+        "&addRecipeInformation=true&apiKey=" +
+        apiKey
     )
       .then((x) => {
         return x.json();
@@ -1806,7 +1810,8 @@
             recipeURL =
               "https://api.spoonacular.com/recipes/" +
               recipeID +
-              "/information?apiKey=f7063e67e31f4b92ae5fef8762be968b";
+              "/information?apiKey=" +
+              apiKey;
             fetch(recipeURL)
               .then((x) => {
                 return x.json();
@@ -1842,7 +1847,8 @@
   // -------------- Populate Cards ---------------- //
   var existingRow = document.querySelector("#templateRow");
   fetch(
-    "https://api.spoonacular.com/recipes/complexSearch?cuisine=italian&addRecipeNutrition=true&number=10&apiKey=f7063e67e31f4b92ae5fef8762be968b"
+    "https://api.spoonacular.com/recipes/complexSearch?cuisine=italian&addRecipeNutrition=true&number=10&apiKey=" +
+      apiKey
   )
     .then((x) => {
       return x.json();
@@ -1937,7 +1943,8 @@
           recipeURL =
             "https://api.spoonacular.com/recipes/" +
             recipeID +
-            "/information?apiKey=f7063e67e31f4b92ae5fef8762be968b";
+            "/information?apiKey=" +
+            apiKey;
           fetch(recipeURL)
             .then((x) => {
               return x.json();
