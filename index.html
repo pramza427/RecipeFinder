@@ -56,8 +56,13 @@
             type="search"
             placeholder="Search"
             aria-label="Search"
+            id="searchQuery"
           />
-          <button class="btn btn-info my-2 my-sm-0" type="submit">
+          <button
+            class="btn btn-info my-2 my-sm-0"
+            type="submit"
+            onclick="searchRecipeWithQuery(document.getElementById('searchQuery').value)"
+          >
             Search
           </button>
         </form>
@@ -239,7 +244,7 @@
               </div>
             </div>
           </div>
-          <div class="row mt-3" id="templateRow"></div>
+          <div class="row mt-2" id="templateRow"></div>
         </div>
         <!-- MainRecipies End -->
 
@@ -278,7 +283,7 @@
               </div>
             </div>
           </div>
-          <div class="row mt-3" id="templateRowSaved"></div>
+          <div class="row mt-2" id="templateRowSaved"></div>
         </div>
 
         <!-- <div class="card col-xs-12 col-sm-12 col-md-5 col-lg-5 ml-5">
@@ -1586,7 +1591,7 @@
     document.querySelector("#ingredientsDiv").style.display = "none";
     document.querySelector("#recipeResultsDiv").style.display = "none";
     document.querySelector("#savedRecipesDiv").style.display = "block";
-    $(".populatedCards").empty();
+    $(".populatedCardsSaved").empty();
     let savedRecipes = JSON.parse(localStorage.getItem("savedRecipes"));
     if (savedRecipes.length > 0) {
       console.log(savedRecipes.length);
@@ -1608,7 +1613,7 @@
           for (i = 0; i < json.length; i += 2) {
             let newRowSaved = ogRowSaved.cloneNode(true);
             newRowSaved.id = "row" + i;
-            newRowSaved.classList.add("populatedCards");
+            newRowSaved.classList.add("populatedCardsSaved");
             let heart1 =
               "<span class='h_container' style='float: right'> <i id='" +
               json[i].id +
@@ -1688,6 +1693,152 @@
     document.querySelector("#recipeDetailsCard").style.display = "none";
   }
 
+  function searchRecipeWithQuery(query) {
+    $(".populatedCards").empty();
+    var existingRow = document.querySelector("#templateRow");
+    fetch(
+      "https://api.spoonacular.com/recipes/complexSearch?query=" +
+        query +
+        "&addRecipeInformation=true&apiKey=f7063e67e31f4b92ae5fef8762be968b"
+    )
+      .then((x) => {
+        return x.json();
+      })
+      .then((json) => {
+        let i = 0;
+        let api_results = json.results;
+        let ogRow = document.querySelector("#templateRow");
+        let ogCard = document.querySelector("#templateCard");
+        for (i = 0; i < api_results.length; i += 2) {
+          console.log(api_results[i]);
+          let newRow = ogRow.cloneNode(true);
+          newRow.id = "row" + i;
+          newRow.classList.add("populatedCards");
+          let heart1 =
+            "<span class='h_container' style='float: right'> <i id='" +
+            api_results[i].id +
+            "'class='far fa-heart myheart'></i></span>";
+          let cardCopy1 = ogCard.cloneNode(true);
+          cardCopy1.id = "card" + i;
+          cardCopy1.querySelector(".card-title").innerHTML =
+            api_results[i].title + heart1;
+          cardCopy1.querySelector(".card-img-top").src = api_results[i].image;
+          cardCopy1.querySelector(".card-text").innerHTML =
+            api_results[i].summary;
+          cardCopy1.querySelector("#card-servings").innerHTML =
+            "Servings: " + api_results[i].servings;
+          cardCopy1.querySelector("#card-time").innerHTML =
+            "Ready In " + api_results[i].readyInMinutes + " Minutes";
+          cardCopy1.querySelector(".viewRecipe").href =
+            "#" + api_results[i].id.toString();
+          cardCopy1.querySelector(".viewRecipe").id = api_results[
+            i
+          ].id.toString();
+          newRow.appendChild(cardCopy1);
+
+          if (!(i + 1 > api_results.length - 1)) {
+            let heart2 =
+              "<span class='h_container' style='float: right'> <i id='" +
+              api_results[i + 1].id +
+              "'class='far fa-heart myheart'></i></span>";
+            let cardCopy2 = ogCard.cloneNode(true);
+            cardCopy2.id = "card" + i;
+            cardCopy2.querySelector(".card-title").innerHTML =
+              api_results[i + 1].title + heart2;
+            cardCopy2.querySelector(".card-img-top").src =
+              api_results[i + 1].image;
+            cardCopy2.querySelector(".card-text").innerHTML =
+              api_results[i + 1].summary;
+            cardCopy2.querySelector("#card-servings").innerHTML =
+              "Servings: " + api_results[i + 1].servings;
+            cardCopy2.querySelector("#card-time").innerHTML =
+              "Ready In " + api_results[i + 1].readyInMinutes + " Minutes";
+            cardCopy2.querySelector(".viewRecipe").href =
+              "#" + api_results[i + 1].id.toString();
+            cardCopy2.querySelector(".viewRecipe").id = api_results[
+              i + 1
+            ].id.toString();
+            newRow.appendChild(cardCopy2);
+          }
+
+          document.querySelector("#recipeResultsDiv").appendChild(newRow);
+        } // end for loop
+        // -------------- MAKE HEARTS CLICKABLE ---------------- //
+        var hearts = document.querySelectorAll(".myheart");
+        hearts.forEach((heart) => {
+          heart.addEventListener("click", (evt) => {
+            if (heart.classList.contains("far")) {
+              heart.classList.remove("far");
+              heart.classList.add("fas");
+              var ids = [];
+              let element = document.getElementById(evt.target.id);
+              let savedRecipes = JSON.parse(
+                localStorage.getItem("savedRecipes")
+              );
+              savedRecipes.push(evt.target.id);
+              console.log(savedRecipes);
+              localStorage.setItem(
+                "savedRecipes",
+                JSON.stringify(savedRecipes)
+              );
+            } else {
+              heart.classList.remove("fas");
+              heart.classList.add("far");
+              let savedRecipes = JSON.parse(
+                localStorage.getItem("savedRecipes")
+              );
+              const index = savedRecipes.indexOf(evt.target.id);
+              if (index > -1) {
+                savedRecipes.splice(index, 1);
+              }
+              localStorage.setItem(
+                "savedRecipes",
+                JSON.stringify(savedRecipes)
+              );
+              console.log(savedRecipes);
+            }
+          });
+        }); // end make hearts clickable
+        var viewRecipeButtons = document.querySelectorAll(".viewRecipe");
+        viewRecipeButtons.forEach((button) => {
+          button.addEventListener("click", (evt) => {
+            recipeID = evt.target.id;
+            recipeURL =
+              "https://api.spoonacular.com/recipes/" +
+              recipeID +
+              "/information?apiKey=f7063e67e31f4b92ae5fef8762be968b";
+            fetch(recipeURL)
+              .then((x) => {
+                return x.json();
+              })
+              .then((json) => {
+                document.querySelector("#MainPage").style.display = "flex";
+                document.querySelector("#ingredientsDiv").style.display =
+                  "none";
+                document.querySelector("#recipeResultsDiv").style.display =
+                  "none";
+                document.querySelector("#savedRecipesDiv").style.display =
+                  "none";
+                document.querySelector("#recipeDetailsCard").style.display =
+                  "block";
+                let instructionsDetailDiv = document.getElementById(
+                  "instructionsDetail"
+                );
+                let recipeTitle = document.getElementById("recipe-title");
+                instructionsDetailDiv.innerHTML = json.instructions;
+                recipeTitle.innerHTML = json.title;
+                $("#recipe-servings").html("Servings: " + json.servings);
+                $("#recipe-time").html(
+                  "Cook time: " + json.readyInMinutes + " minutes"
+                );
+                $("#recipe-calories").html("Calories: " + json.healthScore);
+                $("#recipe-img").attr("src", json.image);
+              });
+          });
+        });
+      });
+  }
+
   // -------------- Populate Cards ---------------- //
   var existingRow = document.querySelector("#templateRow");
   fetch(
@@ -1705,6 +1856,7 @@
       for (i = 0; i < results.length; i += 2) {
         let newRow = ogRow.cloneNode(true);
         newRow.id = "row" + i;
+        newRow.classList.add("populatedCards");
         let heart1 =
           "<span class='h_container' style='float: right'> <i id='" +
           results[i].id +
